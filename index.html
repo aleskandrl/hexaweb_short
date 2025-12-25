@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HexaKinetica | Open Robotics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&family=Michroma&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              hexa: {
+                bg: '#05020a', // Very dark purple/black
+                card: '#0f0a1e', // Slightly lighter purple
+                purple: '#8c52ff', // Primary from PDF
+                cyan: '#98f3ff', // Accent from PDF
+                text: '#e0e0e0',
+                dim: '#6b5e7d'
+              }
+            },
+            fontFamily: {
+              sans: ['"IBM Plex Mono"', 'monospace'], // Body font
+              display: ['Michroma', 'sans-serif'], // Header font
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'cyber-grid': "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')", // Subtle texture pattern
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #05020a;
+        color: #e0e0e0;
+      }
+      /* Custom scrollbar for a technical feel */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #05020a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #8c52ff; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #98f3ff; 
+      }
+      .font-michroma {
+        font-family: 'Michroma', sans-serif;
+      }
+      .font-mono-plex {
+        font-family: 'IBM Plex Mono', monospace;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.2",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
+  <body class="antialiased selection:bg-hexa-purple selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
