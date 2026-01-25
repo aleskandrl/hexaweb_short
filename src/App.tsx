@@ -9,17 +9,12 @@ import { TeamSection } from './components/TeamSection';
 import { ContactSection } from './components/ContactSection';
 import { MarketAnalysis } from './components/MarketAnalysis';
 import { Timeline } from './components/Timeline';
-import { RAndDSection } from './components/RAndDSection';
 import { PartnersLogos } from './components/PartnersLogos';
 import { FeaturesGrid } from './components/FeaturesGrid';
 import { TechSpecs } from './components/TechSpecs';
 import { UseCases } from './components/UseCases';
 import { FAQ } from './components/FAQ';
 import { DeveloperExperience } from './components/DeveloperExperience';
-import { SmartConsultant } from './components/SmartConsultant';
-import { ProductSpotlight } from './components/ProductSpotlight';
-//import { ControlArchitecture } from './components/ControlArchitecture';
-//import { BookSection } from './components/BookSection';
 
 // Импорт локального ассета
 import carbonPattern from './assets/images/textures/carbon.png';
@@ -30,15 +25,14 @@ const App: React.FC = () => {
       <Navbar />
       
       <main className="flex-grow">
+        
+        {/* === ВСТУПЛЕНИЕ: ЗАЯВЛЕНИЕ О СЕБЕ === */}
         <div id="hero">
           <Hero />
         </div>
         
-        <PartnersLogos />
-        
-        {/* Quick Stats / Mission */}
+        {/* Краткий блок с ключевыми тезисами для задания тона */}
         <div className="bg-[#0f0a1e] border-y border-hexa-purple/20 py-12 relative overflow-hidden">
-          {/* Использование локальной картинки через style */}
           <div 
             className="absolute inset-0 opacity-10"
             style={{ backgroundImage: `url(${carbonPattern})` }}
@@ -59,41 +53,42 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* <MarketAnalysis />
-         */}
+        {/* === ЧАСТЬ 1: ПРОБЛЕМА, КОТОРУЮ МЫ РЕШАЕМ === */}
+        <div id="market">
+          <MarketAnalysis />
+        </div>
         <PerformanceChart />
-        <FeaturesGrid />
-        <Timeline />
-        {/*<RAndDSection />
- 
 
-
-        <UseCases />
-        
+        {/* === ЧАСТЬ 2: НАШЕ РЕШЕНИЕ (ЭКОСИСТЕМА) === */}
         <div id="products">
           <ProductSection />
         </div>
-
-        <div id="spotlight">
-           <ProductSpotlight />
-        </div>
+        <FeaturesGrid />
+        
+        {/* === ЧАСТЬ 3: КАК ЭТО РАБОТАЕТ (ТЕХНИЧЕСКИЕ ДЕТАЛИ) === */}
         <DeveloperExperience />
         <TechSpecs />
+        <PartnersLogos />
 
+        {/* === ЧАСТЬ 4: НАШЕ ВИДЕНИЕ И КОМАНДА === */}
+        <div id="timeline">
+          <Timeline />
+        </div>
         <div id="team">
           <TeamSection /> 
         </div>
-        */}
+        
+        {/* === ЧАСТЬ 5: ПРИЗЫВ К ДЕЙСТВИЮ === */}
+        
         <div id="pricing">
           <Pricing />
         </div>
-        
         <FAQ />
-
+        
+        {/* Финальный призыв присоединиться к движению */}
         <section className="py-24 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-hexa-purple to-purple-900 opacity-20"></div>
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/40 via-black/0 to-black/0"></div>
-            
             <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
                 <h2 className="text-hexa-cyan font-mono-plex font-bold uppercase text-sm tracking-widest mb-4">Join the HexaKinetica Movement</h2>
                 <h3 className="text-4xl md:text-5xl font-display text-white uppercase mb-8 leading-tight drop-shadow-lg">

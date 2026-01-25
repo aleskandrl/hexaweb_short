@@ -3,7 +3,7 @@ import React from 'react';
 
 export const PerformanceChart: React.FC = () => {
   return (
-    <section className="py-24 bg-[#0a0a12] relative overflow-hidden border-b border-gray-900">
+    <section className="py-24 bg-hexa-bg relative overflow-hidden border-b border-gray-900">
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-hexa-purple/5 rounded-full blur-[120px]"></div>
 
@@ -12,7 +12,7 @@ export const PerformanceChart: React.FC = () => {
           
           <div className="space-y-8">
              <h2 className="text-hexa-cyan font-mono-plex font-bold uppercase text-sm tracking-widest">The Efficiency Trap</h2>
-             <h3 className="font-display text-4xl md:text-5xl text-white uppercase leading-tight">
+             <h3 className="font-display text-3xl md:text-5xl text-white uppercase leading-tight">
                 Why pay for <br /> <span className="text-gray-500">Bloatware?</span>
              </h3>
              <p className="text-lg text-gray-400 font-mono-plex leading-relaxed">
@@ -36,15 +36,15 @@ export const PerformanceChart: React.FC = () => {
           </div>
 
           {/* Comparison Table */}
-          <div className="bg-hexa-card/40 backdrop-blur-md border border-hexa-purple/30 rounded-2xl p-8 shadow-2xl relative">
+          <div className="bg-hexa-card backdrop-blur-md border border-hexa-purple/30 rounded-xl p-8 shadow-2xl relative">
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-hexa-cyan/10 rounded-full blur-xl"></div>
             
-            <h4 className="font-display text-xl text-center mb-8 uppercase tracking-widest">Market Reality</h4>
+            <h4 className="font-display text-2xl text-center mb-8 uppercase tracking-widest">Market Reality</h4>
             
             <div className="grid grid-cols-3 gap-4 mb-6 border-b border-gray-700 pb-4 text-center">
-                <div className="text-gray-500 font-mono-plex text-xs uppercase">Factor</div>
-                <div className="text-gray-400 font-mono-plex text-xs uppercase">Legacy Brands</div>
-                <div className="text-hexa-cyan font-mono-plex text-xs uppercase font-bold">HexaKinetica</div>
+                <div className="text-gray-500 font-mono-plex text-sm uppercase">Factor</div>
+                <div className="text-gray-400 font-mono-plex text-sm uppercase">Legacy Brands</div>
+                <div className="text-hexa-cyan font-mono-plex text-sm uppercase font-bold">HexaKinetica</div>
             </div>
 
             {[
@@ -54,14 +54,14 @@ export const PerformanceChart: React.FC = () => {
                 { label: 'Deployment', bad: 'Weeks / Months', good: 'Days' },
             ].map((row, idx) => (
                 <div key={idx} className="grid grid-cols-3 gap-4 py-4 border-b border-gray-800/50 items-center text-center">
-                    <div className="text-left text-gray-300 font-bold font-mono-plex text-sm">{row.label}</div>
-                    <div className="text-red-400/70 text-xs md:text-sm">{row.bad}</div>
-                    <div className="text-hexa-cyan font-bold text-xs md:text-sm shadow-[0_0_10px_rgba(152,243,255,0.2)] rounded px-2 py-1 bg-hexa-cyan/5">{row.good}</div>
+                    <div className="text-left text-gray-300 font-bold font-mono-plex text-base">{row.label}</div>
+                    <div className="text-red-400/70 text-sm md:text-base">{row.bad}</div>
+                    <div className="text-hexa-cyan font-bold text-sm md:text-base shadow-[0_0_10px_rgba(152,243,255,0.2)] rounded px-2 py-1 bg-hexa-cyan/5">{row.good}</div>
                 </div>
             ))}
             
             <div className="mt-8 text-center">
-                <p className="text-xs text-gray-500 font-mono-plex italic">"Dominating the market by solving the real problem, not the theoretical one."</p>
+                <p className="text-sm text-gray-500 font-mono-plex italic">"Dominating the market by solving the real problem, not the theoretical one."</p>
             </div>
           </div>
 

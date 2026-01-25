@@ -18,24 +18,24 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-[#080510]">
+    <section className="py-24 bg-hexa-bg">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
            <h2 className="text-hexa-cyan font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4">Due Diligence</h2>
-           <h3 className="font-display text-4xl text-white uppercase">Frequently Asked</h3>
+           <h3 className="font-display text-3xl md:text-5xl text-white uppercase">Frequently Asked</h3>
         </div>
 
         <div className="space-y-4">
             {faqs.map((faq, idx) => (
-                <div key={idx} className="border border-gray-800 rounded-lg bg-[#0f0a1e] overflow-hidden transition-all hover:border-gray-600">
+                <div key={idx} className="border border-gray-800 rounded-lg bg-hexa-card overflow-hidden transition-all hover:border-gray-600">
                     <button 
                         onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                         className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
                     >
-                        <span className={`font-display text-sm md:text-base ${openIndex === idx ? 'text-hexa-purple' : 'text-white'}`}>{faq.q}</span>
+                        <span className={`font-display text-base md:text-lg ${openIndex === idx ? 'text-hexa-purple' : 'text-white'}`}>{faq.q}</span>
                         {openIndex === idx ? <ChevronUp className="text-hexa-purple" /> : <ChevronDown className="text-gray-500" />}
                     </button>
-                    <div className={`px-6 pb-6 text-gray-400 font-mono-plex text-sm leading-relaxed border-t border-gray-800/50 pt-4 ${openIndex === idx ? 'block' : 'hidden'}`}>
+                    <div className={`px-6 pb-6 text-gray-400 font-mono-plex text-base leading-relaxed border-t border-gray-800/50 pt-4 ${openIndex === idx ? 'block' : 'hidden'}`}>
                         {faq.a}
                     </div>
                 </div>
@@ -43,8 +43,8 @@ export const FAQ: React.FC = () => {
         </div>
         
         <div className="mt-12 text-center">
-            <p className="text-gray-500 font-mono-plex text-sm">Deep Tech Inquiry?</p>
-            <button onClick={scrollToContact} className="text-hexa-cyan hover:text-white font-bold uppercase text-sm tracking-widest mt-2 inline-block border-b border-hexa-cyan hover:border-white transition-colors">Contact Directly</button>
+            <p className="text-gray-500 font-mono-plex text-base">Deep Tech Inquiry?</p>
+            <button onClick={scrollToContact} className="text-hexa-cyan hover:text-white font-bold uppercase text-base tracking-widest mt-2 inline-block border-b border-hexa-cyan hover:border-white transition-colors">Contact Directly</button>
         </div>
       </div>
     </section>

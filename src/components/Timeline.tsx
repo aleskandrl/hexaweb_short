@@ -10,7 +10,7 @@ export const Timeline: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
            <h2 className="text-hexa-cyan font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4">The Master Plan</h2>
-           <h3 className="font-display text-4xl md:text-5xl text-white uppercase">
+           <h3 className="font-display text-3xl md:text-5xl text-white uppercase">
              Execution <span className="text-hexa-purple">Roadmap</span>
            </h3>
         </div>
@@ -21,7 +21,7 @@ export const Timeline: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center justify-between w-full group opacity-60 hover:opacity-100 transition-opacity">
                 <div className="w-full md:w-5/12 text-center md:text-right pr-8 order-2 md:order-1">
                     <h4 className="font-display text-2xl text-white mb-2">Inception</h4>
-                    <p className="text-gray-400 font-mono-plex text-sm">Defining the open-source architecture. Core team assembly. First prototypes.</p>
+                    <p className="text-gray-400 font-mono-plex text-base">Defining the open-source architecture. Core team assembly. First prototypes.</p>
                 </div>
                 <div className="w-12 h-12 bg-hexa-bg border border-gray-600 rounded-full flex items-center justify-center z-10 order-1 md:order-2 mb-4 md:mb-0">
                     <span className="text-xs font-bold text-gray-500">2024</span>
@@ -43,7 +43,7 @@ export const Timeline: React.FC = () => {
                 <div className="w-full md:w-5/12 text-center md:text-left pl-8 order-3 md:order-3">
                     <div className="inline-block bg-hexa-cyan/10 border border-hexa-cyan text-hexa-cyan text-[10px] font-bold px-2 py-1 rounded mb-2">ACTIVE PHASE</div>
                     <h4 className="font-display text-3xl text-white mb-2 text-shadow-glow">The DIY Era</h4>
-                    <p className="text-gray-300 font-mono-plex text-sm">
+                    <p className="text-gray-300 font-mono-plex text-base">
                         Development of the <b className="text-white">HexaArm Medium (10kg)</b>. 
                         Launching the Unified Controller. Building the maker community ecosystem.
                     </p>
@@ -54,7 +54,7 @@ export const Timeline: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center justify-between w-full group">
                 <div className="w-full md:w-5/12 text-center md:text-right pr-8 order-2 md:order-1">
                     <h4 className="font-display text-2xl text-white mb-2">Industrial Prototype</h4>
-                    <p className="text-gray-400 font-mono-plex text-sm">
+                    <p className="text-gray-400 font-mono-plex text-base">
                         Launch of the closed-loop Industrial line. 
                         IP-rated hardware. Safety certification process begins.
                     </p>
@@ -73,7 +73,7 @@ export const Timeline: React.FC = () => {
                 </div>
                 <div className="w-full md:w-5/12 text-center md:text-left pl-8 order-3 md:order-3">
                     <h4 className="font-display text-2xl text-gray-300 mb-2">Mass Scale</h4>
-                    <p className="text-gray-500 font-mono-plex text-sm">Full ecosystem launch. Cloud calibration network. Global distribution.</p>
+                    <p className="text-gray-500 font-mono-plex text-base">Full ecosystem launch. Cloud calibration network. Global distribution.</p>
                 </div>
             </div>
 

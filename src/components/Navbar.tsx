@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Github } from 'lucide-react';
 
-// 1. УДАЛЯЕМ (или комментируем) старый импорт:
-// import { HexaLogo } from './HexaLogo';
-
 // 2. ДОБАВЛЯЕМ импорт вашего PNG:
 import logoImg from '../assets/images/ui/logo.png';
 

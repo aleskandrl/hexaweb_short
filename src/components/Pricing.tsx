@@ -11,8 +11,8 @@ export const Pricing: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
            <h2 className="text-hexa-purple font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-2">Ecosystem Access</h2>
-           <h3 className="font-display text-4xl text-white uppercase">Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">Revolution</span></h3>
-           <p className="mt-4 text-gray-400 font-mono-plex text-sm max-w-xl mx-auto">
+           <h3 className="font-display text-3xl md:text-5xl text-white uppercase">Join <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">Us</span></h3>
+           <p className="mt-4 text-gray-400 font-mono-plex max-w-xl mx-auto text-base md:text-lg">
                We are currently in the Engineering Validation phase. Secure your spot in line or partner with us for early industrial pilots.
            </p>
         </div>
@@ -20,23 +20,23 @@ export const Pricing: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
            
            {/* Early Adopter / Maker Tier */}
-           <div className="bg-[#0f0a1e] border border-hexa-cyan/30 p-10 rounded-2xl flex flex-col relative group hover:border-hexa-cyan transition-all shadow-[0_0_30px_rgba(152,243,255,0.05)]">
-              <div className="absolute top-0 right-0 bg-hexa-cyan/10 text-hexa-cyan font-bold text-[10px] uppercase px-3 py-1 rounded-bl-lg tracking-widest border-l border-b border-hexa-cyan/30">Limited Batch</div>
+           <div className="bg-hexa-card border border-hexa-cyan/30 p-10 rounded-xl flex flex-col relative group hover:border-hexa-cyan transition-all shadow-[0_0_30px_rgba(152,243,255,0.05)]">
+              <div className="absolute top-0 right-0 bg-hexa-cyan/10 text-hexa-cyan font-bold text-xs uppercase px-3 py-1 rounded-bl-lg tracking-widest border-l border-b border-hexa-cyan/30">Limited Batch</div>
               <div className="mb-6">
                   <Rocket className="text-hexa-cyan mb-4" size={40}/>
-                  <h4 className="text-white font-display uppercase text-2xl">Early Adopter</h4>
-                  <div className="text-sm text-gray-400 font-mono-plex mt-2">For Makers & Universities</div>
+                  <h4 className="text-white font-display uppercase text-3xl">Early Adopter</h4>
+                  <div className="text-base text-gray-400 font-mono-plex mt-2">For Makers & Universities</div>
               </div>
               
               <div className="flex-grow space-y-6 mb-8">
-                 <p className="text-gray-300 text-sm leading-relaxed">
+                 <p className="text-gray-300 text-base leading-relaxed">
                      Get priority access to the first batch of <strong>HexaArm Medium DIY Kits</strong>. 
                      Includes full CAD access, BOM, and assembly guides.
                  </p>
                  <ul className="space-y-3">
-                     <li className="flex items-start text-gray-400 text-sm"><Check size={16} className="text-hexa-cyan mr-3 mt-0.5 shrink-0"/> <span>Priority Hardware Allocation</span></li>
-                     <li className="flex items-start text-gray-400 text-sm"><Check size={16} className="text-hexa-cyan mr-3 mt-0.5 shrink-0"/> <span>Access to Private Dev Discord</span></li>
-                     <li className="flex items-start text-gray-400 text-sm"><Check size={16} className="text-hexa-cyan mr-3 mt-0.5 shrink-0"/> <span>Beta Firmware Updates</span></li>
+                     <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-cyan mr-3 mt-1 shrink-0"/> <span>Priority Hardware Allocation</span></li>
+                     <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-cyan mr-3 mt-1 shrink-0"/> <span>Access to Private Dev Discord</span></li>
+                     <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-cyan mr-3 mt-1 shrink-0"/> <span>Beta Firmware Updates</span></li>
                  </ul>
               </div>
 
@@ -52,22 +52,22 @@ export const Pricing: React.FC = () => {
            </div>
 
            {/* Strategic Partner / Investor Tier */}
-           <div className="bg-[#0f0a1e] border border-hexa-purple/30 p-10 rounded-2xl flex flex-col relative group hover:border-hexa-purple transition-all shadow-[0_0_30px_rgba(140,82,255,0.05)]">
+           <div className="bg-hexa-card border border-hexa-purple/30 p-10 rounded-xl flex flex-col relative group hover:border-hexa-purple transition-all shadow-[0_0_30px_rgba(140,82,255,0.05)]">
               <div className="mb-6">
                   <Shield className="text-hexa-purple mb-4" size={40}/>
-                  <h4 className="text-white font-display uppercase text-2xl">Strategic Partner</h4>
-                  <div className="text-sm text-gray-400 font-mono-plex mt-2">For Industry & Investors</div>
+                  <h4 className="text-white font-display uppercase text-3xl">Strategic Partner</h4>
+                  <div className="text-base text-gray-400 font-mono-plex mt-2">For Industry & Investors</div>
               </div>
               
               <div className="flex-grow space-y-6 mb-8">
-                 <p className="text-gray-300 text-sm leading-relaxed">
+                 <p className="text-gray-300 text-base leading-relaxed">
                      Looking to integrate HexaKinetica into your production line or portfolio? 
                      We offer direct engineering support and pilot programs.
                  </p>
                  <ul className="space-y-3">
-                     <li className="flex items-start text-gray-400 text-sm"><Check size={16} className="text-hexa-purple mr-3 mt-0.5 shrink-0"/> <span>Pilot Implementation Program</span></li>
-                     <li className="flex items-start text-gray-400 text-sm"><Check size={16} className="text-hexa-purple mr-3 mt-0.5 shrink-0"/> <span>Custom R&D Contracts</span></li>
-                     <li className="flex items-start text-gray-400 text-sm"><Check size={16} className="text-hexa-purple mr-3 mt-0.5 shrink-0"/> <span>Direct Founder Access</span></li>
+                     <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-purple mr-3 mt-1 shrink-0"/> <span>Pilot Implementation Program</span></li>
+                     <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-purple mr-3 mt-1 shrink-0"/> <span>Custom R&D Contracts</span></li>
+                     <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-purple mr-3 mt-1 shrink-0"/> <span>Direct Founder Access</span></li>
                  </ul>
               </div>
 

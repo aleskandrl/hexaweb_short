@@ -9,16 +9,21 @@ export const ProductSection: React.FC = () => {
         
         {/* SECTION HEADER */}
         <div className="mb-20 text-center">
-          <h2 className="text-hexa-cyan font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4 glow-text">Product Ecosystem</h2>
-          <h3 className="font-display text-4xl md:text-5xl text-white uppercase">
+          <h2 className="text-hexa-cyan font-sans font-bold uppercase text-sm tracking-[0.2em] mb-4 glow-text">
+            The HexaKinetica Ecosystem
+          </h2>
+          <h3 className="font-display text-3xl md:text-5xl text-white uppercase">
             One Brain. <span className="text-hexa-purple">Any Body.</span>
           </h3>
+          <p className="mt-6 text-gray-400 font-sans max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
+            Our entire ecosystem is built on a single, unified control architecture. The same powerful software—HexaMotion and HexaStudio—runs on every robot. Learn once, deploy anywhere.
+          </p>
         </div>
 
-        {/* 1. Controller Block */}
+        {/* 1. The Brain: The Controller Block */}
         <ProductController />
 
-        {/* 2. Robot Arms Block */}
+        {/* 2. Any Body: The Robot Arms Block */}
         <ProductCards />
 
       </div>
