@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# HexaKinetica Website
 
-# Run and deploy your AI Studio app
+Single-page React/Vite landing page for HexaKinetica — an open-architecture industrial robotics initiative focused on affordable, hackable, community-driven automation.
 
-This contains everything you need to run your app locally.
+## Stack
 
-View your app in AI Studio: https://ai.studio/apps/drive/1dAjLvbkZAhmXcm4YsOJBedRsPTGa-CId
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- lucide-react icons
+- Recharts for the market chart
 
-## Run Locally
+## Local development
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev
+```
 
+## Production build
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm run build
+npm run preview
+```
+
+`npm run build` runs TypeScript project validation first and then builds the static site with Vite.
+
+## Docker
+
+The Dockerfile intentionally runs `npx vite build` directly instead of `npm run build`. This keeps container builds focused on producing the static Vite output and avoids blocking deployment on strict TypeScript diagnostics.
+
+```bash
+docker build -t hexakinetica-website .
+docker run --rm -p 3000:3000 hexakinetica-website
+```
+
+## Project structure
+
+```text
+src/
+  App.tsx              Page composition
+  index.tsx            React entrypoint
+  index.css            Tailwind entry and base styles
+  components/          Landing-page sections
+  assets/images/       Local visual assets
+```
+
+The site is intentionally simple: no router, no global state manager, and no backend API dependency.
