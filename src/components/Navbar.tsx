@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
                 {/* Brand logo image */}
                 <img 
                   src={logoImg} 
-                  alt="HexaKinetica Logo" 
+                  alt="Hexakinetica Logo" 
                   className="w-20 h-20 object-contain relative z-10" 
                 />
              </div>
@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
 
           {/* Icons */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Open HexaKinetica GitHub" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica GitHub" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
             <button 
               onClick={() => scrollToSection('contact')}
               className="bg-transparent border border-hexa-purple text-hexa-purple px-6 py-2 font-mono-plex text-xs uppercase tracking-wider hover:bg-hexa-purple hover:text-white transition-all shadow-[0_0_10px_rgba(140,82,255,0.3)] hover:shadow-[0_0_20px_rgba(140,82,255,0.6)] active:scale-95"

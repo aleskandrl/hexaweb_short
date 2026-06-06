@@ -36,7 +36,7 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                         
                         {/* --- UPDATED CONTENT START --- */}
                         <p className="text-gray-400 font-mono-plex text-sm md:text-base leading-relaxed max-w-xl">
-                            HexaCore is the motion-control foundation behind the HexaKinetica platform. It connects robot arm hardware, motor drives, operator software, and simulation into one practical workflow for testing, validation, and operation.
+                            HexaCore is the motion-control foundation behind the Hexakinetica platform. It connects robot arm hardware, motor drives, operator software, and simulation into one practical workflow for testing, validation, and operation.
                             <br/><br/>
                             The same architecture supports both platform directions: accessible Maker systems for development and education, and PRO systems built around stronger mechanics, EtherCAT motion, and integration-oriented control.
                         </p>

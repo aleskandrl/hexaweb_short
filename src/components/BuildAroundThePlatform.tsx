@@ -14,7 +14,7 @@ export const BuildAroundThePlatform: React.FC = () => {
            <h2 className="text-hexa-purple font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-2">Early Access</h2>
            <h3 className="font-display text-3xl md:text-5xl text-white uppercase">Build Around The <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">Platform</span></h3>
            <p className="mt-4 text-gray-400 font-mono-plex max-w-xl text-base md:text-lg">
-               Hexakinetica is in active development and validation. Join the early audience or contact us to discuss education, prototyping, validation, or early automation use cases.
+               Hexakinetica is in active development and validation. Join the audience or contact us to discuss education, prototyping, validation, or automation use cases.
            </p>
         </div>
 
@@ -31,7 +31,7 @@ export const BuildAroundThePlatform: React.FC = () => {
               
               <div className="flex-grow space-y-6 mb-8">
                  <p className="text-gray-300 text-base leading-relaxed">
-                      Follow the Maker line and help shape a practical robot arm platform for learning, prototyping, software testing, and hands-on development.
+                      Follow the Maker line and help shape a practical robotics ecosystem for learning, prototyping, software testing, and hands-on development.
                  </p>
                  <ul className="space-y-3">
                      <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-white mr-3 mt-1 shrink-0"/> <span>Development updates and early materials</span></li>
@@ -82,7 +82,7 @@ export const BuildAroundThePlatform: React.FC = () => {
         
         <div className="mt-12 text-left border-t border-gray-800 pt-8">
             <p className="text-xs text-gray-500 font-mono-plex max-w-3xl leading-relaxed">
-                <span className="text-white font-bold">NOTE:</span> Hexakinetica follows an open-architecture direction: clear documentation, visible system design, and selected development materials shared with early users where appropriate. The platform is under development and should not be presented as a certified factory-ready industrial robot.
+                <span className="text-white font-bold">NOTE:</span> Hexakinetica follows an open-architecture direction: clear documentation, visible system design, and selected development materials shared with users where appropriate. The platform is under development and should not be presented as a certified factory-ready industrial robot.
             </p>
         </div>
       </div>

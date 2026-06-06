@@ -14,13 +14,13 @@ export const Footer: React.FC = () => {
               HEXA<span className="text-hexa-purple">KINETICA</span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed font-mono-plex">
-              An early-stage robotics platform developing accessible robot arm hardware, motion control, operator software, simulation, and engineering documentation.
+              A next-gen robotics ecosystem developing robot arm hardware, motion control, operator software, simulation, and engineering documentation.
             </p>
             <div className="flex space-x-4">
-              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Open HexaKinetica GitHub" className="text-gray-500 hover:text-white transition-colors"><Github size={20} /></a>
-              <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" aria-label="Open HexaKinetica YouTube" className="text-gray-500 hover:text-white transition-colors"><Youtube size={20} /></a>
-              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Open HexaKinetica LinkedIn" className="text-gray-500 hover:text-white transition-colors"><Linkedin size={20} /></a>
-              <a href={CONTACT_MAILTO} aria-label="Email HexaKinetica" className="text-gray-500 hover:text-white transition-colors"><Mail size={20} /></a>
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica GitHub" className="text-gray-500 hover:text-white transition-colors"><Github size={20} /></a>
+              <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica YouTube" className="text-gray-500 hover:text-white transition-colors"><Youtube size={20} /></a>
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica LinkedIn" className="text-gray-500 hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a href={CONTACT_MAILTO} aria-label="Email Hexakinetica" className="text-gray-500 hover:text-white transition-colors"><Mail size={20} /></a>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono-plex">
-          <p className="flex items-center">&copy; {new Date().getFullYear()} HexaKinetica. Built with <Heart size={12} className="mx-1 text-red-500" /> by the community.</p>
+          <p className="flex items-center">&copy; {new Date().getFullYear()} Hexakinetica. Built with <Heart size={12} className="mx-1 text-red-500" /> by the community.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">Development</a>
             <a href={CONTACT_MAILTO} className="hover:text-white">Contact</a>

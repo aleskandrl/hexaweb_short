@@ -1,6 +1,6 @@
-# HexaKinetica Website
+# Hexakinetica Website
 
-Single-page React/Vite landing page for HexaKinetica — an open-architecture industrial robotics initiative focused on affordable, hackable, community-driven automation.
+Single-page React/Vite landing page for Hexakinetica — an open-architecture industrial robotics initiative focused on affordable, hackable, community-driven automation.
 
 ## Stack
 

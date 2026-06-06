@@ -13,7 +13,7 @@ export const FocusedEngineering: React.FC = () => {
              Focused <span className="text-hexa-purple">Engineering</span>
           </h3>
           <p className="text-gray-400 font-mono-plex max-w-3xl text-base md:text-lg leading-relaxed">
-             HexaKinetica is a robotics R&D effort built around systems-level development: mechanical design, motion control, controller architecture, operator software, simulation workflow, and physical testing are developed as one connected platform.
+             Hexakinetica is a robotics R&D effort built around systems-level development: mechanical design, motion control, controller architecture, operator software, simulation workflow, and physical testing are developed as one connected platform.
              <br/><br/>
              The current stage is R&D: proving the platform direction, refining the Maker line, developing the PRO concept direction, and preparing for pilot integration.
           </p>

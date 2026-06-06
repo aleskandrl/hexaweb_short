@@ -1,14 +1,16 @@
 import React from 'react';
 import { Code, Globe, RefreshCcw, GitMerge, Wrench, LucideIcon, ArrowUpRight } from 'lucide-react';
+import axis5ReducerImg from '../assets/images/products/axis-5-reducer.png';
 
 // --- Types ---
 interface Feature {
-  id: string; 
+  id: string;
   icon: LucideIcon;
   title: string;
   description: string;
-  className?: string; 
-  gradient: string; 
+  className?: string;
+  gradient: string;
+  image?: string;
 }
 
 // --- Data ---
@@ -18,8 +20,9 @@ const FEATURES: Feature[] = [
     icon: Code,
     title: "Visible Architecture",
     description: "The platform is designed to be understandable: mechanics, controller logic, motor communication, software, and simulation are presented as one connected system.",
-    className: "md:col-span-5", 
-    gradient: "from-hexa-purple/20 to-transparent"
+    className: "md:col-span-5",
+    gradient: "from-hexa-purple/20 to-transparent",
+    image: axis5ReducerImg
   },
   {
     id: "02",
@@ -49,7 +52,7 @@ const FEATURES: Feature[] = [
 
 // --- Components ---
 
-const BentoCard: React.FC<Feature> = ({ id, icon: Icon, title, description, className, gradient }) => (
+const BentoCard: React.FC<Feature> = ({ id, icon: Icon, title, description, className, gradient, image }) => (
   <div className={`relative bg-hexa-card border border-white/5 rounded-xl p-6 overflow-hidden group hover:border-white/20 transition-all duration-500 flex flex-col justify-between ${className}`}>
     
     {/* Hover Gradient Background */}
@@ -75,6 +78,16 @@ const BentoCard: React.FC<Feature> = ({ id, icon: Icon, title, description, clas
       <p className="text-gray-400 font-mono-plex text-base leading-relaxed group-hover:text-gray-300 transition-colors">
         {description}
       </p>
+
+      {image && (
+        <div className="mt-6 overflow-hidden rounded-lg border border-white/10 bg-black/30">
+          <img
+            src={image}
+            alt="Axis 5 reducer joint detail with cover removed"
+            className="h-44 md:h-52 w-full object-cover opacity-80 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+          />
+        </div>
+      )}
     </div>
   </div>
 );
@@ -134,7 +147,7 @@ export const ConnectedPlatform: React.FC = () => {
             </h3>
           </div>
           <p className="text-gray-400 font-mono-plex text-xs md:text-sm max-w-xl text-left mt-6 md:mt-0 leading-relaxed">
-            Robot arm development should not be split across isolated CAD files, controllers, scripts, and undocumented hardware decisions. HexaKinetica connects the stack so users can study, test, modify, and build around the system.
+            Robot arm development should not be split across isolated CAD files, controllers, scripts, and undocumented hardware decisions. Hexakinetica connects the stack so users can study, test, modify, and build around the system.
           </p>
         </div>
 

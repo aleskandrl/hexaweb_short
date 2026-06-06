@@ -26,7 +26,7 @@ export const InitializeProtocol: React.FC = () => {
         
         <div className="bg-black/60 p-10 rounded-3xl border border-white/10 backdrop-blur-xl shadow-2xl">
             <p className="text-gray-400 font-mono-plex text-lg mb-10 max-w-2xl">
-                We are developing an accessible robot arm platform across hardware, controller architecture, operator software, simulation, and validation. If you are an engineer, educator, maker, partner, or early automation team — we want to hear from you.
+                We are developing a next-gen robotics ecosystem across hardware, controller architecture, operator software, simulation, and validation. If you are an engineer, educator, maker, partner, or automation team — we want to hear from you.
             </p>
 
             {/* Main Email Action */}

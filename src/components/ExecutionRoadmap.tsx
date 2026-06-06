@@ -77,7 +77,7 @@ export const ExecutionRoadmap: React.FC = () => {
                     <p className="text-gray-500 font-mono-plex text-sm uppercase tracking-widest mb-2">2027+</p>
                     <h4 className="font-display text-2xl text-gray-300 mb-2">Platform Expansion</h4>
                     <p className="text-gray-500 font-mono-plex text-base">
-                        Scaling product lines: expanding Maker and PRO series, and refining tools based on early-user feedback.
+                        Scaling product lines: expanding Maker and PRO series, and refining tools based on user feedback.
                     </p>
                 </div>
             </div>

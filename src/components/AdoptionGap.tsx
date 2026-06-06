@@ -37,7 +37,7 @@ export const AdoptionGap: React.FC = () => {
               <br/><br/>
               But adoption is still uneven. For many users, the barrier is not only the robot arm itself, but integration, programming, tooling, safety, maintenance, and the learning curve.
               <br/><br/>
-              HexaKinetica focuses on this gap by making robot arm technology easier to access, understand, test, modify, and build around — through real hardware, motion control, software, and simulation.
+              Hexakinetica focuses on this gap by making robot arm technology easier to access, understand, test, modify, and build around — through real hardware, motion control, software, and simulation.
            </p>
         </div>
 
@@ -46,7 +46,7 @@ export const AdoptionGap: React.FC = () => {
           {/* Global robot demand chart */}
           <div className="bg-black/30 border border-gray-800 p-8 rounded-xl relative shadow-2xl backdrop-blur-sm">
             <h4 className="text-white font-display text-2xl uppercase tracking-wider mb-2">Global Robot Demand</h4>
-            <p className="text-gray-500 font-mono-plex text-xs uppercase tracking-widest mb-6">Industrial robots installed worldwide, thousand units</p>
+            <p className="text-gray-500 font-mono-plex text-xs uppercase tracking-widest mb-6">Industrial robots installed worldwide</p>
             
             <div className="h-[300px] w-full font-mono-plex text-sm">
               <ResponsiveContainer width="100%" height="100%">

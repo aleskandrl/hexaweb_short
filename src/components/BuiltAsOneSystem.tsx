@@ -19,7 +19,7 @@ export const BuiltAsOneSystem: React.FC = () => {
               Built as <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">One System</span>
             </h3>
             <p className="text-gray-400 font-mono-plex max-w-3xl text-base md:text-lg leading-relaxed">
-              HexaKinetica connects mechanical design, controller hardware, motion-control software, operator interface, simulation workflow, and validation prototypes into one practical robotics platform.
+              Hexakinetica connects mechanical design, controller hardware, motion-control software, operator interface, simulation workflow, and validation prototypes into one practical robotics platform.
             </p>
         </div>
 
@@ -50,11 +50,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                                     alt="URDF robot model visualization"
                                     className="h-44 md:h-52 w-full object-cover opacity-80 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
                                 />
-                            </div>
-                            <div className="flex gap-2">
-                                <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded font-mono-plex">CAD Layout</span>
-                                <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded font-mono-plex">Digital Twin</span>
-                                <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded font-mono-plex">URDF Model</span>
                             </div>
                         </div>
                     </div>
@@ -89,10 +84,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                                     alt="Axis 4 stepper validation detail"
                                     className="h-52 md:h-60 w-full object-cover opacity-80 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
                                 />
-                            </div>
-                            <div className="flex gap-2">
-                                <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded font-mono-plex">Hybrid Prototype</span>
-                                <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded font-mono-plex">Under Test</span>
                             </div>
                         </div>
                     </div>
@@ -185,6 +176,8 @@ export const BuiltAsOneSystem: React.FC = () => {
     </section>
   );
 };
+
+
 
 
 

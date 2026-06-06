@@ -88,12 +88,12 @@ const App: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-hexa-purple to-purple-900 opacity-20"></div>
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/40 via-black/0 to-black/0"></div>
             <div className="max-w-4xl mx-auto px-4 text-left relative z-10">
-                <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-widest mb-4">Join the HexaKinetica Movement</h2>
+                <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-widest mb-4">Join the Hexakinetica Movement</h2>
                 <h3 className="text-4xl md:text-5xl font-display text-white uppercase mb-8 leading-tight drop-shadow-lg">
                    Build, test, and validate <br/> robot arms together
                 </h3>
                  <p className="text-gray-300 mb-10 text-lg font-mono-plex max-w-2xl leading-relaxed">
-                   We are developing an accessible robot arm platform across hardware, controller architecture, software, and simulation.
+                   We are developing a robotics ecosystem across hardware, controller architecture, software, and simulation.
                    If you build, teach, test, or integrate robotics, we want to hear from you.
                 </p>
                 <a 

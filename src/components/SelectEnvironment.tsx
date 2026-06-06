@@ -56,6 +56,10 @@ const accentClasses = {
 const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, specs, text, bottom, cta }) => {
   const tone = accentClasses[accent];
 
+  // First line is the brand ("HexaArm"), second line is the model name.
+  const [brand, ...modelParts] = title.split(' ');
+  const model = modelParts.join(' ');
+
   const actionClassName = `mt-auto inline-flex items-center justify-center rounded-md px-5 py-3 font-mono-plex text-xs font-bold uppercase tracking-widest transition-all ${tone.button}`;
   const action = cta?.href ? (
     <a href={cta.href} target="_blank" rel="noopener noreferrer" className={actionClassName}>
@@ -77,7 +81,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, sp
           <Icon className={tone.text} size={24} />
         </div>
 
-        <h4 className="text-2xl md:text-3xl font-display text-white mb-3">{title}</h4>
+        <h4 className="text-2xl md:text-3xl font-display text-white mb-3 leading-tight min-h-[4rem] md:min-h-[4.5rem]">
+          {brand}
+          <br />
+          {model}
+        </h4>
 
         {specs && (
           <div className="space-y-3 mb-7 mt-3">
@@ -90,7 +98,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, sp
           </div>
         )}
 
-        <p className="text-gray-400 font-mono-plex text-base leading-relaxed mb-8">{text}</p>
+        <p className="text-gray-400 font-mono-plex text-base leading-relaxed mb-8 grow">{text}</p>
 
         <div className="border-t border-white/10 pt-4 mb-6">
           <span className="text-xs text-gray-500 uppercase font-mono-plex tracking-wider">{bottom}</span>
@@ -113,7 +121,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ accent, icon: Icon, title, ey
           <Icon className={tone.text} size={24} />
         </div>
 
-        <h4 className="text-2xl md:text-3xl font-display text-white mb-3">{title}</h4>
+        <h4 className="text-2xl md:text-3xl font-display text-white mb-3 leading-tight min-h-[4rem] md:min-h-[4.5rem]">{title}</h4>
         <p className={`text-xs font-mono-plex font-bold uppercase tracking-[0.2em] mb-6 ${tone.text}`}>{eyebrow}</p>
 
         <p className="text-gray-400 font-mono-plex text-base leading-relaxed mb-8">{text}</p>
@@ -171,7 +179,7 @@ export const SelectEnvironment: React.FC = () => {
           <ProductCard
             accent="cyan"
             icon={Github}
-            title="HexaArm Mini Maker"
+            title="HexaArm Mini M"
             eyebrow="Open Maker Platform"
             specs={[
               { label: 'Payload', value: '0.5 kg' },
@@ -186,14 +194,14 @@ export const SelectEnvironment: React.FC = () => {
           <ProductCard
             accent="cyan"
             icon={Cpu}
-            title="HexaArm Medium Maker"
+            title="HexaArm Medium M"
             eyebrow="Hands-On Development"
             specs={[
               { label: 'Target payload', value: '6 kg' },
               { label: 'Target reach', value: '1200 mm' },
               { label: 'Status', value: 'Under Development' },
             ]}
-            text="A larger Maker-line robot arm for software testing, control experiments, and practical robotics development on accessible hardware."
+            text="A larger M-line robot arm for software testing, control experiments, and practical robotics development on accessible hardware."
             bottom="Use case: development / software validation"
             cta={{ label: 'Explore Maker Line', href: GITHUB_URL }}
           />

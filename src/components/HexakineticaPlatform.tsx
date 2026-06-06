@@ -10,7 +10,7 @@ export const HexakineticaPlatform: React.FC = () => {
         {/* SECTION HEADER */}
         <div className="mb-20 text-left">
           <h2 className="text-white font-sans font-bold uppercase text-sm tracking-[0.2em] mb-4 glow-text">
-             The HexaKinetica Platform
+             The Hexakinetica Platform
           </h2>
           <h3 className="font-display text-3xl md:text-5xl text-white uppercase">
             One Platform. <span className="text-hexa-purple">Two Directions.</span>

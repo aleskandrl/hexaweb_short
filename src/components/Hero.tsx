@@ -1,53 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ArrowRight, Terminal } from 'lucide-react';
 import { GITHUB_URL } from '../siteLinks';
-import heroCadScreenshot from '../assets/images/hero/RobotCountourCad.png';
-import hexaArmMiniImg from '../assets/images/products/hexaarm-mini.png';
-import hexaArmProImg from '../assets/images/products/hexaarm-pro.png';
-
-const HERO_VISUALS = [
-  {
-    id: '01',
-    title: 'CAD Blueprint',
-    subtitle: 'Design source and mechanical architecture',
-    image: heroCadScreenshot,
-    alt: 'HexaKinetica CAD Blueprint',
-    accent: 'from-hexa-purple to-hexa-cyan',
-  },
-  {
-    id: '02',
-    title: 'HexaArm Mini Maker',
-    subtitle: 'Accessible robot arm for learning and prototyping',
-    image: hexaArmMiniImg,
-    alt: 'HexaArm Mini Maker render',
-    accent: 'from-hexa-cyan to-white',
-  },
-  {
-    id: '03',
-    title: 'HexaArm Medium PRO',
-    subtitle: 'Larger PRO platform for motion and integration development',
-    image: hexaArmProImg,
-    alt: 'HexaArm Medium PRO render',
-    accent: 'from-hexa-purple to-purple-900',
-  },
-];
+import hexaArmNew from '../assets/images/hero/hexaarm-new.png';
 
 export const Hero: React.FC = () => {
-  const [activeVisual, setActiveVisual] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveVisual((current) => (current + 1) % HERO_VISUALS.length);
-    }, 5000);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
   const scrollToProducts = () => {
     document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const visual = HERO_VISUALS[activeVisual];
 
   return (
     <div className="relative min-h-[700px] overflow-hidden bg-hexa-bg flex items-center">
@@ -98,44 +57,16 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative group [perspective:1000px]">
-             <div className="absolute -inset-8 bg-hexa-purple/10 blur-2xl rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-             
-             <div className="relative bg-gradient-to-br from-hexa-purple to-hexa-cyan p-1 rounded-xl shadow-2xl transition-transform duration-500 transform lg:rotate-y-[-10deg] group-hover:rotate-y-0 group-hover:scale-105">
-                <div className="bg-black p-2 rounded-lg">
-                  <div className="relative h-[360px] sm:h-[430px] overflow-hidden rounded-md bg-[#05020a] flex items-center justify-center">
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(140,82,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(152,243,255,0.04)_1px,transparent_1px)] bg-[size:36px_36px]"></div>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${visual.accent} opacity-10 transition-all duration-700`}></div>
-                    <img 
-                      key={visual.title}
-                      src={visual.image} 
-                      alt={visual.alt} 
-                      className="relative z-10 max-h-[82%] max-w-[90%] object-contain rounded-md drop-shadow-[0_0_28px_rgba(255,255,255,0.12)] transition-all duration-700 animate-[fadeIn_0.45s_ease-out]"
-                    />
+          <div className="relative group flex items-center justify-center">
+             {/* Soft glow backdrop (no framed card) */}
+             <div className="absolute inset-0 bg-hexa-purple/15 blur-[100px] rounded-full opacity-60 group-hover:opacity-90 transition-opacity duration-700"></div>
+             <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-hexa-cyan/10 blur-[90px] rounded-full"></div>
 
-                    <div className="absolute left-4 right-4 bottom-4 z-20 rounded-lg border border-white/10 bg-black/75 px-4 py-3 backdrop-blur-md">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <p className="text-[10px] font-mono-plex uppercase tracking-[0.25em] text-gray-500">{visual.id} / Platform Visual</p>
-                          <h2 className="mt-1 font-display text-base text-white uppercase">{visual.title}</h2>
-                          <p className="mt-1 text-xs font-mono-plex text-gray-400">{visual.subtitle}</p>
-                        </div>
-                        <div className="flex shrink-0 gap-2 pt-1">
-                          {HERO_VISUALS.map((item, index) => (
-                            <button
-                              key={item.id}
-                              type="button"
-                              onClick={() => setActiveVisual(index)}
-                              aria-label={`Show ${item.title}`}
-                              className={`h-2.5 w-2.5 rounded-full border transition-all ${index === activeVisual ? 'w-7 border-hexa-cyan bg-hexa-cyan shadow-[0_0_10px_rgba(152,243,255,0.8)]' : 'border-white/30 bg-white/10 hover:bg-white/30'}`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-             </div>
+             <img
+               src={hexaArmNew}
+               alt="HexaArm robotic arm"
+               className="relative z-10 max-h-[520px] w-full object-contain rounded-md drop-shadow-[0_0_40px_rgba(140,82,255,0.25)] transition-transform duration-700 group-hover:scale-[1.03]"
+             />
           </div>
 
         </div>
