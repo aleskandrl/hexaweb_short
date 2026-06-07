@@ -18,10 +18,10 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none"></div>
 
         <div className="relative z-10">
-            <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="flex flex-col lg:flex-row gap-16 lg:items-stretch">
                 
                 {/* Left: The Pitch */}
-                <div className="lg:w-1/2 space-y-8">
+                <div className="lg:w-1/2 space-y-8 flex flex-col justify-center">
                     
                     {/* Badge */}
                     <AccentRail
@@ -41,48 +41,8 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                         descriptionClassName="text-sm md:text-base max-w-xl"
                     />
 
-                    {/* Tech Specs Grid */}
-                    <div className="grid grid-cols-2 gap-6">
-                        <div className="flex items-start space-x-3 group/item">
-                            <div className="p-2 bg-gray-800/50 rounded-lg border border-gray-700 group-hover/item:border-hexa-purple/50 transition-colors">
-                                <Network className="text-hexa-purple" size={18} />
-                            </div>
-                            <div>
-                                <h6 className="text-white font-display text-sm">EtherCAT Motion</h6>
-                                <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Industrial Fieldbus</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start space-x-3 group/item">
-                            <div className="p-2 bg-gray-800/50 rounded-lg border border-gray-700 group-hover/item:border-hexa-purple/50 transition-colors">
-                                <Orbit className="text-hexa-purple" size={18} />
-                            </div>
-                            <div>
-                                <h6 className="text-white font-display text-sm">Simulation Bridge</h6>
-                                <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Validation Workflow</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start space-x-3 group/item">
-                            <div className="p-2 bg-gray-800/50 rounded-lg border border-gray-700 group-hover/item:border-hexa-purple/50 transition-colors">
-                                <Cpu className="text-hexa-purple" size={18} />
-                            </div>
-                            <div>
-                                <h6 className="text-white font-display text-sm">Robot Control Runtime</h6>
-                                <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Motion Execution</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start space-x-3 group/item">
-                            <div className="p-2 bg-gray-800/50 rounded-lg border border-gray-700 group-hover/item:border-hexa-purple/50 transition-colors">
-                                <Monitor className="text-hexa-purple" size={18} />
-                            </div>
-                            <div>
-                                <h6 className="text-white font-display text-sm">Operator Software</h6>
-                                <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Configuration and Diagnostics</p>
-                            </div>
-                        </div>
-                    </div>
-
                     {/* Action */}
-                    <div className="pt-4">
+                    <div className="pt-4 mt-auto">
                         <button 
                             onClick={scrollToContact} 
                             className="group flex items-center space-x-3 text-white font-mono-plex text-xs font-bold uppercase tracking-widest hover:text-hexa-purple transition-colors"
@@ -94,34 +54,67 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                 </div>
                 
                 {/* Right: The Product Visual */}
-                <div className="lg:w-1/2 w-full">
-                     <div className="relative group/visual">
+                <div className="lg:w-1/2 w-full flex flex-col">
+                     <div className="relative group/visual flex-grow">
                          
-                         {/* Decorative Frame */}
-                         <div className="absolute -inset-1 bg-gradient-to-r from-hexa-purple/20 to-gray-800/20 rounded-2xl blur opacity-75 group-hover/visual:opacity-100 transition duration-1000"></div>
+                         {/* Decorative Ambient Glow */}
+                         <div className="absolute inset-0 bg-hexa-purple/5 rounded-full blur-3xl opacity-50 group-hover/visual:opacity-100 transition duration-1000"></div>
                          
-                         <div className="relative bg-hexa-bg border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
+                         <div className="relative h-full min-h-[400px] w-full flex items-center justify-center">
+                             <img 
+                                 src={ipcImg}
+                                 alt="HexaCore Industrial Controller"
+                                 className="relative z-10 w-[85%] h-auto object-contain filter grayscale contrast-125 brightness-90 drop-shadow-[0_0_30px_rgba(140,82,255,0.15)] group-hover/visual:grayscale-0 group-hover/visual:drop-shadow-[0_0_40px_rgba(140,82,255,0.4)] transition-all duration-700 transform group-hover/visual:scale-105"
+                             />
                              
-
-                             <div className="relative h-[400px] w-full flex items-center justify-center bg-black overflow-hidden group-hover/visual:bg-[#080510] transition-colors duration-700">
-                                 {/* Grid Background */}
-                                 <div className="absolute inset-0 bg-[linear-gradient(rgba(140,82,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(140,82,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-                                 <img 
-                                     src={ipcImg}
-                                     alt="HexaCore Industrial Controller"
-                                     className="relative z-10 w-[85%] h-auto object-contain filter grayscale contrast-125 brightness-90 drop-shadow-[0_0_20px_rgba(140,82,255,0.15)] group-hover/visual:grayscale-0 group-hover/visual:drop-shadow-[0_0_30px_rgba(140,82,255,0.4)] transition-all duration-700 transform group-hover/visual:scale-105"
-                                 />
-                                 
-                                 {/* Floating Label */}
-                                 <div className="absolute bottom-6 right-6 z-20 bg-black/80 backdrop-blur-md border border-hexa-purple/30 px-4 py-2 rounded-lg shadow-lg">
-                                     <p className="text-white font-display text-sm tracking-wide">HexaCore <span className="text-hexa-purple">PRO</span></p>
-                                 </div>
+                             {/* Floating Label */}
+                             <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 z-20 bg-black/60 backdrop-blur-md border border-hexa-purple/30 px-4 py-2 rounded-lg shadow-lg">
+                                 <p className="text-white font-display text-sm tracking-wide">HexaCore <span className="text-hexa-purple">PRO</span></p>
                              </div>
                          </div>
                      </div>
                 </div>
 
+            </div>
+
+            {/* Tech Specs Grid (Full Width) */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-16 lg:mt-24 w-full">
+                <div className="flex flex-col items-center text-center space-y-3 group/item">
+                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
+                        <Network className="text-white" size={18} />
+                    </div>
+                    <div>
+                        <h6 className="text-white font-display text-sm">EtherCAT Motion</h6>
+                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Industrial Fieldbus</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-3 group/item">
+                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
+                        <Orbit className="text-white" size={18} />
+                    </div>
+                    <div>
+                        <h6 className="text-white font-display text-sm">Simulation Bridge</h6>
+                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Validation Workflow</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-3 group/item">
+                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
+                        <Cpu className="text-white" size={18} />
+                    </div>
+                    <div>
+                        <h6 className="text-white font-display text-sm">Robot Control Runtime</h6>
+                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Motion Execution</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-3 group/item">
+                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
+                        <Monitor className="text-white" size={18} />
+                    </div>
+                    <div>
+                        <h6 className="text-white font-display text-sm">Operator Software</h6>
+                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Configuration and Diagnostics</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
