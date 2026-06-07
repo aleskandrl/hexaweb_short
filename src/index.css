@@ -3,9 +3,34 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor scrolling so section headers clear the sticky 96px navbar */
+    scroll-padding-top: 6rem;
+  }
+
   body {
     background-color: #05020a;
     color: #e0e0e0;
+  }
+
+  /* Keyboard focus ring */
+  :focus-visible {
+    outline: 2px solid #98f3ff;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -21,16 +46,5 @@
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #98f3ff; 
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  background: #98f3ff;
 }

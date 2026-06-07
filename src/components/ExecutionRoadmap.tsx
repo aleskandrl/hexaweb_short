@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Reveal } from './Reveal';
 
 export const ExecutionRoadmap: React.FC = () => {
   return (
@@ -8,12 +9,12 @@ export const ExecutionRoadmap: React.FC = () => {
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-hexa-purple/30 to-transparent hidden md:block"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-left mb-20">
+        <Reveal className="text-left mb-20">
            <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4">The Development Plan</h2>
            <h3 className="font-display text-3xl md:text-5xl text-white uppercase">
              Execution <span className="text-hexa-purple">Roadmap</span>
            </h3>
-        </div>
+        </Reveal>
 
         <div className="space-y-12 relative">
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Cpu, Network, Monitor, ArrowRight, Orbit } from 'lucide-react';
 import ipcImg from '../assets/images/products/hexacore-cabinet.png';
+import { AccentRail } from './AccentRail';
 
 export const HexaCoreMotionArchitecture: React.FC = () => {
   
@@ -9,7 +10,7 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
   };
 
   return (
-    <div className="bg-hexa-card border border-gray-800 rounded-2xl p-8 md:p-12 mb-24 relative overflow-hidden group transition-all duration-500 hover:border-gray-700 hover:shadow-[0_0_50px_rgba(140,82,255,0.05)]">
+    <div className="p-2 md:p-4 mb-24 relative overflow-hidden group transition-all duration-500">
         
         {/* Background Atmosphere */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none bg-hexa-purple/10"></div>
@@ -23,25 +24,22 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                 <div className="lg:w-1/2 space-y-8">
                     
                     {/* Badge */}
-                    <div className="inline-flex items-center space-x-2 border border-hexa-purple/30 bg-hexa-purple/10 text-hexa-purple px-3 py-1 rounded-full text-[10px] font-mono-plex uppercase tracking-widest backdrop-blur-sm">
-                        <Cpu size={12} />
-                        <span>Controller Architecture</span>
-                    </div>
-                    
-                    {/* Heading */}
-                    <div>
-                        <h4 className="text-3xl md:text-4xl font-display text-white mb-4 leading-tight">
-                            HexaCore Motion <br/> Architecture
-                             </h4>
-                        
-                        {/* --- UPDATED CONTENT START --- */}
-                        <p className="text-gray-400 font-mono-plex text-sm md:text-base leading-relaxed max-w-xl">
+                    <AccentRail
+                        accent="purple"
+                        icon={Cpu}
+                        eyebrow="Controller Architecture"
+                        title={<>HexaCore Motion <br /> Architecture</>}
+                        titleClassName="text-3xl md:text-4xl leading-tight"
+                        description={(
+                          <>
                             HexaCore is the motion-control foundation behind the Hexakinetica platform. It connects robot arm hardware, motor drives, operator software, and simulation into one practical workflow for testing, validation, and operation.
-                            <br/><br/>
+                            <br />
+                            <br />
                             The same architecture supports both platform directions: accessible Maker systems for development and education, and PRO systems built around stronger mechanics, EtherCAT motion, and integration-oriented control.
-                        </p>
-                        {/* --- UPDATED CONTENT END --- */}
-                    </div>
+                          </>
+                        )}
+                        descriptionClassName="text-sm md:text-base max-w-xl"
+                    />
 
                     {/* Tech Specs Grid */}
                     <div className="grid grid-cols-2 gap-6">

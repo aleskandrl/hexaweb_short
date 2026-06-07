@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 const faqs = [
     { q: "What is Hexakinetica?", a: "Hexakinetica is a robotics ecosystem. It brings together robot arm hardware, motion controller architecture, operator software, simulation, and engineering documentation." },
@@ -21,22 +22,24 @@ export const FrequentlyAsked: React.FC = () => {
   return (
     <section className="py-24 bg-hexa-bg">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-left mb-16">
+        <Reveal className="text-left mb-16">
            <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4">Due Diligence</h2>
            <h3 className="font-display text-3xl md:text-5xl text-white uppercase">Frequently Asked</h3>
-        </div>
+        </Reveal>
 
         <div className="space-y-4">
             {faqs.map((faq, idx) => (
-                <div key={idx} className="border border-gray-800 rounded-lg bg-hexa-card overflow-hidden transition-all hover:border-gray-600">
+                <div key={idx} className="relative overflow-hidden border-b border-gray-800/80 pb-1 transition-all">
+                    <div className={`absolute left-0 top-4 bottom-4 w-px ${openIndex === idx ? 'bg-gradient-to-b from-hexa-cyan via-hexa-purple/70 to-transparent' : 'bg-white/10'}`}></div>
+                    <div className={`absolute -left-[4px] top-4 h-2.5 w-2.5 rounded-full ${openIndex === idx ? 'bg-hexa-cyan shadow-[0_0_20px_rgba(152,243,255,0.45)]' : 'bg-white/20'}`}></div>
                     <button 
                         onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                        className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+                        className="w-full flex justify-between items-center pl-7 pr-2 py-6 text-left focus:outline-none"
                     >
                         <span className={`font-display text-base md:text-lg ${openIndex === idx ? 'text-hexa-purple' : 'text-white'}`}>{faq.q}</span>
                         {openIndex === idx ? <ChevronUp className="text-hexa-purple" /> : <ChevronDown className="text-gray-500" />}
                     </button>
-                    <div className={`px-6 pb-6 text-gray-400 font-mono-plex text-base leading-relaxed border-t border-gray-800/50 pt-4 ${openIndex === idx ? 'block' : 'hidden'}`}>
+                    <div className={`pl-7 pr-8 pb-6 text-gray-400 font-mono-plex text-base leading-relaxed pt-1 ${openIndex === idx ? 'block' : 'hidden'}`}>
                         {faq.a}
                     </div>
                 </div>

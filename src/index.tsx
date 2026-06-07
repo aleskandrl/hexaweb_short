@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-console.log('Hexakinetica v0.0.1');
+console.log('Hexakinetica v0.0.6');
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

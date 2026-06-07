@@ -1,7 +1,9 @@
 import React from 'react';
 import { Cpu, Activity, Zap, Settings } from 'lucide-react';
+import { AccentRail } from './AccentRail';
+import { Reveal } from './Reveal';
 // Убедитесь, что ваше изображение HMI находится по этому пути
-import hmiImg from '../assets/images/products/HexaStudio-HMI.png'; 
+import hmiImg from '../assets/images/products/HexaStudio-HMI.png';
 
 export const OperatorSoftwareWorkflow: React.FC = () => {
   return (
@@ -16,7 +18,7 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
 
           {/* Текстовая колонка теперь занимает 2/5 ширины на больших экранах */}
-          <div className="order-2 lg:order-1 lg:col-span-2">
+          <Reveal className="order-2 lg:order-1 lg:col-span-2">
              <div className="mb-6">
                  <span className="text-hexa-purple font-mono-plex font-bold uppercase text-sm tracking-widest">Software Layer</span>
              </div>
@@ -32,7 +34,7 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
                <br/><br/>
                The goal is to make robot operation more visible and testable through a dedicated interface instead of disconnected scripts, terminal commands, or controller-specific tools.
              </p>
-          </div>
+          </Reveal>
 
           {/* Колонка с изображением теперь занимает 3/5 ширины */}
           <div className="relative group order-1 lg:order-2 lg:col-span-3">
@@ -42,6 +44,8 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
 
              <img
                 src={hmiImg}
+                loading="lazy"
+                decoding="async"
                 alt="HexaStudio Interface"
                 className="relative w-full h-auto aspect-video object-cover rounded-xl border border-gray-700 shadow-2xl transition-transform duration-500 group-hover:scale-105"
               />
@@ -50,36 +54,51 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
 
         </div>
 
-        {/* Карточки в одну линию под изображением — цельная композиция */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12 lg:mt-16">
-            <div className="bg-hexa-card p-4 rounded-xl border border-gray-800 flex items-center space-x-3">
-                <Settings className="text-white shrink-0" size={24} />
-                <div>
-                    <div className="text-white font-display text-base">Configuration</div>
-                    <div className="text-xs text-gray-500 uppercase">robot parameters and setup</div>
-                </div>
-            </div>
-            <div className="bg-hexa-card p-4 rounded-xl border border-gray-800 flex items-center space-x-3">
-                <Zap className="text-white shrink-0" size={24} />
-                <div>
-                    <div className="text-white font-display text-base">Motion Commands</div>
-                    <div className="text-xs text-gray-500 uppercase">jogging and program execution</div>
-                </div>
-            </div>
-            <div className="bg-hexa-card p-4 rounded-xl border border-gray-800 flex items-center space-x-3">
-                <Cpu className="text-hexa-purple shrink-0" size={24} />
-                <div>
-                    <div className="text-white font-display text-base">Controller Interface</div>
-                    <div className="text-xs text-gray-500 uppercase">communication with HexaCore</div>
-                </div>
-            </div>
-            <div className="bg-hexa-card p-4 rounded-xl border border-gray-800 flex items-center space-x-3">
-                <Activity className="text-gray-500 shrink-0" size={24} />
-                <div>
-                    <div className="text-white font-display text-base">Monitoring</div>
-                    <div className="text-xs text-gray-500 uppercase">state, feedback, and diagnostics</div>
-                </div>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 mt-12 lg:mt-16">
+            <Reveal delay={0}>
+              <AccentRail
+                accent="cyan"
+                icon={Settings}
+                eyebrow="Operator Workflow"
+                title="Configuration"
+                titleClassName="text-xl"
+                description="robot parameters and setup"
+                descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+              />
+            </Reveal>
+            <Reveal delay={80}>
+              <AccentRail
+                accent="white"
+                icon={Zap}
+                eyebrow="Operator Workflow"
+                title="Motion Commands"
+                titleClassName="text-xl"
+                description="jogging and program execution"
+                descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+              />
+            </Reveal>
+            <Reveal delay={160}>
+              <AccentRail
+                accent="purple"
+                icon={Cpu}
+                eyebrow="Operator Workflow"
+                title="Controller Interface"
+                titleClassName="text-xl"
+                description="communication with HexaCore"
+                descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+              />
+            </Reveal>
+            <Reveal delay={240}>
+              <AccentRail
+                accent="green"
+                icon={Activity}
+                eyebrow="Operator Workflow"
+                title="Monitoring"
+                titleClassName="text-xl"
+                description="state, feedback, and diagnostics"
+                descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+              />
+            </Reveal>
         </div>
       </div>
     </section>

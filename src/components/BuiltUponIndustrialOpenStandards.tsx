@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Reveal } from './Reveal';
 
 const stack = [
   { name: 'ROS 2', color: '#22314E', desc: 'Middleware' },
@@ -14,11 +15,11 @@ const stack = [
 export const BuiltUponIndustrialOpenStandards: React.FC = () => {
   return (
     <section className="bg-black border-y border-gray-900 py-12 overflow-hidden relative z-20">
-      <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
+      <Reveal className="max-w-7xl mx-auto px-4 mb-8 text-center">
           <p className="text-xs font-mono-plex text-gray-500 uppercase tracking-[0.3em]">
             Built Upon Industrial Open Standards
           </p>
-      </div>
+      </Reveal>
       
       <div className="relative w-full overflow-hidden group">
         <div className="absolute top-0 left-0 h-full w-24 md:w-64 bg-gradient-to-r from-black to-transparent z-10"></div>

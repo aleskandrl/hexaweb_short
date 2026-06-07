@@ -28,14 +28,16 @@ export const Hero: React.FC = () => {
             
             <h1 className="font-display text-5xl md:text-6xl text-white leading-tight">
               WE BUILD ROBOTS. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple via-hexa-cyan to-hexa-purple bg-[length:200%_auto] animate-shimmer">
                 DIFFERENTLY
               </span>
             </h1>
             
+            {/*
             <p className="text-lg text-gray-400 font-mono-plex max-w-xl leading-relaxed border-l-2 border-hexa-purple pl-6">
               Industrial robots are designed for the 10% of the most complex tasks, but sold for 90% of the simplest. We are fixing this by offering an accessible and simple tool built for real work.
             </p>
+            */}
             
             <div className="flex flex-wrap gap-4 pt-4">
               <button 
@@ -58,9 +60,9 @@ export const Hero: React.FC = () => {
           </div>
 
           <div className="relative group flex items-center justify-center">
-             {/* Soft glow backdrop (no framed card) */}
-             <div className="absolute inset-0 bg-hexa-purple/15 blur-[100px] rounded-full opacity-60 group-hover:opacity-90 transition-opacity duration-700"></div>
-             <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-hexa-cyan/10 blur-[90px] rounded-full"></div>
+             {/* Soft glow backdrop (no framed card) — slowly drifting aurora */}
+             <div className="absolute inset-0 bg-hexa-purple/15 blur-[100px] rounded-full opacity-60 group-hover:opacity-90 transition-opacity duration-700 animate-drift"></div>
+             <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-hexa-cyan/10 blur-[90px] rounded-full animate-drift [animation-delay:-7s]"></div>
 
              <img
                src={hexaArmNew}

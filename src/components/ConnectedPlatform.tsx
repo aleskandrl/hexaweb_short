@@ -1,6 +1,8 @@
 import React from 'react';
-import { Code, Globe, RefreshCcw, GitMerge, Wrench, LucideIcon, ArrowUpRight } from 'lucide-react';
+import { Code, Globe, RefreshCcw, GitMerge, Wrench, LucideIcon } from 'lucide-react';
 import axis5ReducerImg from '../assets/images/products/axis-5-reducer.png';
+import { AccentRail } from './AccentRail';
+import { Reveal } from './Reveal';
 
 // --- Types ---
 interface Feature {
@@ -50,79 +52,57 @@ const FEATURES: Feature[] = [
   }
 ];
 
+const featureAccentById: Record<string, 'cyan' | 'purple' | 'green' | 'white'> = {
+  '01': 'cyan',
+  '02': 'white',
+  '03': 'green',
+  '04': 'purple',
+};
+
 // --- Components ---
 
-const BentoCard: React.FC<Feature> = ({ id, icon: Icon, title, description, className, gradient, image }) => (
-  <div className={`relative bg-hexa-card border border-white/5 rounded-xl p-6 overflow-hidden group hover:border-white/20 transition-all duration-500 flex flex-col justify-between ${className}`}>
-    
-    {/* Hover Gradient Background */}
-    <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
-    
-    {/* Background Pattern (Noise/Grid) */}
-    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none"></div>
-
-    {/* Big Background Number */}
-    <div className="absolute -right-4 -top-6 text-[120px] font-display font-bold text-white/5 select-none pointer-events-none group-hover:text-white/10 transition-colors">
-      {id}
-    </div>
-
-    <div className="relative z-10">
-      <div className="flex justify-between items-start mb-6">
-        <div className="p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:scale-110 transition-transform duration-300">
-          <Icon className="text-white" size={24} />
-        </div>
-        <ArrowUpRight className="text-gray-600 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300" size={20} />
+const BentoCard: React.FC<Feature> = ({ id, icon: Icon, title, description, className, image }) => (
+  <AccentRail
+    accent={featureAccentById[id] ?? 'white'}
+    icon={Icon}
+    eyebrow={`Feature ${id}`}
+    title={title}
+    description={description}
+    descriptionClassName="text-base"
+    className={className}
+  >
+    {image && (
+      <div className="overflow-hidden rounded-lg border border-white/10 bg-black/30">
+        <img
+          src={image}
+          loading="lazy"
+          decoding="async"
+          alt="Axis 5 reducer joint detail with cover removed"
+          className="h-44 md:h-52 w-full object-cover opacity-85 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0"
+        />
       </div>
-
-      <h4 className="text-2xl font-display text-white mb-3 group-hover:translate-x-1 transition-transform">{title}</h4>
-      <p className="text-gray-400 font-mono-plex text-base leading-relaxed group-hover:text-gray-300 transition-colors">
-        {description}
-      </p>
-
-      {image && (
-        <div className="mt-6 overflow-hidden rounded-lg border border-white/10 bg-black/30">
-          <img
-            src={image}
-            alt="Axis 5 reducer joint detail with cover removed"
-            className="h-44 md:h-52 w-full object-cover opacity-80 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
-          />
-        </div>
-      )}
-    </div>
-  </div>
+    )}
+  </AccentRail>
 );
 
 const MainCard: React.FC = () => (
-  <div className="md:col-span-7 bg-hexa-card border border-hexa-cyan/30 rounded-xl p-8 relative overflow-hidden group shadow-[0_0_30px_rgba(152,243,255,0.05)] hover:shadow-[0_0_50px_rgba(152,243,255,0.1)] transition-all duration-500">
-    
-    {/* Animated Background Gradient */}
-    <div className="absolute inset-0 bg-gradient-to-r from-hexa-cyan/10 via-transparent to-transparent opacity-50 group-hover:opacity-80 transition-opacity"></div>
-    <div className="absolute inset-0 bg-[linear-gradient(rgba(152,243,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(152,243,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
-
-    {/* Removed h-full and justify-between to make it hug content (thinner) */}
-    <div className="relative z-10 flex flex-col justify-center">
-      <div>
-        <div className="flex items-center space-x-3 mb-4">
-           <span className="flex h-2 w-2 rounded-full bg-hexa-cyan"></span>
-           <span className="text-white font-mono-plex text-sm uppercase tracking-widest">Flagship Feature</span>
-        </div>
-        
-        <div className="flex items-center mb-4">
-          <GitMerge className="text-white mr-4" size={42} />
-          <h4 className="text-2xl md:text-3xl font-display text-white tracking-wide">Unified Platform Core</h4>
-        </div>
-        
-        {/* Removed mb-8 since there are no tags below */}
-        <p className="text-gray-300 font-mono-plex text-base leading-relaxed max-w-lg">
-          Maker and PRO hardware directions are built around the same platform foundation: <span className="text-white font-bold border-b border-hexa-cyan/50">robot hardware</span>, <span className="text-white font-bold border-b border-hexa-purple/50">motion control</span>, operator software, simulation workflow, and engineering documentation.
-          <br/><br/>
-          This allows the platform to grow across different robot sizes and capability levels without becoming a collection of disconnected prototypes.
-        </p>
-      </div>
-
-      {/* TAGS REMOVED HERE as requested */}
-    </div>
-  </div>
+  <AccentRail
+    accent="cyan"
+    icon={GitMerge}
+    eyebrow="Flagship Feature"
+    title="Unified Platform Core"
+    titleClassName="text-2xl md:text-3xl tracking-wide"
+    description={(
+      <>
+        Maker and PRO hardware directions are built around the same platform foundation: <span className="text-white font-bold border-b border-hexa-cyan/50">robot hardware</span>, <span className="text-white font-bold border-b border-hexa-purple/50">motion control</span>, operator software, simulation workflow, and engineering documentation.
+        <br />
+        <br />
+        This allows the platform to grow across different robot sizes and capability levels without becoming a collection of disconnected prototypes.
+      </>
+    )}
+    descriptionClassName="text-base max-w-2xl"
+    className="md:col-span-7"
+  />
 );
 
 // --- Main Layout ---
@@ -137,7 +117,7 @@ export const ConnectedPlatform: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Modern Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-white/5 pb-8">
+        <Reveal className="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-white/5 pb-8">
           <div>
             <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4 flex items-center">
               <span className="w-10 h-px bg-hexa-cyan mr-3"></span> Why Us?
@@ -149,7 +129,7 @@ export const ConnectedPlatform: React.FC = () => {
           <p className="text-gray-400 font-mono-plex text-xs md:text-sm max-w-xl text-left mt-6 md:mt-0 leading-relaxed">
             Robot arm development should not be split across isolated CAD files, controllers, scripts, and undocumented hardware decisions. Hexakinetica connects the stack so users can study, test, modify, and build around the system.
           </p>
-        </div>
+        </Reveal>
 
         {/* The Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">

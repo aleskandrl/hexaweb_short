@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Cpu, Github, Settings, Wrench, Zap } from 'lucide-react';
 import { GITHUB_URL } from '../siteLinks';
+import { AccentRail } from './AccentRail';
 
 type PlatformDirection = 'maker' | 'pro';
 
@@ -31,29 +32,17 @@ interface SummaryCardProps {
 
 const accentClasses = {
   cyan: {
-    border: 'border-hexa-cyan/40',
-    text: 'text-white',
-    bg: 'bg-hexa-cyan/10',
     button: 'bg-transparent text-white border border-hexa-cyan/60 hover:bg-transparent',
-    shadow: 'shadow-[0_0_30px_rgba(152,243,255,0.08)]',
   },
   purple: {
-    border: 'border-hexa-purple/40',
-    text: 'text-hexa-purple',
-    bg: 'bg-hexa-purple/10',
     button: 'bg-hexa-purple text-white hover:bg-purple-600',
-    shadow: 'shadow-[0_0_30px_rgba(140,82,255,0.08)]',
   },
   white: {
-    border: 'border-white/15',
-    text: 'text-white',
-    bg: 'bg-white/10',
     button: 'bg-transparent text-white border border-hexa-cyan/60 hover:bg-transparent',
-    shadow: 'shadow-[0_0_30px_rgba(255,255,255,0.04)]',
   },
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, specs, text, bottom, cta }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, eyebrow, specs, text, bottom, cta }) => {
   const tone = accentClasses[accent];
 
   // First line is the brand ("HexaArm"), second line is the model name.
@@ -74,74 +63,66 @@ const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, sp
   ) : null;
 
   return (
-    <article className={`bg-hexa-card border ${tone.border} rounded-xl p-8 flex min-h-[520px] flex-col relative overflow-hidden ${tone.shadow}`}>
-      <div className={`absolute inset-x-0 top-0 h-1 ${tone.bg}`}></div>
-      <div className="relative z-10 flex h-full flex-col">
-        <div className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg border ${tone.border} ${tone.bg}`}>
-          <Icon className={tone.text} size={24} />
-        </div>
-
-        <h4 className="text-2xl md:text-3xl font-display text-white mb-3 leading-tight min-h-[4rem] md:min-h-[4.5rem]">
+    <AccentRail
+      accent={accent}
+      icon={Icon}
+      eyebrow={eyebrow}
+      title={
+        <>
           {brand}
           <br />
           {model}
-        </h4>
-
-        {specs && (
-          <div className="space-y-3 mb-7 mt-3">
-            {specs.map((spec) => (
-              <div key={spec.label} className="flex justify-between gap-4 border-b border-white/10 pb-2 font-mono-plex text-sm">
-                <span className="text-gray-500">{spec.label}</span>
-                <span className="text-white text-right font-bold">{spec.value}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        <p className="text-gray-400 font-mono-plex text-base leading-relaxed mb-8 grow">{text}</p>
-
-        <div className="border-t border-white/10 pt-4 mb-6">
-          <span className="text-xs text-gray-500 uppercase font-mono-plex tracking-wider">{bottom}</span>
+        </>
+      }
+      titleClassName="text-2xl md:text-3xl leading-tight"
+      description={text}
+      descriptionClassName="text-base"
+      className="min-h-[520px]"
+      footer={
+        <div className="space-y-6">
+          <span className="block text-xs text-gray-500 uppercase font-mono-plex tracking-wider">{bottom}</span>
+          {action}
         </div>
-
-        {action}
-      </div>
-    </article>
+      }
+    >
+      {specs && (
+        <div className="space-y-3 mt-1">
+          {specs.map((spec) => (
+            <div key={spec.label} className="flex justify-between gap-4 border-b border-white/10 pb-2 font-mono-plex text-sm">
+              <span className="text-gray-500">{spec.label}</span>
+              <span className="text-white text-right font-bold">{spec.value}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </AccentRail>
   );
 };
 
 const SummaryCard: React.FC<SummaryCardProps> = ({ accent, icon: Icon, title, eyebrow, text, points, bottom }) => {
-  const tone = accentClasses[accent];
-
   return (
-    <article className={`bg-hexa-card/70 border ${tone.border} rounded-xl p-8 flex min-h-[520px] flex-col relative overflow-hidden`}>
-      <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
-      <div className="relative z-10 flex h-full flex-col">
-        <div className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg border ${tone.border} ${tone.bg}`}>
-          <Icon className={tone.text} size={24} />
-        </div>
-
-        <h4 className="text-2xl md:text-3xl font-display text-white mb-3 leading-tight min-h-[4rem] md:min-h-[4.5rem]">{title}</h4>
-        <p className={`text-xs font-mono-plex font-bold uppercase tracking-[0.2em] mb-6 ${tone.text}`}>{eyebrow}</p>
-
-        <p className="text-gray-400 font-mono-plex text-base leading-relaxed mb-8">{text}</p>
-
-        {points && (
-          <ul className="space-y-3 mb-8">
-            {points.map((point) => (
-              <li key={point} className="flex items-start text-gray-400 font-mono-plex text-sm">
-                <span className={`mr-3 mt-1 h-1.5 w-1.5 rounded-full ${tone.bg} border ${tone.border} shrink-0`}></span>
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        <div className="mt-auto border-t border-white/10 pt-4">
-          <span className="text-xs text-gray-500 uppercase font-mono-plex tracking-wider">{bottom}</span>
-        </div>
-      </div>
-    </article>
+    <AccentRail
+      accent={accent}
+      icon={Icon}
+      eyebrow={eyebrow}
+      title={title}
+      titleClassName="text-2xl md:text-3xl leading-tight"
+      description={text}
+      descriptionClassName="text-base"
+      className="min-h-[520px]"
+      footer={<span className="text-xs text-gray-500 uppercase font-mono-plex tracking-wider">{bottom}</span>}
+    >
+      {points && (
+        <ul className="space-y-3">
+          {points.map((point) => (
+            <li key={point} className="flex items-start text-gray-400 font-mono-plex text-sm">
+              <span className="mr-3 mt-1 h-1.5 w-1.5 rounded-full bg-white/80 shrink-0"></span>
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </AccentRail>
   );
 };
 

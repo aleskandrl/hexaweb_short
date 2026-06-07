@@ -25,7 +25,26 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'cyber-grid': "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')",
-      }
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        drift: {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '50%': { transform: 'translate(4%, -4%) scale(1.08)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '0% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        drift: 'drift 14s ease-in-out infinite',
+        shimmer: 'shimmer 6s linear infinite',
+      },
     },
   },
   plugins: [],
