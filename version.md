@@ -1,5 +1,13 @@
 # Version log
 
+## 0.0.7 — 2026-06-08
+
+- Removed decorative, CTA, navigation, FAQ, and social icons across the landing page per executive visual feedback.
+- Simplified `AccentRail` into a strictly text-first primitive without an icon slot.
+- Replaced icon affordances with typography, text labels, simple bullets, and `+` / `−` FAQ state symbols.
+- Removed the unused `lucide-react` dependency.
+- Startup version log and package metadata bumped `0.0.6` → `0.0.7`.
+
 ## 0.0.6 — 2026-06-07
 
 - Commented out the `AdoptionGap.tsx` chart and metric-card infographic block per boss feedback.

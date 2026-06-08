@@ -4,12 +4,12 @@ Hexakinetica marketing site — React 18 + TypeScript + Vite + TailwindCSS.
 
 ## Entry
 
-- `src/index.tsx` — mounts `<App />`, logs the running version to the browser console (`Hexakinetica v0.0.6`).
+- `src/index.tsx` — mounts `<App />`, logs the running version to the browser console (`Hexakinetica v0.0.7`).
 - `src/App.tsx` — composes the landing-page sections.
 
 ## Shared visual primitives
 
-- `src/components/AccentRail.tsx` — reusable text-first content primitive with a vertical accent line, top accent dot, optional icon, optional tag, optional footer, and configurable accent tone (`cyan`, `purple`, `green`, `white`). Icons and eyebrow labels are intentionally rendered in white; accent colors are limited to the rail, accent dot, and subtle supporting borders/backgrounds.
+- `src/components/AccentRail.tsx` — reusable text-first content primitive with a vertical accent line, top accent dot, optional tag, optional footer, and configurable accent tone (`cyan`, `purple`, `green`, `white`). The current executive visual revision intentionally removes the previous optional icon slot; accent colors are limited to the rail, accent dot, and subtle supporting borders/backgrounds.
 
 ## Sections (`src/components/`)
 
@@ -40,5 +40,6 @@ Imported directly into components and bundled by Vite. Naming convention: kebab-
 ## Visual language notes
 
 - Text-first sections now prefer `AccentRail` over solid rectangular cards.
+- The `0.0.7` executive revision is iconless: decorative content icons, CTA arrows, FAQ chevrons, social icons, and navigation icons are removed in favor of typography, accent rails, simple bullets, text labels, and text symbols.
 - Media-heavy elements such as screenshots, technical visuals, and chart panels may still use light framing to preserve hierarchy.
 - Sections refactored to this pattern include `AdoptionGap.tsx`, `ConnectedPlatform.tsx`, `BuiltAsOneSystem.tsx`, `OperatorSoftwareWorkflow.tsx`, `BuildAroundThePlatform.tsx`, `FrequentlyAsked.tsx`, `InitializeProtocol.tsx`, `SelectEnvironment.tsx`, and the text content area of `HexaCoreMotionArchitecture.tsx`.

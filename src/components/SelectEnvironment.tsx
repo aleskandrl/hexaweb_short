@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ArrowRight, Cpu, Github, Settings, Wrench, Zap } from 'lucide-react';
 import { GITHUB_URL } from '../siteLinks';
 import { AccentRail } from './AccentRail';
 
@@ -7,7 +6,6 @@ type PlatformDirection = 'maker' | 'pro';
 
 interface ProductCardProps {
   accent: 'cyan' | 'purple' | 'white';
-  icon: React.ElementType;
   title: string;
   eyebrow?: string;
   specs?: Array<{ label: string; value: string }>;
@@ -22,7 +20,6 @@ interface ProductCardProps {
 
 interface SummaryCardProps {
   accent: 'cyan' | 'purple' | 'white';
-  icon: React.ElementType;
   title: string;
   eyebrow: string;
   text: string;
@@ -42,7 +39,7 @@ const accentClasses = {
   },
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, eyebrow, specs, text, bottom, cta }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ accent, title, eyebrow, specs, text, bottom, cta }) => {
   const tone = accentClasses[accent];
 
   // First line is the brand ("HexaArm"), second line is the model name.
@@ -53,19 +50,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, ey
   const action = cta?.href ? (
     <a href={cta.href} target="_blank" rel="noopener noreferrer" className={actionClassName}>
       {cta.label}
-      <ArrowRight size={15} className="ml-2" />
     </a>
   ) : cta ? (
     <button type="button" onClick={cta.onClick} className={actionClassName}>
       {cta.label}
-      <ArrowRight size={15} className="ml-2" />
     </button>
   ) : null;
 
   return (
     <AccentRail
       accent={accent}
-      icon={Icon}
       eyebrow={eyebrow}
       title={
         <>
@@ -99,11 +93,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ accent, icon: Icon, title, ey
   );
 };
 
-const SummaryCard: React.FC<SummaryCardProps> = ({ accent, icon: Icon, title, eyebrow, text, points, bottom }) => {
+const SummaryCard: React.FC<SummaryCardProps> = ({ accent, title, eyebrow, text, points, bottom }) => {
   return (
     <AccentRail
       accent={accent}
-      icon={Icon}
       eyebrow={eyebrow}
       title={title}
       titleClassName="text-2xl md:text-3xl leading-tight"
@@ -143,14 +136,14 @@ export const SelectEnvironment: React.FC = () => {
             onClick={() => setActiveTab('maker')}
             className={`relative z-10 px-8 py-3 rounded-full font-display uppercase text-sm tracking-wider transition-all ${activeTab === 'maker' ? 'bg-transparent text-white border border-hexa-cyan/60 shadow-[0_0_15px_rgba(152,243,255,0.25)]' : 'text-gray-500 hover:text-white'}`}
           >
-            <span className="flex items-center"><Wrench size={16} className="mr-2" /> Maker Line</span>
+            <span>Maker Line</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('pro')}
             className={`relative z-10 px-8 py-3 rounded-full font-display uppercase text-sm tracking-wider transition-all ${activeTab === 'pro' ? 'bg-hexa-purple text-white shadow-[0_0_15px_rgba(140,82,255,0.4)]' : 'text-gray-500 hover:text-white'}`}
           >
-            <span className="flex items-center"><Settings size={16} className="mr-2" /> PRO Line</span>
+            <span>PRO Line</span>
           </button>
         </div>
       </div>
@@ -159,7 +152,6 @@ export const SelectEnvironment: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           <ProductCard
             accent="cyan"
-            icon={Github}
             title="HexaArm Mini M"
             eyebrow="Open Maker Platform"
             specs={[
@@ -174,7 +166,6 @@ export const SelectEnvironment: React.FC = () => {
 
           <ProductCard
             accent="cyan"
-            icon={Cpu}
             title="HexaArm Medium M"
             eyebrow="Hands-On Development"
             specs={[
@@ -189,7 +180,6 @@ export const SelectEnvironment: React.FC = () => {
 
           <SummaryCard
             accent="white"
-            icon={Wrench}
             title="Maker Line"
             eyebrow="Accessible Robotics Development"
             text="Built for users who want to understand, modify, and develop around robot arm hardware without starting from a traditional industrial automation stack."
@@ -206,7 +196,6 @@ export const SelectEnvironment: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           <ProductCard
             accent="purple"
-            icon={Settings}
             title="HexaArm Mini PRO"
             eyebrow="Compact PRO Direction"
             specs={[
@@ -221,7 +210,6 @@ export const SelectEnvironment: React.FC = () => {
 
           <ProductCard
             accent="purple"
-            icon={Cpu}
             title="HexaArm Medium PRO"
             eyebrow="PRO Development Platform"
             specs={[
@@ -236,7 +224,6 @@ export const SelectEnvironment: React.FC = () => {
 
           <ProductCard
             accent="purple"
-            icon={Zap}
             title="HexaArm Heavy PRO"
             eyebrow="PRO Line Concept"
             specs={[

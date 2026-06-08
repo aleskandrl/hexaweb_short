@@ -1,5 +1,4 @@
 import React from 'react';
-import { Cpu, Network, Monitor, ArrowRight, Orbit } from 'lucide-react';
 import ipcImg from '../assets/images/products/hexacore-cabinet.png';
 import { AccentRail } from './AccentRail';
 
@@ -26,7 +25,6 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                     {/* Badge */}
                     <AccentRail
                         accent="purple"
-                        icon={Cpu}
                         eyebrow="Controller Architecture"
                         title={<>HexaCore Motion <br /> Architecture</>}
                         titleClassName="text-3xl md:text-4xl leading-tight"
@@ -45,10 +43,9 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                     <div className="pt-4 mt-auto">
                         <button 
                             onClick={scrollToContact} 
-                            className="group flex items-center space-x-3 text-white font-mono-plex text-xs font-bold uppercase tracking-widest hover:text-hexa-purple transition-colors"
+                            className="text-white font-mono-plex text-xs font-bold uppercase tracking-widest hover:text-hexa-purple transition-colors"
                         >
                             <span className="border-b border-hexa-purple pb-1">See Platform Stack</span>
-                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform"/>
                         </button>
                     </div>
                 </div>
@@ -80,36 +77,24 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
             {/* Tech Specs Grid (Full Width) */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-16 lg:mt-24 w-full">
                 <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
-                        <Network className="text-white" size={18} />
-                    </div>
                     <div>
                         <h6 className="text-white font-display text-sm">EtherCAT Motion</h6>
                         <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Industrial Fieldbus</p>
                     </div>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
-                        <Orbit className="text-white" size={18} />
-                    </div>
                     <div>
                         <h6 className="text-white font-display text-sm">Simulation Bridge</h6>
                         <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Validation Workflow</p>
                     </div>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
-                        <Cpu className="text-white" size={18} />
-                    </div>
                     <div>
                         <h6 className="text-white font-display text-sm">Robot Control Runtime</h6>
                         <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Motion Execution</p>
                     </div>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div className="p-3 bg-gray-800/50 rounded-xl border border-gray-700 group-hover/item:border-white/50 transition-colors shadow-lg">
-                        <Monitor className="text-white" size={18} />
-                    </div>
                     <div>
                         <h6 className="text-white font-display text-sm">Operator Software</h6>
                         <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Configuration and Diagnostics</p>

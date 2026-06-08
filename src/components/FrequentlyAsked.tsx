@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const faqs = [
@@ -37,7 +36,9 @@ export const FrequentlyAsked: React.FC = () => {
                         className="w-full flex justify-between items-center pl-7 pr-2 py-6 text-left focus:outline-none"
                     >
                         <span className={`font-display text-base md:text-lg ${openIndex === idx ? 'text-hexa-purple' : 'text-white'}`}>{faq.q}</span>
-                        {openIndex === idx ? <ChevronUp className="text-hexa-purple" /> : <ChevronDown className="text-gray-500" />}
+                        <span className={`ml-6 font-display text-2xl leading-none ${openIndex === idx ? 'text-hexa-purple' : 'text-gray-500'}`}>
+                            {openIndex === idx ? '−' : '+'}
+                        </span>
                     </button>
                     <div className={`pl-7 pr-8 pb-6 text-gray-400 font-mono-plex text-base leading-relaxed pt-1 ${openIndex === idx ? 'block' : 'hidden'}`}>
                         {faq.a}

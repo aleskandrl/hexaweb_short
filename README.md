@@ -8,8 +8,7 @@ Single-page React/Vite landing page for Hexakinetica — an open-architecture in
 - TypeScript
 - Vite
 - Tailwind CSS
-- lucide-react icons
-- Recharts for the market chart
+- Text-first, iconless visual system
 
 ## Local development
 

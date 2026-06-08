@@ -1,5 +1,4 @@
 import React from 'react';
-import { Linkedin, Youtube, Heart, Github, Mail } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_MAILTO, GITHUB_URL, LINKEDIN_URL, WAITLIST_URL, YOUTUBE_URL } from '../siteLinks';
 
 export const Footer: React.FC = () => {
@@ -16,11 +15,11 @@ export const Footer: React.FC = () => {
             <p className="text-gray-500 text-sm leading-relaxed font-mono-plex">
               A next-gen robotics ecosystem developing robot arm hardware, motion control, operator software, simulation, and engineering documentation.
             </p>
-            <div className="flex space-x-4">
-              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica GitHub" className="text-gray-500 hover:text-white transition-colors"><Github size={20} /></a>
-              <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica YouTube" className="text-gray-500 hover:text-white transition-colors"><Youtube size={20} /></a>
-              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica LinkedIn" className="text-gray-500 hover:text-white transition-colors"><Linkedin size={20} /></a>
-              <a href={CONTACT_MAILTO} aria-label="Email Hexakinetica" className="text-gray-500 hover:text-white transition-colors"><Mail size={20} /></a>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-widest font-mono-plex">
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">GitHub</a>
+              <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">YouTube</a>
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">LinkedIn</a>
+              <a href={CONTACT_MAILTO} className="text-gray-500 hover:text-white transition-colors">Email</a>
             </div>
           </div>
 
@@ -52,7 +51,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono-plex">
-          <p className="flex items-center">&copy; {new Date().getFullYear()} Hexakinetica. Built with <Heart size={12} className="mx-1 text-red-500" /> by the community.</p>
+          <p>&copy; {new Date().getFullYear()} Hexakinetica. Built by the community.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">Development</a>
             <a href={CONTACT_MAILTO} className="hover:text-white">Contact</a>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight, Terminal } from 'lucide-react';
 import { GITHUB_URL } from '../siteLinks';
 import hexaArmNew from '../assets/images/hero/hexaarm-new.png';
 
@@ -45,7 +44,6 @@ export const Hero: React.FC = () => {
                 className="bg-hexa-purple text-white px-8 py-4 font-mono-plex font-bold uppercase text-sm hover:bg-purple-600 transition-all shadow-[0_0_20px_rgba(140,82,255,0.4)] hover:shadow-[0_0_30px_rgba(140,82,255,0.6)] flex items-center group rounded-md"
               >
                 Explore The Ecosystem
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </button>
               <a 
                 href={GITHUB_URL}
@@ -53,7 +51,6 @@ export const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-hexa-cyan/50 text-white font-mono-plex font-bold uppercase text-sm hover:bg-white/10 transition-all flex items-center rounded-md"
               >
-                <Terminal size={16} className="mr-2" />
                 View on GitHub
               </a>
             </div>

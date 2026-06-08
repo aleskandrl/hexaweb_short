@@ -16,7 +16,7 @@ import { OperatorSoftwareWorkflow } from './components/OperatorSoftwareWorkflow'
 import { Reveal } from './components/Reveal';
 import { WAITLIST_URL } from './siteLinks';
 
-// Импорт локального ассета
+// Local visual texture asset.
 import carbonPattern from './assets/images/textures/carbon.png';
 
 const App: React.FC = () => {
@@ -26,12 +26,12 @@ const App: React.FC = () => {
       
       <main className="flex-grow">
         
-        {/* === ВСТУПЛЕНИЕ: ЗАЯВЛЕНИЕ О СЕБЕ === */}
+        {/* === INTRODUCTION: POSITIONING STATEMENT === */}
         <div id="hero">
           <Hero />
         </div>
         
-        {/* Краткий блок с ключевыми тезисами для задания тона */}
+        {/* Short proof-point strip that sets the tone. */}
         <div className="bg-[#0f0a1e] border-y border-hexa-purple/20 py-12 relative overflow-hidden">
           <div 
             className="absolute inset-0 opacity-10"
@@ -53,23 +53,23 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* === ЧАСТЬ 1: ПРОБЛЕМА, КОТОРУЮ МЫ РЕШАЕМ === */}
+        {/* === PART 1: THE PROBLEM WE SOLVE === */}
         <div id="market">
           <AdoptionGap />
         </div>
 
-        {/* === ЧАСТЬ 2: НАШЕ РЕШЕНИЕ (ЭКОСИСТЕМА) === */}
+        {/* === PART 2: OUR SOLUTION, THE ECOSYSTEM === */}
         <div id="products">
           <HexakineticaPlatform />
         </div>
         <ConnectedPlatform />
         
-        {/* === ЧАСТЬ 3: КАК ЭТО РАБОТАЕТ (ТЕХНИЧЕСКИЕ ДЕТАЛИ) === */}
+        {/* === PART 3: HOW IT WORKS, TECHNICAL DETAILS === */}
         <OperatorSoftwareWorkflow />
         <BuiltAsOneSystem />
         <BuiltUponIndustrialOpenStandards />
 
-        {/* === ЧАСТЬ 4: НАШЕ ВИДЕНИЕ И КОМАНДА === */}
+        {/* === PART 4: VISION AND TEAM === */}
         <div id="timeline">
           <ExecutionRoadmap />
         </div>
@@ -77,14 +77,14 @@ const App: React.FC = () => {
           <FocusedEngineering /> 
         </div>
         
-        {/* === ЧАСТЬ 5: ПРИЗЫВ К ДЕЙСТВИЮ === */}
+        {/* === PART 5: CALL TO ACTION === */}
         
         <div id="pricing">
           <BuildAroundThePlatform />
         </div>
         <FrequentlyAsked />
         
-        {/* Финальный призыв присоединиться к движению */}
+        {/* Final invitation to join the movement. */}
         <section className="py-24 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-hexa-purple to-purple-900 opacity-20"></div>
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/40 via-black/0 to-black/0"></div>

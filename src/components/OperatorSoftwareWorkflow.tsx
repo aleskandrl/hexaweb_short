@@ -1,8 +1,7 @@
 import React from 'react';
-import { Cpu, Activity, Zap, Settings } from 'lucide-react';
 import { AccentRail } from './AccentRail';
 import { Reveal } from './Reveal';
-// Убедитесь, что ваше изображение HMI находится по этому пути
+// HexaStudio HMI visual used to anchor the software workflow section.
 import hmiImg from '../assets/images/products/HexaStudio-HMI.png';
 
 export const OperatorSoftwareWorkflow: React.FC = () => {
@@ -10,14 +9,11 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
     <section className="py-24 bg-hexa-bg relative overflow-hidden border-b border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* 
-          ИЗМЕНЕНИЕ: Сетка теперь не 1:1, а 2:3, отдавая больше места изображению.
-          Вместо 'lg:grid-cols-2' используется 'lg:grid-cols-5'.
-        */}
-        {/* Верхний блок: текст + изображение в две колонки */}
+        {/* The grid gives more width to the product interface visual than to the explanatory copy. */}
+        {/* Top block: text and image in two columns. */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
 
-          {/* Текстовая колонка теперь занимает 2/5 ширины на больших экранах */}
+          {/* Text column uses two fifths of the large-screen width. */}
           <Reveal className="order-2 lg:order-1 lg:col-span-2">
              <div className="mb-6">
                  <span className="text-hexa-purple font-mono-plex font-bold uppercase text-sm tracking-widest">Software Layer</span>
@@ -36,7 +32,7 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
              </p>
           </Reveal>
 
-          {/* Колонка с изображением теперь занимает 3/5 ширины */}
+          {/* Image column uses three fifths of the large-screen width. */}
           <div className="relative group order-1 lg:order-2 lg:col-span-3">
 
              {/* Background Glow */}
@@ -58,7 +54,6 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
             <Reveal delay={0}>
               <AccentRail
                 accent="cyan"
-                icon={Settings}
                 eyebrow="Operator Workflow"
                 title="Configuration"
                 titleClassName="text-xl"
@@ -69,7 +64,6 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
             <Reveal delay={80}>
               <AccentRail
                 accent="white"
-                icon={Zap}
                 eyebrow="Operator Workflow"
                 title="Motion Commands"
                 titleClassName="text-xl"
@@ -80,7 +74,6 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
             <Reveal delay={160}>
               <AccentRail
                 accent="purple"
-                icon={Cpu}
                 eyebrow="Operator Workflow"
                 title="Controller Interface"
                 titleClassName="text-xl"
@@ -91,7 +84,6 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
             <Reveal delay={240}>
               <AccentRail
                 accent="green"
-                icon={Activity}
                 eyebrow="Operator Workflow"
                 title="Monitoring"
                 titleClassName="text-xl"

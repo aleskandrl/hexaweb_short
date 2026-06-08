@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Menu, X, Github } from 'lucide-react';
 import { GITHUB_URL } from '../siteLinks';
 
 import logoImg from '../assets/images/ui/logo-nav.png';
@@ -34,7 +33,7 @@ export const Navbar: React.FC = () => {
             aria-label="Scroll to hero section"
           >
              <div className="relative mr-1 transition-transform group-hover:scale-105 duration-300">
-                {/* Эффект свечения оставляем, он красиво смотрится под логотипом */}
+                {/* The glow effect remains because it supports the brand mark without adding icon clutter. */}
                 <div className="absolute inset-0 bg-hexa-purple blur-2xl opacity-20 group-hover:opacity-50 transition-opacity rounded-full"></div>
                 
                 {/* Brand logo image */}
@@ -70,9 +69,9 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Icons */}
+          {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Open Hexakinetica GitHub" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors font-mono-plex text-xs uppercase tracking-widest">GitHub</a>
             <button 
               onClick={() => scrollToSection('contact')}
               className="bg-transparent border border-hexa-purple text-hexa-purple px-6 py-2 font-mono-plex text-xs uppercase tracking-wider hover:bg-hexa-purple hover:text-white transition-all shadow-[0_0_10px_rgba(140,82,255,0.3)] hover:shadow-[0_0_20px_rgba(140,82,255,0.6)] active:scale-95"
@@ -91,7 +90,9 @@ export const Navbar: React.FC = () => {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
             >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              <span className="font-mono-plex text-xs font-bold uppercase tracking-widest">
+                {isMenuOpen ? 'Close' : 'Menu'}
+              </span>
             </button>
           </div>
         </div>

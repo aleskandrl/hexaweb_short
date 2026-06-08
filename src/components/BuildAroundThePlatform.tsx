@@ -1,5 +1,4 @@
 import React from 'react';
-import { Check, Shield, Zap, Rocket, ArrowRight } from 'lucide-react';
 import { WAITLIST_URL } from '../siteLinks';
 import { AccentRail } from './AccentRail';
 import { Reveal } from './Reveal';
@@ -25,7 +24,6 @@ export const BuildAroundThePlatform: React.FC = () => {
            {/* Early Adopter / Maker Tier */}
            <AccentRail
               accent="cyan"
-              icon={Rocket}
               eyebrow="For Makers, Educators & Labs"
               title="Early Access"
               titleClassName="uppercase text-3xl"
@@ -40,21 +38,19 @@ export const BuildAroundThePlatform: React.FC = () => {
                   className="inline-flex w-full items-center justify-center border border-hexa-cyan/60 py-4 text-sm font-bold uppercase text-white font-mono-plex transition-all"
                 >
                   Join Waitlist!
-                  <ArrowRight size={16} className="ml-2"/>
                 </a>
               }
            >
               <ul className="space-y-3">
-                  <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-white mr-3 mt-1 shrink-0"/> <span>Development updates and early materials</span></li>
-                  <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-white mr-3 mt-1 shrink-0"/> <span>Maker line feedback opportunities</span></li>
-                  <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-white mr-3 mt-1 shrink-0"/> <span>Future hardware availability notifications</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/80"></span><span>Development updates and early materials</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/80"></span><span>Maker line feedback opportunities</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/80"></span><span>Future hardware availability notifications</span></li>
               </ul>
            </AccentRail>
 
            {/* Strategic Partner / Investor Tier */}
            <AccentRail
               accent="purple"
-              icon={Shield}
               eyebrow="For Organizations & Partners"
               title="Pilot Inquiry"
               titleClassName="uppercase text-3xl"
@@ -66,14 +62,13 @@ export const BuildAroundThePlatform: React.FC = () => {
                   className="inline-flex w-full items-center justify-center border border-hexa-purple py-4 text-sm font-bold uppercase text-hexa-purple font-mono-plex transition-all hover:bg-hexa-purple hover:text-white"
                 >
                   Contact Us
-                  <Zap size={16} className="ml-2"/>
                 </button>
               }
            >
               <ul className="space-y-3">
-                  <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-purple mr-3 mt-1 shrink-0"/> <span>Platform and validation discussion</span></li>
-                  <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-purple mr-3 mt-1 shrink-0"/> <span>Education, lab, or prototype use cases</span></li>
-                  <li className="flex items-start text-gray-400 text-base"><Check size={16} className="text-hexa-purple mr-3 mt-1 shrink-0"/> <span>Early automation development feedback</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-purple"></span><span>Platform and validation discussion</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-purple"></span><span>Education, lab, or prototype use cases</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-purple"></span><span>Early automation development feedback</span></li>
               </ul>
            </AccentRail>
         </div>

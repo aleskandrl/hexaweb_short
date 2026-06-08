@@ -11,6 +11,8 @@
 - **R24** — The chart and metric-card comparison block inside `AdoptionGap.tsx` MAY be commented out entirely when executive presentation should avoid the dense infographic section.
 - **R25** — UI revision version `0.0.6` MUST update both package metadata and startup console logging to `Hexakinetica v0.0.6`.
 - **R26** — Requirement `R25` supersedes `R22` for the current active build while preserving `R22` as the previous visual revision baseline.
+- **R28** — UI revision version `0.0.7` MUST update both package metadata and startup console logging to `Hexakinetica v0.0.7`.
+- **R29** — Requirement `R28` supersedes `R25` for the current active build while preserving `R25` as the previous visual revision baseline.
 
 ## Visible mechanics proof
 
@@ -40,3 +42,4 @@
 - **R18** — In the `AccentRail` visual pattern, the top eyebrow labels and the icons MUST render in white for consistent executive presentation; accent colors may remain only in the vertical rail, accent dot, and subtle borders/backgrounds.
 - **R19** — UI revision version `0.0.4` MUST update both package metadata and startup console logging to `Hexakinetica v0.0.4`.
 - **R20** — Requirement `R19` supersedes `R16` for the current active build while preserving `R16` as the previous visual revision baseline.
+- **R27** — The current executive visual revision MUST remove decorative, CTA, navigation, FAQ, and social icon components from the landing page. Functional affordances MUST remain understandable through text labels, accent rails, simple bullets, or text symbols.

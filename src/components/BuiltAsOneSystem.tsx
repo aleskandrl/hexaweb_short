@@ -1,5 +1,4 @@
 import React from 'react';
-import { Cpu, ShieldCheck, Network, Settings2, Server, Activity, Database } from 'lucide-react';
 import { AccentRail } from './AccentRail';
 import { Reveal } from './Reveal';
 import servoBlueprintImg from '../assets/images/products/servo-gear-blueprint.png';
@@ -37,7 +36,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                 {/* The Brain */}
                 <AccentRail
                     accent="cyan"
-                    icon={Server}
                     eyebrow="Development Workflow"
                     title="CAD and Motion Model"
                     description="CAD is used as the central source for mechanical layout, robot geometry, simulation models, and prototype development."
@@ -58,8 +56,7 @@ export const BuiltAsOneSystem: React.FC = () => {
                 {/* The Bridge */}
                 <div className="flex flex-col items-center justify-center -my-4 relative z-10">
                     <div className="bg-hexa-bg border border-hexa-purple/50 p-2 px-4 rounded-full text-center shadow-[0_0_15px_rgba(140,82,255,0.2)]">
-                        <div className="flex items-center space-x-2 text-hexa-purple">
-                            <Database size={14} />
+                        <div className="text-hexa-purple">
                             <span className="text-xs font-bold uppercase tracking-widest font-mono-plex">Software and Controller Loop</span>
                         </div>
                     </div>
@@ -69,7 +66,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                 {/* The Spinal Cord */}
                 <AccentRail
                     accent="green"
-                    icon={Activity}
                     eyebrow="Validation Loop"
                     title="Physical Validation Prototype"
                     description="Physical prototypes are used to test actuator behavior, controller logic, motion performance, and platform assumptions on real hardware."
@@ -112,7 +108,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                 <div className="space-y-10">
                     <AccentRail
                         accent="purple"
-                        icon={Cpu}
                         eyebrow="System Control Layer"
                         title="Control Runtime Architecture"
                         description="Motion execution, device communication, I/O, and controller behavior are developed as one system layer."
@@ -121,7 +116,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                     />
                     <AccentRail
                         accent="green"
-                        icon={Network}
                         eyebrow="Industrial Actuator Integration"
                         title="EtherCAT Motion Bus"
                         description="EtherCAT is used for larger configurations, industrial servo drives, distributed I/O, and cabinet-based actuator integration."
@@ -130,7 +124,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                     />
                     <AccentRail
                         accent="white"
-                        icon={ShieldCheck}
                         eyebrow="Platform Coordination"
                         title="Validation and Integration Workflow"
                         description="Controller behavior, actuator response, operator commands, and hardware feedback are tested together."
@@ -139,7 +132,6 @@ export const BuiltAsOneSystem: React.FC = () => {
                     />
                     <AccentRail
                         accent="cyan"
-                        icon={Settings2}
                         eyebrow="Configuration and Testing"
                         title="Operator Software Integration"
                         description="HexaStudio supports robot setup, jogging, motion commands, controller communication, monitoring, and test workflows."
@@ -153,6 +145,7 @@ export const BuiltAsOneSystem: React.FC = () => {
     </section>
   );
 };
+
 
 
 

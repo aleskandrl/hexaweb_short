@@ -1,5 +1,4 @@
 import React from 'react';
-import { Code, Globe, RefreshCcw, GitMerge, Wrench, LucideIcon } from 'lucide-react';
 import axis5ReducerImg from '../assets/images/products/axis-5-reducer.png';
 import { AccentRail } from './AccentRail';
 import { Reveal } from './Reveal';
@@ -7,7 +6,6 @@ import { Reveal } from './Reveal';
 // --- Types ---
 interface Feature {
   id: string;
-  icon: LucideIcon;
   title: string;
   description: string;
   className?: string;
@@ -19,7 +17,6 @@ interface Feature {
 const FEATURES: Feature[] = [
   {
     id: "01",
-    icon: Code,
     title: "Visible Architecture",
     description: "The platform is designed to be understandable: mechanics, controller logic, motor communication, software, and simulation are presented as one connected system.",
     className: "md:col-span-5",
@@ -28,7 +25,6 @@ const FEATURES: Feature[] = [
   },
   {
     id: "02",
-    icon: Wrench,
     title: "PRO Motion Stack",
     description: "The PRO direction is built around practical motion-control components: industrial IPC hardware, EtherCAT motion control, servo drives, motor interfaces, I/O, and cabinet-based control architecture.",
     className: "md:col-span-4", 
@@ -36,7 +32,6 @@ const FEATURES: Feature[] = [
   },
   {
     id: "03",
-    icon: RefreshCcw,
     title: "Simulation-to-Hardware Workflow",
     description: "CAD, simulation, controller logic, and physical prototypes are developed together so motion behavior can be tested before and alongside real hardware.",
     className: "md:col-span-4",
@@ -44,7 +39,6 @@ const FEATURES: Feature[] = [
   },
   {
     id: "04",
-    icon: Globe,
     title: "Engineering Documentation",
     description: "The platform direction includes clear documentation for system architecture, interfaces, hardware decisions, software workflow, and development materials shared with early users.",
     className: "md:col-span-4",
@@ -61,10 +55,9 @@ const featureAccentById: Record<string, 'cyan' | 'purple' | 'green' | 'white'> =
 
 // --- Components ---
 
-const BentoCard: React.FC<Feature> = ({ id, icon: Icon, title, description, className, image }) => (
+const BentoCard: React.FC<Feature> = ({ id, title, description, className, image }) => (
   <AccentRail
     accent={featureAccentById[id] ?? 'white'}
-    icon={Icon}
     eyebrow={`Feature ${id}`}
     title={title}
     description={description}
@@ -88,7 +81,6 @@ const BentoCard: React.FC<Feature> = ({ id, icon: Icon, title, description, clas
 const MainCard: React.FC = () => (
   <AccentRail
     accent="cyan"
-    icon={GitMerge}
     eyebrow="Flagship Feature"
     title="Unified Platform Core"
     titleClassName="text-2xl md:text-3xl tracking-wide"

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Mail, Github, Youtube, Linkedin } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_MAILTO, GITHUB_URL, LINKEDIN_URL, YOUTUBE_URL } from '../siteLinks';
 import contactBg from '../assets/images/backgrounds/contact_bg.jpg';
 import { AccentRail } from './AccentRail';
@@ -33,7 +32,6 @@ export const InitializeProtocol: React.FC = () => {
 
             <AccentRail
                 accent="purple"
-                icon={Mail}
                 eyebrow="Direct Line"
                 title={CONTACT_EMAIL}
                 titleClassName="text-2xl md:text-3xl"
@@ -47,7 +45,6 @@ export const InitializeProtocol: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                 <AccentRail
                     accent="white"
-                    icon={Github}
                     eyebrow="Channel"
                     title="GitHub"
                     titleClassName="text-xl uppercase"
@@ -58,7 +55,6 @@ export const InitializeProtocol: React.FC = () => {
 
                 <AccentRail
                     accent="cyan"
-                    icon={Youtube}
                     eyebrow="Channel"
                     title="YouTube"
                     titleClassName="text-xl uppercase"
@@ -69,7 +65,6 @@ export const InitializeProtocol: React.FC = () => {
 
                 <AccentRail
                     accent="purple"
-                    icon={Linkedin}
                     eyebrow="Channel"
                     title="LinkedIn"
                     titleClassName="text-xl uppercase"
