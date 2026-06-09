@@ -6,13 +6,13 @@ export const ExecutionRoadmap: React.FC = () => {
   return (
     <section id="timeline" className="py-24 bg-hexa-bg relative overflow-hidden">
       {/* Background Line */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-hexa-purple/30 to-transparent hidden md:block"></div>
+      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-hexa-cyan/30 to-transparent hidden md:block"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Reveal className="text-left mb-20">
            <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4">The Development Plan</h2>
            <h3 className="font-display text-3xl md:text-5xl text-white uppercase">
-             Execution <span className="text-hexa-purple">Roadmap</span>
+             Execution <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">Roadmap</span>
            </h3>
         </Reveal>
 
@@ -35,10 +35,10 @@ export const ExecutionRoadmap: React.FC = () => {
 
             {/* 2025-2026 Active R&D */}
             <div className="flex flex-col md:flex-row items-center justify-between w-full relative">
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1 bg-gradient-to-r from-transparent via-hexa-purple/20 to-transparent blur-xl"></div>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1 bg-gradient-to-r from-transparent via-hexa-cyan/20 to-transparent blur-xl"></div>
 
                 <div className="w-full md:w-5/12 pr-8 order-2 md:order-1 hidden md:block"></div>
-                <div className="w-16 h-16 bg-gradient-to-br from-hexa-purple to-hexa-cyan rounded-full flex items-center justify-center z-10 order-1 md:order-2 mb-4 md:mb-0 shadow-[0_0_30px_rgba(140,82,255,0.8)]">
+                <div className="w-16 h-16 bg-gradient-to-br from-hexa-purple to-hexa-cyan rounded-full flex items-center justify-center z-10 order-1 md:order-2 mb-4 md:mb-0 shadow-[0_0_30px_rgba(152,243,255,0.35)]">
                     <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
                          <span className="text-[10px] font-bold text-white">2025-26</span>
                     </div>
@@ -62,8 +62,8 @@ export const ExecutionRoadmap: React.FC = () => {
                         Deploying the first HexaArm pilot: integrating the physical manipulator, controller cabinets, and real-world automation use cases.
                     </p>
                 </div>
-                <div className="w-12 h-12 bg-hexa-bg border-2 border-hexa-purple rounded-full flex items-center justify-center z-10 order-1 md:order-2 mb-4 md:mb-0 group-hover:bg-hexa-purple transition-colors shadow-[0_0_15px_rgba(140,82,255,0.3)]">
-                    <span className="text-xs font-bold text-hexa-purple group-hover:text-white">2026</span>
+                <div className="w-12 h-12 bg-hexa-bg border-2 border-white/60 rounded-full flex items-center justify-center z-10 order-1 md:order-2 mb-4 md:mb-0 group-hover:bg-white/10 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.16)]">
+                    <span className="text-xs font-bold text-white">2026</span>
                 </div>
                 <div className="w-full md:w-5/12 pl-8 order-3 md:order-3 opacity-50 hidden md:block"></div>
             </div>

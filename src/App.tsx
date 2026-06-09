@@ -43,7 +43,7 @@ const App: React.FC = () => {
                 <span className="text-sm uppercase font-bold text-gray-400 tracking-widest font-mono-plex">Source Architecture</span>
             </Reveal>
             <Reveal delay={120} className="group cursor-default">
-                <span className="block text-4xl font-display text-hexa-purple group-hover:scale-110 transition-transform duration-300">100%</span>
+                <span className="block text-4xl font-display text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan group-hover:scale-110 transition-transform duration-300">100%</span>
                 <span className="text-sm uppercase font-bold text-gray-400 tracking-widest font-mono-plex">Hackable</span>
             </Reveal>
             <Reveal delay={240} className="group cursor-default">
@@ -101,7 +101,7 @@ const App: React.FC = () => {
                   href={WAITLIST_URL} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-transparent text-white border border-hexa-cyan/60 px-10 py-4 font-mono-plex font-bold uppercase text-sm hover:bg-transparent hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] inline-block"
+                  className="bg-transparent text-white border border-white/60 px-10 py-4 font-mono-plex font-bold uppercase text-sm hover:bg-white/10 hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] inline-block"
                 >
                    Join Early Access
                 </a>

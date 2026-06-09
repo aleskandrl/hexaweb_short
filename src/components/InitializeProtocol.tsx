@@ -36,7 +36,7 @@ export const InitializeProtocol: React.FC = () => {
                 title={CONTACT_EMAIL}
                 titleClassName="text-2xl md:text-3xl"
                 footer={
-                    <a href={CONTACT_MAILTO} className="inline-flex items-center border border-hexa-purple/50 px-6 py-3 text-white transition-all hover:bg-hexa-purple hover:text-white">
+                    <a href={CONTACT_MAILTO} className="inline-flex items-center border border-white/60 bg-transparent px-6 py-3 text-white transition-all hover:bg-white/10">
                         Send Email
                     </a>
                 }

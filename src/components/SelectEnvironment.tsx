@@ -29,13 +29,13 @@ interface SummaryCardProps {
 
 const accentClasses = {
   cyan: {
-    button: 'bg-transparent text-white border border-hexa-cyan/60 hover:bg-transparent',
+    button: 'bg-transparent text-white border border-white/60 hover:bg-white/10',
   },
   purple: {
-    button: 'bg-hexa-purple text-white hover:bg-purple-600',
+    button: 'bg-transparent text-white border border-white/60 hover:bg-white/10',
   },
   white: {
-    button: 'bg-transparent text-white border border-hexa-cyan/60 hover:bg-transparent',
+    button: 'bg-transparent text-white border border-white/60 hover:bg-white/10',
   },
 };
 
@@ -134,14 +134,14 @@ export const SelectEnvironment: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveTab('maker')}
-            className={`relative z-10 px-8 py-3 rounded-full font-display uppercase text-sm tracking-wider transition-all ${activeTab === 'maker' ? 'bg-transparent text-white border border-hexa-cyan/60 shadow-[0_0_15px_rgba(152,243,255,0.25)]' : 'text-gray-500 hover:text-white'}`}
+            className={`relative z-10 px-8 py-3 rounded-full font-display uppercase text-sm tracking-wider transition-all ${activeTab === 'maker' ? 'bg-transparent text-white border border-white/60 shadow-[0_0_15px_rgba(255,255,255,0.16)]' : 'bg-transparent text-white/60 hover:bg-white/10 hover:text-white'}`}
           >
             <span>Maker Line</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('pro')}
-            className={`relative z-10 px-8 py-3 rounded-full font-display uppercase text-sm tracking-wider transition-all ${activeTab === 'pro' ? 'bg-hexa-purple text-white shadow-[0_0_15px_rgba(140,82,255,0.4)]' : 'text-gray-500 hover:text-white'}`}
+            className={`relative z-10 px-8 py-3 rounded-full font-display uppercase text-sm tracking-wider transition-all ${activeTab === 'pro' ? 'bg-transparent text-white border border-white/60 shadow-[0_0_15px_rgba(255,255,255,0.16)]' : 'bg-transparent text-white/60 hover:bg-white/10 hover:text-white'}`}
           >
             <span>PRO Line</span>
           </button>

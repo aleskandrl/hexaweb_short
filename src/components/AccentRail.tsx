@@ -18,23 +18,23 @@ interface AccentRailProps {
 
 const accentToneMap: Record<AccentTone, { line: string; dot: string; eyebrow: string }> = {
   cyan: {
-    line: 'bg-gradient-to-b from-hexa-cyan via-hexa-cyan/70 to-transparent',
-    dot: 'bg-hexa-cyan shadow-[0_0_20px_rgba(152,243,255,0.45)]',
+    line: 'bg-gradient-to-b from-hexa-cyan/85 via-hexa-cyan/40 to-transparent',
+    dot: 'bg-hexa-cyan/90 shadow-[0_0_12px_rgba(152,243,255,0.28)]',
     eyebrow: 'text-white',
   },
   purple: {
-    line: 'bg-gradient-to-b from-hexa-purple via-hexa-purple/70 to-transparent',
-    dot: 'bg-hexa-purple shadow-[0_0_20px_rgba(140,82,255,0.45)]',
+    line: 'bg-gradient-to-b from-white/90 via-white/35 to-transparent',
+    dot: 'bg-white/90 shadow-[0_0_10px_rgba(255,255,255,0.22)]',
     eyebrow: 'text-white',
   },
   green: {
-    line: 'bg-gradient-to-b from-green-500 via-green-500/70 to-transparent',
-    dot: 'bg-green-500 shadow-[0_0_20px_rgba(34,197,94,0.4)]',
+    line: 'bg-gradient-to-b from-hexa-cyan/80 via-hexa-cyan/35 to-transparent',
+    dot: 'bg-hexa-cyan/90 shadow-[0_0_12px_rgba(152,243,255,0.24)]',
     eyebrow: 'text-white',
   },
   white: {
-    line: 'bg-gradient-to-b from-white via-white/55 to-transparent',
-    dot: 'bg-white shadow-[0_0_18px_rgba(255,255,255,0.35)]',
+    line: 'bg-gradient-to-b from-white/90 via-white/35 to-transparent',
+    dot: 'bg-white/90 shadow-[0_0_10px_rgba(255,255,255,0.22)]',
     eyebrow: 'text-white',
   },
 };
@@ -55,9 +55,9 @@ export const AccentRail: React.FC<AccentRailProps> = ({
   const tone = accentToneMap[accent];
 
   return (
-    <article className={`relative pl-7 ${className}`}>
-      <div className={`pointer-events-none absolute left-0 top-1 bottom-1 w-px ${tone.line}`}></div>
-      <div className={`pointer-events-none absolute -left-[4px] top-1 h-2.5 w-2.5 rounded-full ${tone.dot}`}></div>
+    <article className={`relative pl-6 ${className}`}>
+      <div className={`pointer-events-none absolute left-0 top-1.5 bottom-1.5 w-[0.5px] ${tone.line}`}></div>
+      <div className={`pointer-events-none absolute -left-[3px] top-1.5 h-2 w-2 rounded-full ${tone.dot}`}></div>
 
       <div className="flex items-start justify-between gap-4">
         <div className="flex min-w-0 items-start">

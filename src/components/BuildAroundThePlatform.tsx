@@ -12,7 +12,7 @@ export const BuildAroundThePlatform: React.FC = () => {
     <section className="py-24 bg-hexa-bg relative border-t border-gray-900" id="pricing">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-left mb-16">
-           <h2 className="text-hexa-purple font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-2">Early Access</h2>
+           <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-2">Early Access</h2>
            <h3 className="font-display text-3xl md:text-5xl text-white uppercase">Build Around The <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">Platform</span></h3>
            <p className="mt-4 text-gray-400 font-mono-plex max-w-xl text-base md:text-lg">
                Hexakinetica is in active development and validation. Join the audience or contact us to discuss education, prototyping, validation, or automation use cases.
@@ -35,7 +35,7 @@ export const BuildAroundThePlatform: React.FC = () => {
                   href={WAITLIST_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center border border-hexa-cyan/60 py-4 text-sm font-bold uppercase text-white font-mono-plex transition-all"
+                  className="inline-flex w-full items-center justify-center border border-white/60 bg-transparent py-4 text-sm font-bold uppercase text-white font-mono-plex transition-all hover:bg-white/10"
                 >
                   Join Waitlist!
                 </a>
@@ -59,16 +59,16 @@ export const BuildAroundThePlatform: React.FC = () => {
               footer={
                 <button 
                   onClick={scrollToContact} 
-                  className="inline-flex w-full items-center justify-center border border-hexa-purple py-4 text-sm font-bold uppercase text-hexa-purple font-mono-plex transition-all hover:bg-hexa-purple hover:text-white"
+                  className="inline-flex w-full items-center justify-center border border-white/60 bg-transparent py-4 text-sm font-bold uppercase text-white font-mono-plex transition-all hover:bg-white/10"
                 >
                   Contact Us
                 </button>
               }
            >
               <ul className="space-y-3">
-                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-purple"></span><span>Platform and validation discussion</span></li>
-                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-purple"></span><span>Education, lab, or prototype use cases</span></li>
-                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-purple"></span><span>Early automation development feedback</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-cyan/80"></span><span>Platform and validation discussion</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-cyan/80"></span><span>Education, lab, or prototype use cases</span></li>
+                  <li className="flex items-start text-gray-400 text-base"><span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-hexa-cyan/80"></span><span>Early automation development feedback</span></li>
               </ul>
            </AccentRail>
         </div>

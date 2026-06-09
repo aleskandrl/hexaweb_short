@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
             </h1>
             
             {/*
-            <p className="text-lg text-gray-400 font-mono-plex max-w-xl leading-relaxed border-l-2 border-hexa-purple pl-6">
+            <p className="text-lg text-gray-400 font-mono-plex max-w-xl leading-relaxed border-l-2 border-white/30 pl-6">
               Industrial robots are designed for the 10% of the most complex tasks, but sold for 90% of the simplest. We are fixing this by offering an accessible and simple tool built for real work.
             </p>
             */}
@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-4 pt-4">
               <button 
                 onClick={scrollToProducts}
-                className="bg-hexa-purple text-white px-8 py-4 font-mono-plex font-bold uppercase text-sm hover:bg-purple-600 transition-all shadow-[0_0_20px_rgba(140,82,255,0.4)] hover:shadow-[0_0_30px_rgba(140,82,255,0.6)] flex items-center group rounded-md"
+                className="bg-transparent text-white border border-white/60 px-8 py-4 font-mono-plex font-bold uppercase text-sm hover:bg-white/10 transition-all shadow-[0_0_18px_rgba(255,255,255,0.14)] hover:shadow-[0_0_24px_rgba(255,255,255,0.22)] flex items-center group rounded-md"
               >
                 Explore The Ecosystem
               </button>
@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 border border-hexa-cyan/50 text-white font-mono-plex font-bold uppercase text-sm hover:bg-white/10 transition-all flex items-center rounded-md"
+                className="px-8 py-4 border border-white/60 bg-transparent text-white font-mono-plex font-bold uppercase text-sm hover:bg-white/10 transition-all flex items-center rounded-md"
               >
                 View on GitHub
               </a>

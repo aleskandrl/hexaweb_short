@@ -3,14 +3,14 @@ import { CONTACT_EMAIL, CONTACT_MAILTO, GITHUB_URL, LINKEDIN_URL, WAITLIST_URL, 
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white pt-20 pb-10 border-t border-hexa-purple/20">
+    <footer className="bg-black text-white pt-20 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="space-y-6">
              <div className="font-display text-2xl tracking-widest uppercase">
-              HEXA<span className="text-hexa-purple">KINETICA</span>
+              HEXA<span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">KINETICA</span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed font-mono-plex">
               A next-gen robotics ecosystem developing robot arm hardware, motion control, operator software, simulation, and engineering documentation.
@@ -27,17 +27,17 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-bold uppercase mb-6 text-white font-display tracking-widest">Community</h4>
             <ul className="space-y-3 text-sm text-gray-500 font-mono-plex">
-              <li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-hexa-purple transition-colors">GitHub</a></li>
-              <li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-hexa-purple transition-colors">Source Code</a></li>
-              <li><a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-hexa-purple transition-colors">Join Early Access</a></li>
+              <li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
+              <li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Source Code</a></li>
+              <li><a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Join Early Access</a></li>
             </ul>
           </div>
 
            <div>
             <h4 className="text-sm font-bold uppercase mb-6 text-white font-display tracking-widest">Projects</h4>
             <ul className="space-y-3 text-sm text-gray-500 font-mono-plex">
-              <li><a href="#products" className="hover:text-hexa-purple transition-colors">Maker / PRO Lines</a></li>
-              <li><a href="#products" className="hover:text-hexa-purple transition-colors">HexaCore Controller</a></li>
+              <li><a href="#products" className="hover:text-white transition-colors">Maker / PRO Lines</a></li>
+              <li><a href="#products" className="hover:text-white transition-colors">HexaCore Controller</a></li>
             </ul>
           </div>
 

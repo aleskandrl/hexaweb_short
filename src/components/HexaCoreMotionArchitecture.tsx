@@ -3,11 +3,6 @@ import ipcImg from '../assets/images/products/hexacore-cabinet.png';
 import { AccentRail } from './AccentRail';
 
 export const HexaCoreMotionArchitecture: React.FC = () => {
-  
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="p-2 md:p-4 mb-24 relative overflow-hidden group transition-all duration-500">
         
@@ -39,15 +34,6 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                         descriptionClassName="text-sm md:text-base max-w-xl"
                     />
 
-                    {/* Action */}
-                    <div className="pt-4 mt-auto">
-                        <button 
-                            onClick={scrollToContact} 
-                            className="text-white font-mono-plex text-xs font-bold uppercase tracking-widest hover:text-hexa-purple transition-colors"
-                        >
-                            <span className="border-b border-hexa-purple pb-1">See Platform Stack</span>
-                        </button>
-                    </div>
                 </div>
                 
                 {/* Right: The Product Visual */}
@@ -61,12 +47,12 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
                              <img 
                                  src={ipcImg}
                                  alt="HexaCore Industrial Controller"
-                                 className="relative z-10 w-[85%] h-auto object-contain filter grayscale contrast-125 brightness-90 drop-shadow-[0_0_30px_rgba(140,82,255,0.15)] group-hover/visual:grayscale-0 group-hover/visual:drop-shadow-[0_0_40px_rgba(140,82,255,0.4)] transition-all duration-700 transform group-hover/visual:scale-105"
+                                 className="relative z-10 w-[85%] h-auto rounded-xl object-contain filter grayscale contrast-125 brightness-90 drop-shadow-[0_0_30px_rgba(140,82,255,0.15)] group-hover/visual:grayscale-0 group-hover/visual:drop-shadow-[0_0_40px_rgba(140,82,255,0.4)] transition-all duration-700 transform group-hover/visual:scale-105"
                              />
                              
                              {/* Floating Label */}
-                             <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 z-20 bg-black/60 backdrop-blur-md border border-hexa-purple/30 px-4 py-2 rounded-lg shadow-lg">
-                                 <p className="text-white font-display text-sm tracking-wide">HexaCore <span className="text-hexa-purple">PRO</span></p>
+                              <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 z-20 px-2 py-1">
+                                  <p className="text-white font-display text-sm tracking-wide">HexaCore <span className="text-white">PRO</span></p>
                              </div>
                          </div>
                      </div>
@@ -75,31 +61,35 @@ export const HexaCoreMotionArchitecture: React.FC = () => {
             </div>
 
             {/* Tech Specs Grid (Full Width) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-16 lg:mt-24 w-full">
-                <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div>
-                        <h6 className="text-white font-display text-sm">EtherCAT Motion</h6>
-                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Industrial Fieldbus</p>
-                    </div>
-                </div>
-                <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div>
-                        <h6 className="text-white font-display text-sm">Simulation Bridge</h6>
-                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Validation Workflow</p>
-                    </div>
-                </div>
-                <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div>
-                        <h6 className="text-white font-display text-sm">Robot Control Runtime</h6>
-                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Motion Execution</p>
-                    </div>
-                </div>
-                <div className="flex flex-col items-center text-center space-y-3 group/item">
-                    <div>
-                        <h6 className="text-white font-display text-sm">Operator Software</h6>
-                        <p className="text-gray-500 text-[10px] font-mono-plex uppercase mt-1">Configuration and Diagnostics</p>
-                    </div>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-10 gap-y-8 mt-8 lg:mt-12 w-full">
+                <AccentRail
+                    accent="cyan"
+                    title="EtherCAT Motion"
+                    titleClassName="text-xl"
+                    description="Industrial Fieldbus"
+                    descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+                />
+                <AccentRail
+                    accent="white"
+                    title="Simulation Bridge"
+                    titleClassName="text-xl"
+                    description="Validation Workflow"
+                    descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+                />
+                <AccentRail
+                    accent="purple"
+                    title="Robot Control"
+                    titleClassName="text-xl"
+                    description="Motion Execution"
+                    descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+                />
+                <AccentRail
+                    accent="green"
+                    title="Operator Software"
+                    titleClassName="text-xl"
+                    description="Configuration and Diagnostics"
+                    descriptionClassName="text-xs uppercase tracking-[0.22em] text-gray-500"
+                />
             </div>
         </div>
     </div>

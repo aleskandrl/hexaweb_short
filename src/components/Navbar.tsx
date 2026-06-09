@@ -22,7 +22,7 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-hexa-bg/90 backdrop-blur-md border-b border-hexa-purple/30 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+    <header className="sticky top-0 z-50 bg-hexa-bg/90 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
                 <span className="font-display text-2xl text-white tracking-widest uppercase group-hover:text-white transition-colors leading-none drop-shadow-[0_0_5px_rgba(140,82,255,0.5)]">
                 HEXA
                 </span>
-                <span className="font-display text-lg text-hexa-purple tracking-[0.3em] uppercase leading-none">
+                <span className="font-display text-lg text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan tracking-[0.3em] uppercase leading-none">
                 KINETICA
                 </span>
             </div>
@@ -74,7 +74,7 @@ export const Navbar: React.FC = () => {
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors font-mono-plex text-xs uppercase tracking-widest">GitHub</a>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="bg-transparent border border-hexa-purple text-hexa-purple px-6 py-2 font-mono-plex text-xs uppercase tracking-wider hover:bg-hexa-purple hover:text-white transition-all shadow-[0_0_10px_rgba(140,82,255,0.3)] hover:shadow-[0_0_20px_rgba(140,82,255,0.6)] active:scale-95"
+              className="bg-transparent border border-white/60 text-white px-6 py-2 font-mono-plex text-xs uppercase tracking-wider hover:bg-white/10 transition-all shadow-[0_0_10px_rgba(255,255,255,0.12)] hover:shadow-[0_0_18px_rgba(255,255,255,0.2)] active:scale-95"
             >
               Get Involved
             </button>
@@ -85,7 +85,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white p-2 hover:bg-hexa-purple/20 rounded transition-colors"
+              className="text-white p-2 hover:bg-white/10 rounded transition-colors"
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
@@ -100,13 +100,13 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div id="mobile-navigation" className="md:hidden bg-hexa-bg border-t border-hexa-purple/30 absolute w-full shadow-2xl backdrop-blur-xl">
+        <div id="mobile-navigation" className="md:hidden bg-hexa-bg border-t border-white/10 absolute w-full shadow-2xl backdrop-blur-xl">
           <div className="px-4 pt-2 pb-6 space-y-2">
             {NAV_ITEMS.map((item) => (
               <button 
                 key={item.name} 
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-3 py-3 font-display text-white uppercase hover:bg-hexa-purple/20 hover:text-white border-l-2 border-transparent hover:border-hexa-cyan transition-all"
+                className="block w-full text-left px-3 py-3 font-display text-white uppercase hover:bg-white/10 hover:text-white border-l-2 border-transparent hover:border-hexa-cyan transition-all"
               >
                 {item.name}
               </button>
@@ -114,7 +114,7 @@ export const Navbar: React.FC = () => {
             <div className="pt-4">
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block text-center w-full bg-hexa-purple text-white py-3 font-mono-plex uppercase tracking-widest hover:bg-purple-700 shadow-[0_0_15px_rgba(140,82,255,0.4)]"
+                className="block text-center w-full bg-transparent border border-white/60 text-white py-3 font-mono-plex uppercase tracking-widest hover:bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.14)]"
               >
                 Get Involved
               </button>

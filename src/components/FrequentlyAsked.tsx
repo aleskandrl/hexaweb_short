@@ -29,14 +29,14 @@ export const FrequentlyAsked: React.FC = () => {
         <div className="space-y-4">
             {faqs.map((faq, idx) => (
                 <div key={idx} className="relative overflow-hidden border-b border-gray-800/80 pb-1 transition-all">
-                    <div className={`absolute left-0 top-4 bottom-4 w-px ${openIndex === idx ? 'bg-gradient-to-b from-hexa-cyan via-hexa-purple/70 to-transparent' : 'bg-white/10'}`}></div>
+                    <div className={`absolute left-0 top-4 bottom-4 w-px ${openIndex === idx ? 'bg-gradient-to-b from-hexa-cyan via-hexa-cyan/35 to-transparent' : 'bg-white/10'}`}></div>
                     <div className={`absolute -left-[4px] top-4 h-2.5 w-2.5 rounded-full ${openIndex === idx ? 'bg-hexa-cyan shadow-[0_0_20px_rgba(152,243,255,0.45)]' : 'bg-white/20'}`}></div>
                     <button 
                         onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                         className="w-full flex justify-between items-center pl-7 pr-2 py-6 text-left focus:outline-none"
                     >
-                        <span className={`font-display text-base md:text-lg ${openIndex === idx ? 'text-hexa-purple' : 'text-white'}`}>{faq.q}</span>
-                        <span className={`ml-6 font-display text-2xl leading-none ${openIndex === idx ? 'text-hexa-purple' : 'text-gray-500'}`}>
+                        <span className="font-display text-base md:text-lg text-white">{faq.q}</span>
+                        <span className={`ml-6 font-display text-2xl leading-none ${openIndex === idx ? 'text-white' : 'text-gray-500'}`}>
                             {openIndex === idx ? '−' : '+'}
                         </span>
                     </button>
@@ -49,7 +49,7 @@ export const FrequentlyAsked: React.FC = () => {
         
         <div className="mt-12 text-left">
             <p className="text-gray-500 font-mono-plex text-base">Deep Tech Inquiry?</p>
-            <button onClick={scrollToContact} className="text-white hover:text-white font-bold uppercase text-base tracking-widest mt-2 inline-block border-b border-hexa-cyan hover:border-white transition-colors">Contact Directly</button>
+            <button onClick={scrollToContact} className="mt-3 inline-flex items-center border border-white/60 bg-transparent px-5 py-3 text-white hover:bg-white/10 font-bold uppercase text-sm tracking-widest transition-colors">Contact Directly</button>
         </div>
       </div>
     </section>

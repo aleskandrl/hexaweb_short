@@ -1,7 +1,7 @@
 {
   "name": "hexakinetica",
   "private": true,
-  "version": "0.0.7",
+  "version": "0.0.19",
   "type": "module",
   "scripts": {
     "dev": "vite",

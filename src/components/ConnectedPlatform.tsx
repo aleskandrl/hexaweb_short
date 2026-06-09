@@ -20,7 +20,7 @@ const FEATURES: Feature[] = [
     title: "Visible Architecture",
     description: "The platform is designed to be understandable: mechanics, controller logic, motor communication, software, and simulation are presented as one connected system.",
     className: "md:col-span-5",
-    gradient: "from-hexa-purple/20 to-transparent",
+    gradient: "from-white/10 to-transparent",
     image: axis5ReducerImg
   },
   {
@@ -35,7 +35,7 @@ const FEATURES: Feature[] = [
     title: "Simulation-to-Hardware Workflow",
     description: "CAD, simulation, controller logic, and physical prototypes are developed together so motion behavior can be tested before and alongside real hardware.",
     className: "md:col-span-4",
-    gradient: "from-green-500/10 to-transparent"
+    gradient: "from-hexa-cyan/10 to-transparent"
   },
   {
     id: "04",
@@ -50,7 +50,7 @@ const featureAccentById: Record<string, 'cyan' | 'purple' | 'green' | 'white'> =
   '01': 'cyan',
   '02': 'white',
   '03': 'green',
-  '04': 'purple',
+  '04': 'cyan',
 };
 
 // --- Components ---
@@ -65,13 +65,13 @@ const BentoCard: React.FC<Feature> = ({ id, title, description, className, image
     className={className}
   >
     {image && (
-      <div className="overflow-hidden rounded-lg border border-white/10 bg-black/30">
+      <div className="overflow-hidden rounded-xl">
         <img
           src={image}
           loading="lazy"
           decoding="async"
           alt="Axis 5 reducer joint detail with cover removed"
-          className="h-44 md:h-52 w-full object-cover opacity-85 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0"
+          className="h-44 md:h-52 w-full rounded-xl object-cover opacity-80 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0"
         />
       </div>
     )}
@@ -86,7 +86,7 @@ const MainCard: React.FC = () => (
     titleClassName="text-2xl md:text-3xl tracking-wide"
     description={(
       <>
-        Maker and PRO hardware directions are built around the same platform foundation: <span className="text-white font-bold border-b border-hexa-cyan/50">robot hardware</span>, <span className="text-white font-bold border-b border-hexa-purple/50">motion control</span>, operator software, simulation workflow, and engineering documentation.
+        Maker and PRO hardware directions are built around the same platform foundation: <span className="text-white font-bold border-b border-hexa-cyan/50">robot hardware</span>, <span className="text-white font-bold border-b border-white/30">motion control</span>, operator software, simulation workflow, and engineering documentation.
         <br />
         <br />
         This allows the platform to grow across different robot sizes and capability levels without becoming a collection of disconnected prototypes.
@@ -109,16 +109,16 @@ export const ConnectedPlatform: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Modern Header */}
-        <Reveal className="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-white/5 pb-8">
-          <div>
+        <Reveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-20 border-b border-white/5 pb-8">
+          <div className="lg:col-span-6">
             <h2 className="text-white font-mono-plex font-bold uppercase text-sm tracking-[0.2em] mb-4 flex items-center">
               <span className="w-10 h-px bg-hexa-cyan mr-3"></span> Why Us?
             </h2>
             <h3 className="font-display text-3xl md:text-5xl text-white uppercase leading-none">
-              A <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-cyan to-hexa-purple">Connected</span><br/> Robotics Platform
+              A <span className="text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan">Connected</span><br/> Robotics Platform
             </h3>
           </div>
-          <p className="text-gray-400 font-mono-plex text-xs md:text-sm max-w-xl text-left mt-6 md:mt-0 leading-relaxed">
+          <p className="lg:col-span-6 text-gray-400 font-mono-plex text-base md:text-lg leading-relaxed max-w-2xl text-left mt-2 lg:mt-0 lg:ml-auto">
             Robot arm development should not be split across isolated CAD files, controllers, scripts, and undocumented hardware decisions. Hexakinetica connects the stack so users can study, test, modify, and build around the system.
           </p>
         </Reveal>

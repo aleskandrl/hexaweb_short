@@ -1,5 +1,72 @@
 # Version log
 
+## 0.0.19 — 2026-06-10
+
+- Rebalanced the `ConnectedPlatform` header into a cleaner two-column layout and reduced the right-side paragraph to normal body-scale typography.
+- Startup version log and package metadata bumped `0.0.18` → `0.0.19`.
+
+## 0.0.18 — 2026-06-10
+
+- Restored a clearly visible accent stripe on the `Engineering Documentation` card in `ConnectedPlatform.tsx` by switching it to the cyan accent treatment.
+- Startup version log and package metadata bumped `0.0.17` → `0.0.18`.
+
+## 0.0.17 — 2026-06-10
+
+- Enlarged the `ConnectedPlatform` introductory paragraph so it matches the visual scale of the section heading.
+- Startup version log and package metadata bumped `0.0.16` → `0.0.17`.
+
+## 0.0.16 — 2026-06-10
+
+- Renamed the HexaCore spec card title `Robot Control Runtime` to `Robot Control`.
+- Startup version log and package metadata bumped `0.0.15` → `0.0.16`.
+
+## 0.0.15 — 2026-06-10
+
+- Restyled the four lower `HexaCoreMotionArchitecture` technical-spec items so they match the refined `AccentRail` card presentation used in the workflow section.
+- Startup version log and package metadata bumped `0.0.14` → `0.0.15`.
+
+## 0.0.14 — 2026-06-10
+
+- Removed the repeated `Operator Workflow` eyebrow label from the four software workflow cards.
+- Startup version log and package metadata bumped `0.0.13` → `0.0.14`.
+
+## 0.0.13 — 2026-06-10
+
+- Moved the four `Operator Workflow` cards into a single row on wide desktop layouts while preserving responsive wrapping on smaller breakpoints.
+- Startup version log and package metadata bumped `0.0.12` → `0.0.13`.
+
+## 0.0.12 — 2026-06-10
+
+- Removed the remaining floating card treatment from the `HexaCore PRO` image label.
+- Changed `PRO` in the `HexaCore PRO` label to plain white text.
+- Startup version log and package metadata bumped `0.0.11` → `0.0.12`.
+
+## 0.0.11 — 2026-06-09
+
+- Corrected the remaining white-to-cyan highlight gradient in the execution roadmap so it also uses purple-to-cyan.
+- Startup version log and package metadata bumped `0.0.10` → `0.0.11`.
+
+## 0.0.10 — 2026-06-09
+
+- Corrected the emphasized gradient styling so highlight text uses purple-to-cyan instead of white-to-cyan.
+- Startup version log and package metadata bumped `0.0.9` → `0.0.10`.
+
+## 0.0.9 — 2026-06-09
+
+- Removed solid purple text treatments in favor of white or white/cyan gradient emphasis.
+- Standardized button-like CTAs, tabs, and contact actions as transparent white controls.
+- Removed the `See Platform Stack` action from `HexaCoreMotionArchitecture.tsx` and moved the lower technical-spec row upward.
+- Normalized photo feature blocks with a shared lightweight rounded image treatment.
+- Restricted vertical accent lines and dots to white/cyan rendering in `AccentRail` and FAQ rows.
+- Startup version log and package metadata bumped `0.0.8` → `0.0.9`.
+
+## 0.0.8 — 2026-06-09
+
+- Refined the shared `AccentRail` styling so the vertical accents read thinner, softer, and more premium.
+- Rounded the `HexaCoreMotionArchitecture.tsx` controller image slightly while keeping it card-free.
+- Removed the framed card/backplate and deleted the `Motion Hardware Detail` badge from `BuiltAsOneSystem.tsx`.
+- Startup version log and package metadata bumped `0.0.7` → `0.0.8`.
+
 ## 0.0.7 — 2026-06-08
 
 - Removed decorative, CTA, navigation, FAQ, and social icons across the landing page per executive visual feedback.

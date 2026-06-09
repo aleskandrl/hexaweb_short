@@ -16,7 +16,7 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
           {/* Text column uses two fifths of the large-screen width. */}
           <Reveal className="order-2 lg:order-1 lg:col-span-2">
              <div className="mb-6">
-                 <span className="text-hexa-purple font-mono-plex font-bold uppercase text-sm tracking-widest">Software Layer</span>
+                 <span className="text-white font-mono-plex font-bold uppercase text-sm tracking-widest">Software Layer</span>
              </div>
 
              <h3 className="font-display text-4xl sm:text-5xl text-white uppercase mb-6 leading-tight whitespace-nowrap">
@@ -50,11 +50,10 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
 
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 mt-12 lg:mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-10 gap-y-8 mt-12 lg:mt-16">
             <Reveal delay={0}>
               <AccentRail
                 accent="cyan"
-                eyebrow="Operator Workflow"
                 title="Configuration"
                 titleClassName="text-xl"
                 description="robot parameters and setup"
@@ -64,7 +63,6 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
             <Reveal delay={80}>
               <AccentRail
                 accent="white"
-                eyebrow="Operator Workflow"
                 title="Motion Commands"
                 titleClassName="text-xl"
                 description="jogging and program execution"
@@ -74,7 +72,6 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
             <Reveal delay={160}>
               <AccentRail
                 accent="purple"
-                eyebrow="Operator Workflow"
                 title="Controller Interface"
                 titleClassName="text-xl"
                 description="communication with HexaCore"
@@ -84,7 +81,6 @@ export const OperatorSoftwareWorkflow: React.FC = () => {
             <Reveal delay={240}>
               <AccentRail
                 accent="green"
-                eyebrow="Operator Workflow"
                 title="Monitoring"
                 titleClassName="text-xl"
                 description="state, feedback, and diagnostics"
