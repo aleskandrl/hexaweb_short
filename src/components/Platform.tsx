@@ -76,8 +76,12 @@ export const Platform: React.FC = () => {
                     className="h-full w-full object-cover transition-transform duration-800 ease-out-expo hover:scale-[1.02]"
                   />
                 </div>
-                <h3 className="font-display text-xl text-white sm:text-lg">{layer.name}</h3>
-                <p className="max-w-[36ch] font-sans text-base leading-relaxed text-hexa-ink2 sm:text-sm">{layer.text}</p>
+                <h3 className="font-display text-3xl leading-tight text-white sm:text-lg sm:leading-normal">
+                  {layer.name}
+                </h3>
+                <p className="max-w-[36ch] font-sans text-lg leading-relaxed text-hexa-ink2 sm:text-sm">
+                  {layer.text}
+                </p>
               </article>
             </Reveal>
           ))}
@@ -92,8 +96,8 @@ export const Platform: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <p className="font-sans text-base text-hexa-ink3 sm:text-sm">
-              Developed together — no third-party controllers, no hidden layers.
+              <p className="font-sans text-base text-hexa-ink3 sm:text-sm">
+                Developed together — no third-party controllers, no hidden layers.
             </p>
           </div>
         </Reveal>
