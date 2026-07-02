@@ -11,7 +11,7 @@ const LINKS = [
 export const Footer: React.FC = () => {
   return (
     <footer className="border-t border-white/10 bg-hexa-bg py-8">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 font-mono-plex text-[11px] uppercase tracking-[0.2em] text-hexa-ink3 sm:flex-row sm:items-center sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 font-mono-plex text-xs uppercase tracking-[0.2em] text-hexa-ink3 sm:flex-row sm:items-center sm:px-6 sm:text-[11px] lg:px-8">
         <span>© {new Date().getFullYear()} Hexakinetica</span>
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
           {LINKS.map((link) => (

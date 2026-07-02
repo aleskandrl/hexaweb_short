@@ -1,7 +1,7 @@
 # Architecture
 
 Hexakinetica marketing site — React 18 + TypeScript + Vite + TailwindCSS.
-Current revision: **"Investor redesign"** — seven media-first sections, ~300 words of visible copy. The version number lives in `package.json` only.
+Current revision: **"Investor redesign + mobile typography readability pass"** — seven media-first sections, ~300 words of visible copy. The version number lives in `package.json` only.
 
 ## Entry
 
@@ -33,6 +33,7 @@ Current revision: **"Investor redesign"** — seven media-first sections, ~300 w
 - Fonts: `font-display` Michroma (headings only — owner decision), `font-sans` Inter (body), `font-mono-plex` IBM Plex Mono (figures, eyebrows, captions). Self-hosted woff2 latin subsets in `public/fonts/`, preloaded in `index.html`.
 - Motion: `ease-out-expo cubic-bezier(0.16,1,0.3,1)`, `ease-swift`; durations 200 / 500 / 800 / 1100 ms. Hero choreography keyframes live in `src/index.css`.
 - Prohibited by design direction: gradient text, colored glows, blur orbs, textures, hover scale on text/buttons, blueprint frames.
+- Responsive typography rule: base font sizes are intentionally larger on screens below Tailwind `sm` (`<640px`) for readability. Existing `sm`, `md`, and `lg` typography remains unchanged so tablet and desktop layouts keep their previous scale.
 
 ## Media pipeline
 

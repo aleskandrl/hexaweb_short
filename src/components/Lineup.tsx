@@ -100,12 +100,12 @@ export const Lineup: React.FC = () => {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-7">
             <Reveal>
-              <p className="font-mono-plex text-[11px] font-bold uppercase tracking-[0.28em] text-hexa-ink2">
+              <p className="font-mono-plex text-xs font-bold uppercase tracking-[0.28em] text-hexa-ink2 sm:text-[11px]">
                 The lineup
               </p>
             </Reveal>
             <Reveal variant="blur-rise" delay={80}>
-              <h2 className="font-display text-2xl leading-snug text-white sm:text-3xl lg:text-4xl">
+              <h2 className="font-display text-3xl leading-snug text-white sm:text-3xl lg:text-4xl">
                 Two lines,
                 <br />
                 <span className="text-white/40">one architecture</span>
@@ -135,7 +135,7 @@ export const Lineup: React.FC = () => {
                     aria-controls={`lineup-panel-${line.id}`}
                     tabIndex={isActive ? 0 : -1}
                     onClick={() => setActiveId(line.id)}
-                    className={`flex items-center py-3.5 font-mono-plex text-xs font-bold uppercase tracking-[0.18em] transition-colors duration-300 md:py-2 ${
+                    className={`flex items-center py-3.5 font-mono-plex text-sm font-bold uppercase tracking-[0.18em] transition-colors duration-300 sm:text-xs md:py-2 ${
                       isActive ? 'text-white' : 'text-hexa-ink2 hover:text-white'
                     }`}
                   >
@@ -180,13 +180,13 @@ export const Lineup: React.FC = () => {
             className="mt-14"
           >
             <div className="hero-rise-in flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
-              <p className="max-w-[52ch] font-sans text-sm leading-relaxed text-hexa-ink2">
+              <p className="max-w-[52ch] font-sans text-base leading-relaxed text-hexa-ink2 sm:text-sm">
                 {active.text}
               </p>
               <a
                 href={active.link.href}
                 {...(active.link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="font-mono-plex text-xs font-bold uppercase tracking-[0.18em] text-hexa-ink2 transition-colors duration-200 hover:text-white"
+                className="font-mono-plex text-sm font-bold uppercase tracking-[0.18em] text-hexa-ink2 transition-colors duration-200 hover:text-white sm:text-xs"
               >
                 {active.link.label}
               </a>
@@ -201,27 +201,27 @@ export const Lineup: React.FC = () => {
                   className="hero-rise-in space-y-6 border-t border-white/10 pt-6"
                   style={{ '--rise-delay': `${80 + i * 80}ms` } as React.CSSProperties}
                 >
-                  <h3 className="font-display text-xl text-white">{model.name}</h3>
+                  <h3 className="font-display text-2xl text-white sm:text-xl">{model.name}</h3>
                   <dl className="space-y-3">
                     <div className="flex justify-between gap-4 border-b border-white/5 pb-2">
-                      <dt className="font-sans text-sm text-hexa-ink3">Payload</dt>
-                      <dd className="font-mono-plex text-sm text-white [font-variant-numeric:tabular-nums]">
+                      <dt className="font-sans text-base text-hexa-ink3 sm:text-sm">Payload</dt>
+                      <dd className="font-mono-plex text-base text-white [font-variant-numeric:tabular-nums] sm:text-sm">
                         {model.payload}
                       </dd>
                     </div>
                     <div className="flex justify-between gap-4 border-b border-white/5 pb-2">
-                      <dt className="font-sans text-sm text-hexa-ink3">Reach</dt>
-                      <dd className="font-mono-plex text-sm text-white [font-variant-numeric:tabular-nums]">
+                      <dt className="font-sans text-base text-hexa-ink3 sm:text-sm">Reach</dt>
+                      <dd className="font-mono-plex text-base text-white [font-variant-numeric:tabular-nums] sm:text-sm">
                         {model.reach}
                       </dd>
                     </div>
                     <div className="flex justify-between gap-4 border-b border-white/5 pb-2">
-                      <dt className="font-sans text-sm text-hexa-ink3">Use</dt>
-                      <dd className="font-mono-plex text-sm text-white">{model.use}</dd>
+                      <dt className="font-sans text-base text-hexa-ink3 sm:text-sm">Use</dt>
+                      <dd className="font-mono-plex text-base text-white sm:text-sm">{model.use}</dd>
                     </div>
                   </dl>
                   <p
-                    className={`font-mono-plex text-[11px] uppercase tracking-[0.2em] ${
+                    className={`font-mono-plex text-xs uppercase tracking-[0.2em] sm:text-[11px] ${
                       model.statusAccent ? 'text-hexa-accent' : 'text-hexa-ink2'
                     }`}
                   >
@@ -234,7 +234,7 @@ export const Lineup: React.FC = () => {
         </Reveal>
 
         <Reveal delay={240}>
-          <p className="mt-16 font-sans text-sm text-hexa-ink3">
+          <p className="mt-16 font-sans text-base text-hexa-ink3 sm:text-sm">
             Same controller, same software, across both lines.
           </p>
         </Reveal>

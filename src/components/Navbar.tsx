@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex cursor-pointer items-center gap-3 border-0 bg-transparent p-0 font-display text-sm tracking-[0.24em] text-white"
+            className="flex cursor-pointer items-center gap-3 border-0 bg-transparent p-0 font-display text-base tracking-[0.24em] text-white sm:text-sm"
             aria-label="Scroll to top"
           >
             <img src="/logo-nav.png" alt="" width={40} height={36} className="h-9 w-auto" />
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
             >
-              <span className="font-mono-plex text-xs font-bold uppercase tracking-[0.18em]">
+              <span className="font-mono-plex text-sm font-bold uppercase tracking-[0.18em]">
                 {isMenuOpen ? 'Close' : 'Menu'}
               </span>
             </button>
@@ -99,7 +99,7 @@ export const Navbar: React.FC = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full px-3 py-3 text-left font-mono-plex text-sm uppercase tracking-[0.18em] text-white/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
+                className="block w-full px-3 py-3 text-left font-mono-plex text-base uppercase tracking-[0.18em] text-white/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
               >
                 {item.name}
               </button>
@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-3 py-3 font-mono-plex text-sm uppercase tracking-[0.18em] text-white/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
+              className="block px-3 py-3 font-mono-plex text-base uppercase tracking-[0.18em] text-white/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
             >
               GitHub
             </a>

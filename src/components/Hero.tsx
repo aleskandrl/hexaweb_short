@@ -2,7 +2,7 @@ import React from 'react';
 import { GITHUB_URL } from '../siteLinks';
 import { Button } from './Button';
 
-const SPECS = ['6 AXES', '0.5–20 KG PAYLOAD', 'ETHERCAT'];
+const SPECS = ['6 AXES', '0.5–20.0 KG PAYLOAD', 'ETHERCAT'];
 
 export const Hero: React.FC = () => {
   const scrollToExploded = () => {
@@ -14,13 +14,13 @@ export const Hero: React.FC = () => {
       {/* Copy sits in the empty black zone above the cabinet. */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-20 sm:px-6 sm:pt-24 lg:px-8">
         <div className="max-w-3xl space-y-6 lg:-ml-6">
-          <h1 className="hero-rise-in font-display text-2xl leading-snug text-white min-[480px]:text-3xl sm:text-4xl lg:text-5xl [--rise-delay:150ms]">
+          <h1 className="hero-rise-in font-display text-3xl leading-snug text-white min-[480px]:text-4xl sm:text-4xl lg:text-5xl [--rise-delay:150ms]">
             WE BUILD ROBOTS
             <br />
             <span className="text-white/40">DIFFERENTLY</span>
           </h1>
 
-          <p className="hero-rise-in max-w-xl font-sans text-base leading-relaxed text-hexa-ink2 sm:text-lg [--rise-delay:280ms]">
+          <p className="hero-rise-in max-w-xl font-sans text-lg leading-relaxed text-hexa-ink2 sm:text-lg [--rise-delay:280ms]">
             A six-axis arm, real-time EtherCAT controller, and operator software —
             engineered as one system.
           </p>
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="-mx-3 -my-3.5 inline-flex items-center px-3 py-3.5 font-mono-plex text-xs font-bold uppercase tracking-[0.18em] text-white/90 transition-colors duration-200 hover:text-white sm:text-hexa-ink2 sm:hover:text-white"
+              className="-mx-3 -my-3.5 inline-flex items-center px-3 py-3.5 font-mono-plex text-sm font-bold uppercase tracking-[0.18em] text-white/90 transition-colors duration-200 hover:text-white sm:text-xs sm:text-hexa-ink2 sm:hover:text-white"
             >
               GitHub →
             </a>
@@ -78,13 +78,13 @@ export const Hero: React.FC = () => {
         <div className="hero-rise-in flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between [--rise-delay:600ms]">
           <ul className="flex flex-wrap gap-x-8 gap-y-2">
             {SPECS.map((spec) => (
-              <li key={spec} className="font-mono-plex text-xs tracking-[0.18em] text-hexa-ink2">
+              <li key={spec} className="font-mono-plex text-sm tracking-[0.18em] text-hexa-ink2 sm:text-xs">
                 {spec}
               </li>
             ))}
           </ul>
-          <p className="font-mono-plex text-[10px] uppercase tracking-[0.2em] text-hexa-ink3">
-            HexaArm · HexaCore · Pendant — validation build, in testing
+          <p className="font-mono-plex text-[11px] uppercase tracking-[0.2em] text-hexa-ink3 sm:text-[10px]">
+            HexaArm · HexaCore · Pendant — in testing
           </p>
         </div>
       </div>

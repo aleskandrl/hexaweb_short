@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Reveal } from './Reveal';
 
-const SIDE_LABELS = ['6 AXES', 'INDUSTRIAL REDUCERS', 'REFERENCE CAD & URDF'];
+const SIDE_LABELS = ['6 AXES', 'INDUSTRIAL', 'REFERENCE CAD & URDF'];
 
 const prefersReducedMotion = (): boolean =>
   typeof window !== 'undefined' &&
@@ -116,14 +116,14 @@ export const ExplodedView: React.FC = () => {
           <div className="grid grid-cols-1 items-center gap-6 md:gap-12 lg:grid-cols-2">
             <div className="max-w-xl space-y-5 md:space-y-7">
               <Reveal variant="blur-rise">
-                <h2 className="font-display text-2xl leading-snug text-white sm:text-3xl lg:text-4xl">
+                <h2 className="font-display text-3xl leading-snug text-white sm:text-3xl lg:text-4xl">
                   Designed to be
                   <br />
                   <span className="text-white/40">taken apart</span>
                 </h2>
               </Reveal>
               <Reveal delay={100}>
-                <p className="font-sans text-base leading-relaxed text-hexa-ink2 sm:text-lg">
+                <p className="font-sans text-lg leading-relaxed text-hexa-ink2 sm:text-lg">
                   CAD, hardware, motion control, HMI, simulation workflow, and
                   validation tools — all our own design. Reference CAD and URDF
                   are public.
@@ -133,7 +133,7 @@ export const ExplodedView: React.FC = () => {
               <Reveal delay={200}>
                 <ul className="flex flex-wrap gap-x-8 gap-y-2 border-t border-white/10 pt-6">
                   {SIDE_LABELS.map((label) => (
-                    <li key={label} className="font-mono-plex text-xs tracking-[0.18em] text-hexa-ink2">
+                    <li key={label} className="font-mono-plex text-sm tracking-[0.18em] text-hexa-ink2 sm:text-xs">
                       {label}
                     </li>
                   ))}
@@ -157,7 +157,7 @@ export const ExplodedView: React.FC = () => {
                       ></div>
                     </div>
                   )}
-                  <p className="mt-4 text-center font-mono-plex text-[10px] uppercase tracking-[0.24em] text-hexa-ink3">
+                  <p className="mt-4 text-center font-mono-plex text-[11px] uppercase tracking-[0.24em] text-hexa-ink3 sm:text-[10px]">
                     {scrub ? 'HexaArm — exploded view · scroll to disassemble' : 'HexaArm — exploded view'}
                   </p>
                 </div>

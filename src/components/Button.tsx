@@ -25,7 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   className = '',
 }) => {
-  const classes = `inline-flex items-center justify-center rounded-md px-7 py-3.5 font-mono-plex text-xs font-bold uppercase tracking-[0.18em] transition-[background-color,border-color,transform] duration-200 ease-out-expo ${variantClasses[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-md px-7 py-3.5 font-mono-plex text-sm font-bold uppercase tracking-[0.18em] transition-[background-color,border-color,transform] duration-200 ease-out-expo sm:text-xs ${variantClasses[variant]} ${className}`;
 
   if (href) {
     return (

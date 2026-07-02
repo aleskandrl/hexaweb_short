@@ -25,12 +25,12 @@ export const Roadmap: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-7">
           <Reveal>
-            <p className="font-mono-plex text-[11px] font-bold uppercase tracking-[0.28em] text-hexa-ink2">
+            <p className="font-mono-plex text-xs font-bold uppercase tracking-[0.28em] text-hexa-ink2 sm:text-[11px]">
               Roadmap
             </p>
           </Reveal>
           <Reveal variant="blur-rise" delay={80}>
-            <h2 className="font-display text-2xl leading-snug text-white sm:text-3xl lg:text-4xl">
+            <h2 className="font-display text-3xl leading-snug text-white sm:text-3xl lg:text-4xl">
               From validation
               <br />
               <span className="text-white/40">to production</span>
@@ -48,15 +48,15 @@ export const Roadmap: React.FC = () => {
                     m.now ? 'bg-hexa-accent' : 'bg-white/40'
                   }`}
                 ></span>
-                <p className="font-mono-plex text-lg text-white [font-variant-numeric:tabular-nums]">
+                <p className="font-mono-plex text-xl text-white [font-variant-numeric:tabular-nums] sm:text-lg">
                   {m.year}
                   {m.now && (
-                    <span className="ml-3 text-[11px] uppercase tracking-[0.2em] text-hexa-accent">
+                    <span className="ml-3 text-xs uppercase tracking-[0.2em] text-hexa-accent sm:text-[11px]">
                       Now
                     </span>
                   )}
                 </p>
-                <p className="max-w-[32ch] font-sans text-sm leading-relaxed text-hexa-ink2">{m.text}</p>
+                <p className="max-w-[32ch] font-sans text-base leading-relaxed text-hexa-ink2 sm:text-sm">{m.text}</p>
               </article>
             </Reveal>
           ))}

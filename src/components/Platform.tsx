@@ -28,7 +28,7 @@ const LAYERS = [
   },
 ];
 
-const STANDARDS = ['ETHERCAT', 'PREEMPT_RT LINUX', 'C++20', 'ROS 2', 'OPEN URDF'];
+const STANDARDS = ['ETHERCAT', 'RT LINUX', 'C++20', 'ROS 2', 'OPEN URDF'];
 
 export const Platform: React.FC = () => {
   return (
@@ -36,12 +36,12 @@ export const Platform: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-7">
           <Reveal>
-            <p className="font-mono-plex text-[11px] font-bold uppercase tracking-[0.28em] text-hexa-ink2">
+            <p className="font-mono-plex text-xs font-bold uppercase tracking-[0.28em] text-hexa-ink2 sm:text-[11px]">
               The platform
             </p>
           </Reveal>
           <Reveal variant="blur-rise" delay={80}>
-            <h2 className="font-display text-2xl leading-snug text-white sm:text-3xl lg:text-4xl">
+            <h2 className="font-display text-3xl leading-snug text-white sm:text-3xl lg:text-4xl">
               One system,
               <br />
               <span className="text-white/40">three layers</span>
@@ -76,8 +76,8 @@ export const Platform: React.FC = () => {
                     className="h-full w-full object-cover transition-transform duration-800 ease-out-expo hover:scale-[1.02]"
                   />
                 </div>
-                <h3 className="font-display text-lg text-white">{layer.name}</h3>
-                <p className="max-w-[36ch] font-sans text-sm leading-relaxed text-hexa-ink2">{layer.text}</p>
+                <h3 className="font-display text-xl text-white sm:text-lg">{layer.name}</h3>
+                <p className="max-w-[36ch] font-sans text-base leading-relaxed text-hexa-ink2 sm:text-sm">{layer.text}</p>
               </article>
             </Reveal>
           ))}
@@ -87,13 +87,13 @@ export const Platform: React.FC = () => {
           <div className="mt-16 space-y-4 border-t border-white/10 pt-6">
             <ul className="flex flex-wrap gap-x-8 gap-y-2">
               {STANDARDS.map((s) => (
-                <li key={s} className="font-mono-plex text-xs tracking-[0.18em] text-hexa-ink2">
+                <li key={s} className="font-mono-plex text-sm tracking-[0.18em] text-hexa-ink2 sm:text-xs">
                   {s}
                 </li>
               ))}
             </ul>
-            <p className="font-sans text-sm text-hexa-ink3">
-              Developed together — no third-party controllers, no licensed software layers.
+            <p className="font-sans text-base text-hexa-ink3 sm:text-sm">
+              Developed together — no third-party controllers, no hidden layers.
             </p>
           </div>
         </Reveal>
