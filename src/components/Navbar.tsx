@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-white transition-colors duration-200 hover:bg-white/10"
+              className="-m-2 p-4 text-white transition-colors duration-200 hover:bg-white/10"
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"

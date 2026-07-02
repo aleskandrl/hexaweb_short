@@ -21,7 +21,7 @@ const MILESTONES = [
 
 export const Roadmap: React.FC = () => {
   return (
-    <section id="roadmap" className="bg-hexa-bg py-24">
+    <section id="roadmap" className="bg-hexa-bg py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-7">
           <Reveal>

@@ -21,7 +21,7 @@ const ROWS = [
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="relative overflow-hidden bg-hexa-bg py-28">
+    <section id="contact" className="relative overflow-hidden bg-hexa-bg py-20 md:py-28">
       {/* Dimmed system photo as the closing backdrop. */}
       <div className="absolute inset-0">
         <img

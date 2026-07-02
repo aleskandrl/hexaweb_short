@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               {...(link.href.startsWith('http')
                 ? { target: '_blank', rel: 'noopener noreferrer' }
                 : {})}
-              className="transition-colors duration-200 hover:text-white"
+              className="-mx-2 -my-3 px-2 py-3 transition-colors duration-200 hover:text-white"
             >
               {link.name}
             </a>

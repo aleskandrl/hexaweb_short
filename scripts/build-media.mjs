@@ -33,10 +33,14 @@ await sharp(SYSTEM_PHOTO)
   .toFile(out('system-hero-1600.jpg'));
 
 // --- og:image 1200x630 from the system photo ---
+// Manual window: the whole system (cabinet, pendant, arm) with balanced black
+// margins — the old 'attention' auto-crop clipped the arm. Keep under ~600KB
+// (WhatsApp preview limit).
 await sharp(SYSTEM_PHOTO)
-  .resize(1200, 630, { fit: 'cover', position: 'attention' })
-  .png({ compressionLevel: 9 })
-  .toFile(path.join(ROOT, 'public', 'og-image.png'));
+  .extract({ left: 357, top: 150, width: 3238, height: 1700 })
+  .resize(1200, 630)
+  .jpeg({ quality: 88, mozjpeg: true })
+  .toFile(path.join(ROOT, 'public', 'og-cover.jpg'));
 
 // --- Platform tiles (see Platform.tsx for each card's ratio) ---
 // HexaArm: wrist photo framed to the card's 590:640 ratio without cutting the

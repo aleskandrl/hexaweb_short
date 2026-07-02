@@ -41,4 +41,4 @@ Masters live in `new_pictures/` (git-ignored). `npm run media` (`scripts/build-m
 - `system-hero-{2560,1600}.{avif,webp}` + `system-hero-1600.jpg` — hero sources, preloaded in `index.html`.
 - `exploded-scrub.mp4` + `exploded-poster.webp` — 1080×1920 all-keyframe (`-g 1`) encode (~4.5 MB) for the scroll-scrub section (instant `currentTime` seeks) and its poster.
 - `platform-{arm,cabinet,hmi}.webp` — Platform tiles (exploded still, cabinet crop of the system photo, HMI screenshot).
-- `public/og-image.png` — 1200×630 social card from the system photo.
+- `public/og-cover.jpg` — 1200×630 social card, a manual crop of the system photo (the filename doubles as a cache-buster for messenger link previews).

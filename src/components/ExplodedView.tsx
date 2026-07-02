@@ -7,20 +7,26 @@ const prefersReducedMotion = (): boolean =>
   typeof window !== 'undefined' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const isPhone = (): boolean =>
+  typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+
 /**
  * Scroll-scrubbed disassembly: the section pins for ~1.5 extra viewports and
  * the wheel drives video.currentTime. The scrub source is encoded with a
  * keyframe on every frame (see scripts/build-media.mjs), so seeks are instant.
- * Reduced-motion users get the static poster instead.
+ * On phones the pinned stack doesn't fit a small viewport and thumb-scrubbing
+ * reads as a stuck page, so the section flows normally and the video plays
+ * once when it enters view. Reduced-motion users get the static poster.
  */
 export const ExplodedView: React.FC = () => {
   const outerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const reduced = prefersReducedMotion();
+  const scrub = !reduced && !isPhone();
 
   useEffect(() => {
-    if (reduced) return;
+    if (!scrub) return;
     const outer = outerRef.current;
     const video = videoRef.current;
     if (!outer || !video) return;
@@ -56,7 +62,26 @@ export const ExplodedView: React.FC = () => {
       window.removeEventListener('scroll', measure);
       window.removeEventListener('resize', measure);
     };
-  }, [reduced]);
+  }, [scrub]);
+
+  // Phone: play the disassembly once when the video scrolls into view.
+  useEffect(() => {
+    if (scrub || reduced) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          video.play().catch(() => {});
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [scrub, reduced]);
 
   const media = reduced ? (
     <img
@@ -73,7 +98,7 @@ export const ExplodedView: React.FC = () => {
       ref={videoRef}
       muted
       playsInline
-      preload="auto"
+      preload={scrub ? 'auto' : 'metadata'}
       poster="/media/exploded-poster.webp"
       width={1080}
       height={1920}
@@ -85,11 +110,11 @@ export const ExplodedView: React.FC = () => {
   );
 
   return (
-    <div ref={outerRef} id="exploded" className="relative bg-hexa-bg" style={{ height: reduced ? 'auto' : '420vh' }}>
-      <div className={`${reduced ? '' : 'sticky top-0'} flex min-h-[100svh] items-center py-16`}>
+    <div ref={outerRef} id="exploded" className="relative bg-hexa-bg" style={{ height: scrub ? '420vh' : 'auto' }}>
+      <div className={`${scrub ? 'sticky top-0' : ''} flex min-h-[100svh] items-center py-16`}>
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-            <div className="max-w-xl space-y-7">
+          <div className="grid grid-cols-1 items-center gap-6 md:gap-12 lg:grid-cols-2">
+            <div className="max-w-xl space-y-5 md:space-y-7">
               <Reveal variant="blur-rise">
                 <h2 className="font-display text-2xl leading-snug text-white sm:text-3xl lg:text-4xl">
                   Designed to be
@@ -123,7 +148,7 @@ export const ExplodedView: React.FC = () => {
                   <div className="aspect-square w-full overflow-hidden rounded-lg bg-hexa-bg">
                     {media}
                   </div>
-                  {!reduced && (
+                  {scrub && (
                     <div className="mt-5 h-px w-full overflow-hidden bg-white/10">
                       <div
                         ref={progressRef}
@@ -133,7 +158,7 @@ export const ExplodedView: React.FC = () => {
                     </div>
                   )}
                   <p className="mt-4 text-center font-mono-plex text-[10px] uppercase tracking-[0.24em] text-hexa-ink3">
-                    HexaArm — exploded view · scroll to disassemble
+                    {scrub ? 'HexaArm — exploded view · scroll to disassemble' : 'HexaArm — exploded view'}
                   </p>
                 </div>
               </Reveal>

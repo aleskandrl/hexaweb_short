@@ -32,7 +32,7 @@ const STANDARDS = ['ETHERCAT', 'PREEMPT_RT LINUX', 'C++20', 'ROS 2', 'OPEN URDF'
 
 export const Platform: React.FC = () => {
   return (
-    <section id="platform" className="bg-hexa-bg py-24">
+    <section id="platform" className="bg-hexa-bg py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-7">
           <Reveal>

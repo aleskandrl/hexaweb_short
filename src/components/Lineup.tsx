@@ -95,7 +95,7 @@ export const Lineup: React.FC = () => {
   };
 
   return (
-    <section id="lineup" className="bg-hexa-bg py-24">
+    <section id="lineup" className="bg-hexa-bg py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-7">
@@ -125,16 +125,6 @@ export const Lineup: React.FC = () => {
             >
               {LINES.map((line, i) => {
                 const isActive = line.id === activeId;
-                const led = (
-                  <span
-                    aria-hidden="true"
-                    className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${
-                      isActive
-                        ? 'bg-hexa-accent shadow-[0_0_8px_var(--accent)]'
-                        : 'bg-white/15'
-                    }`}
-                  ></span>
-                );
                 const tab = (
                   <button
                     key={line.id}
@@ -145,21 +135,11 @@ export const Lineup: React.FC = () => {
                     aria-controls={`lineup-panel-${line.id}`}
                     tabIndex={isActive ? 0 : -1}
                     onClick={() => setActiveId(line.id)}
-                    className={`flex items-center gap-2.5 py-2 font-mono-plex text-xs font-bold uppercase tracking-[0.18em] transition-colors duration-300 ${
+                    className={`flex items-center py-3.5 font-mono-plex text-xs font-bold uppercase tracking-[0.18em] transition-colors duration-300 md:py-2 ${
                       isActive ? 'text-white' : 'text-hexa-ink2 hover:text-white'
                     }`}
                   >
-                    {i === 0 ? (
-                      <>
-                        {line.label}
-                        {led}
-                      </>
-                    ) : (
-                      <>
-                        {led}
-                        {line.label}
-                      </>
-                    )}
+                    {line.label}
                   </button>
                 );
                 if (i === 0) return tab;
@@ -171,7 +151,7 @@ export const Lineup: React.FC = () => {
                       tabIndex={-1}
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={() => setActiveId(activeId === 'maker' ? 'pro' : 'maker')}
-                      className="relative h-9 w-[76px] rounded-full border border-white/10 bg-hexa-surface/60"
+                      className="relative h-11 w-[76px] rounded-full border border-white/10 bg-hexa-surface/60 md:h-9"
                     >
                       <span
                         className="absolute bottom-1 left-1 top-1 flex w-[calc(50%-0.25rem)] items-center justify-center gap-[3px] rounded-full bg-white transition-transform duration-500 ease-swift"

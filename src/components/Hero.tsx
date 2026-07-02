@@ -11,8 +11,26 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-hexa-bg">
-      {/* Full-bleed system photo; the asset's black background dissolves into the page. */}
-      <div className="hero-media-in absolute inset-0">
+      {/* Copy sits in the empty black zone above the cabinet. */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-20 sm:px-6 sm:pt-24 lg:px-8">
+        <div className="max-w-3xl space-y-6 lg:-ml-6">
+          <h1 className="hero-rise-in font-display text-2xl leading-snug text-white min-[480px]:text-3xl sm:text-4xl lg:text-5xl [--rise-delay:150ms]">
+            WE BUILD ROBOTS
+            <br />
+            <span className="text-white/40">DIFFERENTLY</span>
+          </h1>
+
+          <p className="hero-rise-in max-w-xl font-sans text-base leading-relaxed text-hexa-ink2 sm:text-lg [--rise-delay:280ms]">
+            A six-axis arm, real-time EtherCAT controller, and operator software —
+            engineered as one system.
+          </p>
+        </div>
+      </div>
+
+      {/* System photo. Phones stack it between the copy and the CTAs as a framed
+          block; from sm up it is the full-bleed backdrop (the asset's black
+          background dissolves into the page). */}
+      <div className="hero-media-in relative mx-4 mt-8 aspect-[4/3] overflow-hidden rounded-lg sm:absolute sm:inset-0 sm:mx-0 sm:mt-0 sm:aspect-auto sm:overflow-visible sm:rounded-none">
         <picture>
           <source
             type="image/avif"
@@ -30,31 +48,15 @@ export const Hero: React.FC = () => {
             width={2560}
             height={1280}
             {...({ fetchpriority: 'high' } as React.ImgHTMLAttributes<HTMLImageElement>)}
-            className="h-full w-full scale-[1.06] object-cover object-[42%_center]"
+            className="h-full w-full scale-[1.06] object-cover object-center sm:object-[42%_center]"
           />
         </picture>
         {/* Readability gradient behind the bottom spec strip only. */}
-        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-hexa-bg to-transparent"></div>
-      </div>
-
-      {/* Copy sits in the empty black zone above the cabinet. */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-20 sm:px-6 sm:pt-24 lg:px-8">
-        <div className="max-w-3xl space-y-6 lg:-ml-6">
-          <h1 className="hero-rise-in font-display text-3xl leading-snug text-white sm:text-4xl lg:text-5xl [--rise-delay:150ms]">
-            WE BUILD ROBOTS
-            <br />
-            <span className="text-white/40">DIFFERENTLY</span>
-          </h1>
-
-          <p className="hero-rise-in max-w-xl font-sans text-base leading-relaxed text-hexa-ink2 sm:text-lg [--rise-delay:280ms]">
-            A six-axis arm, real-time EtherCAT controller, and operator software —
-            engineered as one system.
-          </p>
-        </div>
+        <div className="absolute inset-x-0 bottom-0 hidden h-1/4 bg-gradient-to-t from-hexa-bg to-transparent sm:block"></div>
       </div>
 
       {/* CTAs live on the black area right of the robot, lower half of the frame. */}
-      <div className="relative z-10 lg:absolute lg:inset-x-0 lg:bottom-[26%]">
+      <div className="relative z-10 mt-8 sm:mt-0 lg:absolute lg:inset-x-0 lg:bottom-[26%]">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:flex lg:justify-end lg:px-8">
           <div className="hero-rise-in flex flex-wrap items-center gap-6 [--rise-delay:450ms]">
             <Button variant="primary" onClick={scrollToExploded}>
@@ -64,7 +66,7 @@ export const Hero: React.FC = () => {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono-plex text-xs font-bold uppercase tracking-[0.18em] text-hexa-ink2 transition-colors duration-200 hover:text-white"
+              className="-mx-3 -my-3.5 inline-flex items-center px-3 py-3.5 font-mono-plex text-xs font-bold uppercase tracking-[0.18em] text-white/90 transition-colors duration-200 hover:text-white sm:text-hexa-ink2 sm:hover:text-white"
             >
               GitHub →
             </a>

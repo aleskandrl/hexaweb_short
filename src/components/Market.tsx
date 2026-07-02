@@ -9,7 +9,7 @@ const STATS = [
 
 export const Market: React.FC = () => {
   return (
-    <section id="market" className="bg-hexa-bg py-24">
+    <section id="market" className="bg-hexa-bg py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-7">
           <Reveal>
@@ -30,7 +30,7 @@ export const Market: React.FC = () => {
           {STATS.map((stat, i) => (
             <Reveal key={stat.value} delay={i * 100}>
               <div className="space-y-3 border-t border-white/10 pt-6">
-                <span className="block font-mono-plex text-4xl text-white sm:text-5xl [font-variant-numeric:tabular-nums]">
+                <span className="block font-mono-plex text-4xl text-white md:text-5xl [font-variant-numeric:tabular-nums]">
                   {stat.value}
                 </span>
                 <span className="block max-w-[26ch] font-sans text-sm leading-relaxed text-hexa-ink2">
