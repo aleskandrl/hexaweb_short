@@ -42,8 +42,14 @@ src/
   App.tsx              Page composition
   index.tsx            React entrypoint
   index.css            Tailwind entry and base styles
-  components/          Landing-page sections
-  assets/images/       Local visual assets
+  siteLinks.ts         Contact / social link constants
+  components/          Landing-page sections and shared primitives
+  hooks/               Shared hooks (useInView)
+public/
+  fonts/               Self-hosted woff2 subsets
+  media/               Optimized images/video served by the site
+scripts/
+  build-media.mjs      Rebuilds public/media from local masters (npm run media)
 ```
 
 The site is intentionally simple: no router, no global state manager, and no backend API dependency.

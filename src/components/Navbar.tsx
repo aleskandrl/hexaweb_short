@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GITHUB_URL } from '../siteLinks';
 
-import logoImg from '../assets/images/ui/logo-nav.png';
-
 const NAV_ITEMS = [
-  { name: 'Mission', id: 'market' },
-  { name: 'Roadmap', id: 'timeline' },
-  { name: 'Team', id: 'team' },
+  { name: 'Platform', id: 'platform' },
+  { name: 'Lineup', id: 'lineup' },
+  { name: 'Roadmap', id: 'roadmap' },
   { name: 'Contact', id: 'contact' },
 ];
 
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -22,75 +28,59 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-hexa-bg/90 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
-          {/* Logo */}
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-500 ease-out-expo ${
+        scrolled || isMenuOpen
+          ? 'border-b border-white/10 bg-hexa-bg/80 backdrop-blur-md'
+          : 'border-b border-transparent bg-transparent'
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Brand: hexagon mark + wordmark */}
           <button
             type="button"
-            onClick={() => scrollToSection('hero')}
-            className="flex-shrink-0 flex items-center cursor-pointer group bg-transparent border-0 p-0 text-left"
-            aria-label="Scroll to hero section"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex cursor-pointer items-center gap-3 border-0 bg-transparent p-0 font-display text-sm tracking-[0.24em] text-white"
+            aria-label="Scroll to top"
           >
-             <div className="relative mr-1 transition-transform group-hover:scale-105 duration-300">
-                {/* The glow effect remains because it supports the brand mark without adding icon clutter. */}
-                <div className="absolute inset-0 bg-hexa-purple blur-2xl opacity-20 group-hover:opacity-50 transition-opacity rounded-full"></div>
-                
-                {/* Brand logo image */}
-                <img 
-                  src={logoImg} 
-                  alt="Hexakinetica Logo" 
-                  className="w-20 h-20 object-contain relative z-10" 
-                />
-             </div>
-            <div className="flex flex-col justify-center">
-                <span className="font-display text-2xl text-white tracking-widest uppercase group-hover:text-white transition-colors leading-none drop-shadow-[0_0_5px_rgba(140,82,255,0.5)]">
-                HEXA
-                </span>
-                <span className="font-display text-lg text-transparent bg-clip-text bg-gradient-to-r from-hexa-purple to-hexa-cyan tracking-[0.3em] uppercase leading-none">
-                KINETICA
-                </span>
-            </div>
+            <img src="/logo-nav.png" alt="" width={40} height={36} className="h-9 w-auto" />
+            {/* Michroma's line box carries extra descent; nudge to the mark's optical center. */}
+            <span className="-translate-y-[2px] leading-none">HEXAKINETICA</span>
           </button>
 
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex space-x-8">
+          {/* Desktop menu */}
+          <nav className="hidden items-center gap-8 md:flex">
             {NAV_ITEMS.map((item) => (
-              <button 
-                key={item.name} 
+              <button
+                key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="relative group bg-transparent border-none cursor-pointer"
+                className="cursor-pointer border-none bg-transparent font-mono-plex text-xs uppercase tracking-[0.18em] text-white/60 transition-colors duration-200 hover:text-white"
               >
-                <span className="text-gray-300 font-mono-plex text-sm uppercase tracking-widest group-hover:text-white transition-colors">
-                  {item.name}
-                </span>
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-hexa-cyan group-hover:w-full transition-all duration-300 shadow-[0_0_10px_#98f3ff]"></span>
+                {item.name}
               </button>
             ))}
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono-plex text-xs uppercase tracking-[0.18em] text-white/60 transition-colors duration-200 hover:text-white"
+            >
+              GitHub
+            </a>
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-6">
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors font-mono-plex text-xs uppercase tracking-widest">GitHub</a>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-transparent border border-white/60 text-white px-6 py-2 font-mono-plex text-xs uppercase tracking-wider hover:bg-white/10 transition-all shadow-[0_0_10px_rgba(255,255,255,0.12)] hover:shadow-[0_0_18px_rgba(255,255,255,0.2)] active:scale-95"
-            >
-              Get Involved
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile menu button */}
+          <div className="flex items-center md:hidden">
             <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white p-2 hover:bg-white/10 rounded transition-colors"
+              className="p-2 text-white transition-colors duration-200 hover:bg-white/10"
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
             >
-              <span className="font-mono-plex text-xs font-bold uppercase tracking-widest">
+              <span className="font-mono-plex text-xs font-bold uppercase tracking-[0.18em]">
                 {isMenuOpen ? 'Close' : 'Menu'}
               </span>
             </button>
@@ -98,27 +88,30 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {isMenuOpen && (
-        <div id="mobile-navigation" className="md:hidden bg-hexa-bg border-t border-white/10 absolute w-full shadow-2xl backdrop-blur-xl">
-          <div className="px-4 pt-2 pb-6 space-y-2">
+        <div
+          id="mobile-navigation"
+          className="absolute w-full border-t border-white/10 bg-hexa-bg md:hidden"
+        >
+          <div className="space-y-1 px-4 pb-6 pt-2">
             {NAV_ITEMS.map((item) => (
-              <button 
-                key={item.name} 
+              <button
+                key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-3 py-3 font-display text-white uppercase hover:bg-white/10 hover:text-white border-l-2 border-transparent hover:border-hexa-cyan transition-all"
+                className="block w-full px-3 py-3 text-left font-mono-plex text-sm uppercase tracking-[0.18em] text-white/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
               >
                 {item.name}
               </button>
             ))}
-            <div className="pt-4">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="block text-center w-full bg-transparent border border-white/60 text-white py-3 font-mono-plex uppercase tracking-widest hover:bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.14)]"
-              >
-                Get Involved
-              </button>
-            </div>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-3 py-3 font-mono-plex text-sm uppercase tracking-[0.18em] text-white/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
+            >
+              GitHub
+            </a>
           </div>
         </div>
       )}

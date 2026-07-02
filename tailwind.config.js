@@ -8,42 +8,26 @@ export default {
     extend: {
       colors: {
         hexa: {
-          bg: '#05020a',
-          card: '#0f0a1e',
-          purple: '#8c52ff',
-          cyan: '#98f3ff',
-          text: '#e0e0e0',
-          dim: '#6b5e7d'
+          bg: '#000000',
+          surface: '#141416',
+          ink: '#f4f4f5',
+          ink2: '#9c9da3',
+          ink3: '#6e6f76',
+          accent: 'var(--accent)',
         }
       },
       fontFamily: {
-        sans: ['"IBM Plex Mono"', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Michroma', 'sans-serif'],
         'mono-plex': ['"IBM Plex Mono"', 'monospace'],
-        'michroma': ['Michroma', 'sans-serif'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'cyber-grid': "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')",
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'swift': 'cubic-bezier(0.32, 0.72, 0, 1)',
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-12px)' },
-        },
-        drift: {
-          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '50%': { transform: 'translate(4%, -4%) scale(1.08)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '0% center' },
-          '100%': { backgroundPosition: '200% center' },
-        },
-      },
-      animation: {
-        float: 'float 6s ease-in-out infinite',
-        drift: 'drift 14s ease-in-out infinite',
-        shimmer: 'shimmer 6s linear infinite',
+      transitionDuration: {
+        '800': '800ms',
+        '1100': '1100ms',
       },
     },
   },

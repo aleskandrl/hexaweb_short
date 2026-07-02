@@ -1,51 +1,44 @@
 # Architecture
 
 Hexakinetica marketing site — React 18 + TypeScript + Vite + TailwindCSS.
+Current revision: **"Investor redesign"** — seven media-first sections, ~300 words of visible copy. The version number lives in `package.json` only.
 
 ## Entry
 
-- `src/index.tsx` — mounts `<App />`, logs the running version to the browser console (`Hexakinetica v0.0.19`).
-- `src/App.tsx` — composes the landing-page sections.
+- `src/index.tsx` — mounts `<App />`, logs the running version to the browser console (`__APP_VERSION__` is injected from `package.json` via `define` in `vite.config.ts`).
+- `src/App.tsx` — composes the seven landing-page sections in order.
 
-## Shared visual primitives
+## Page structure (`src/App.tsx`)
 
-- `src/components/AccentRail.tsx` — reusable text-first content primitive with a refined vertical accent line, smaller top accent dot, optional tag, optional footer, and configurable accent tone (`cyan`, `purple`, `green`, `white`). The current executive visual revision intentionally removes the previous optional icon slot; rail and dot rendering is limited to white and cyan even when legacy accent names are passed.
-- `src/components/OperatorSoftwareWorkflow.tsx` — software workflow section with a text column, product screenshot, and a four-card `AccentRail` row that collapses responsively on smaller screens; the four cards intentionally omit repeated eyebrow labels.
+| # | Section | Component | Media |
+|---|---------|-----------|-------|
+| 1 | Hero | `Hero.tsx` | Full-bleed system photo (`/media/system-hero-*`); headline `WE BUILD ROBOTS. / DIFFERENTLY` in the photo's upper black zone; page-load CSS choreography; real-spec strip pinned to the bottom |
+| 2 | Exploded view | `ExplodedView.tsx` | Scroll-scrubbed disassembly: 420vh pinned section, wheel drives `video.currentTime` on the all-keyframe `exploded-scrub.mp4`, 4:5 crop, accent progress hairline; poster fallback under reduced motion |
+| 3 | Market | `Market.tsx` | Typographic IFR stats, no imagery |
+| 4 | Platform | `Platform.tsx` | Three tiles (arm / cabinet / HMI) + standards strip |
+| 5 | Lineup | `Lineup.tsx` | Typographic spec table Mini / Medium / Heavy |
+| 6 | Roadmap | `Roadmap.tsx` | Hairline timeline 2025 / 2026 [NOW] / 2027 |
+| 7 | Contact | `Contact.tsx` | Two ask rows (investors / engineers) over dimmed system photo |
 
-## Sections (`src/components/`)
+`Navbar.tsx` is transparent over the hero and gains background + hairline on scroll. `Footer.tsx` is a single mono line.
 
-Single-page layout assembled from independent section components, e.g. `Navbar`, `Hero`, `ConnectedPlatform`, `BuiltAsOneSystem`, `HexakineticaPlatform`, `Footer`.
+## Shared primitives
 
-- `src/components/HexaCoreMotionArchitecture.tsx` — controller hero block plus a lower four-item spec row now presented with the same `AccentRail` visual language used in the workflow cards.
+- `Button.tsx` — `primary` (solid white, dark text; one per screen) and `secondary` (hairline ghost).
+- `Reveal.tsx` — scroll reveal with variants `rise` (default), `blur-rise` (headings), `scale-media` (photo/video), `fade`; out-expo easing, honors `prefers-reduced-motion` via `useInView`.
 
-## Images (`src/assets/images/`)
+## Design tokens
 
-Imported directly into components and bundled by Vite. Naming convention: kebab-case, no spaces.
+- Colors (`tailwind.config.js`): `hexa.bg #000000`, `surface #141416`, `ink #f4f4f5`, `ink2 #9c9da3`, `ink3 #6e6f76`, `accent = var(--accent)` (default `#ff4d00`, set in `src/index.css`).
+- Fonts: `font-display` Michroma (headings only — owner decision), `font-sans` Inter (body), `font-mono-plex` IBM Plex Mono (figures, eyebrows, captions). Self-hosted woff2 latin subsets in `public/fonts/`, preloaded in `index.html`.
+- Motion: `ease-out-expo cubic-bezier(0.16,1,0.3,1)`, `ease-swift`; durations 200 / 500 / 800 / 1100 ms. Hero choreography keyframes live in `src/index.css`.
+- Prohibited by design direction: gradient text, colored glows, blur orbs, textures, hover scale on text/buttons, blueprint frames.
 
-| Image | Used in | Role |
-|-------|---------|------|
-| `hero/hexaarm-new.png` | `Hero.tsx` | Static hero visual — the HexaArm robotic arm. Single image, no carousel, no framed card. |
-| `products/axis-5-reducer.png` | `ConnectedPlatform.tsx` | Visible-mechanics proof. Close-up of an axis-5 joint with the cover removed, exposing the reducer/gearbox. Rendered inside the **Visible Architecture** bento card. |
-| `products/servo-gear-blueprint.png` | `BuiltAsOneSystem.tsx` | Motion-hardware detail shown without the previous framed card or floating label. |
-| `products/hexacore-cabinet.png` | `HexaCoreMotionArchitecture.tsx` | Controller visual presented card-free with softened rounded corners and a plain white `HexaCore PRO` label without a floating card backplate. |
+## Media pipeline
 
-## Hero
+Masters live in `new_pictures/` (git-ignored). `npm run media` (`scripts/build-media.mjs`, sharp + ffmpeg-static) rebuilds everything the site serves from `public/media/`:
 
-`Hero.tsx` renders a two-column layout: copy + CTAs on the left, a single static `hexaarm-new.png` on the right, backed by a soft purple/cyan glow. The former bordered supporting paragraph beneath the main headline is currently commented out to keep the hero more minimal. No `useState`/`useEffect`, no auto-rotating carousel, no framed black card.
-
-## ConnectedPlatform
-
-`ConnectedPlatform.tsx` renders a grid of platform feature blocks using `AccentRail`. The `Feature` interface carries an optional `image?: string`; only the first feature (**Visible Architecture**) sets it, so the Axis 5 reducer photo appears there and other cards remain image-free. The section header now uses a balanced two-column layout with a body-scale right-side paragraph, while `Feature 04` uses a cyan accent so its left stripe remains clearly visible.
-
-## AdoptionGap
-
-`AdoptionGap.tsx` currently keeps the introductory copy and conclusion visible, while the former chart-and-metrics comparison block is commented out per executive presentation feedback.
-
-## Visual language notes
-
-- Text-first sections now prefer `AccentRail` over solid rectangular cards, and the shared rail is intentionally thinner and less glowy than in the previous revision.
-- The `0.0.11` executive refinement removes solid purple text, keeps emphasized text and prominent gradient highlight surfaces in purple/cyan, and standardizes button-like CTAs as transparent white controls.
-- Photo feature blocks now share a lightweight rounded image treatment without heavy card backplates.
-- The `0.0.7` executive revision is iconless: decorative content icons, CTA arrows, FAQ chevrons, social icons, and navigation icons are removed in favor of typography, accent rails, simple bullets, text labels, and text symbols.
-- Media-heavy elements such as screenshots, technical visuals, and chart panels may still use light framing to preserve hierarchy, but executive feedback may remove that framing when it feels visually heavy.
-- Sections refactored to this pattern include `AdoptionGap.tsx`, `ConnectedPlatform.tsx`, `BuiltAsOneSystem.tsx`, `OperatorSoftwareWorkflow.tsx`, `BuildAroundThePlatform.tsx`, `FrequentlyAsked.tsx`, `InitializeProtocol.tsx`, `SelectEnvironment.tsx`, and the text content area of `HexaCoreMotionArchitecture.tsx`.
+- `system-hero-{2560,1600}.{avif,webp}` + `system-hero-1600.jpg` — hero sources, preloaded in `index.html`.
+- `exploded-scrub.mp4` + `exploded-poster.webp` — 1080×1920 all-keyframe (`-g 1`) encode (~4.5 MB) for the scroll-scrub section (instant `currentTime` seeks) and its poster.
+- `platform-{arm,cabinet,hmi}.webp` — Platform tiles (exploded still, cabinet crop of the system photo, HMI screenshot).
+- `public/og-image.png` — 1200×630 social card from the system photo.
