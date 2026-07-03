@@ -4,7 +4,7 @@
  *   npm run media
  */
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, rmSync } from 'node:fs';
+import { mkdirSync, readdirSync, rmSync } from 'node:fs';
 import path from 'node:path';
 import ffmpeg from 'ffmpeg-static';
 import sharp from 'sharp';
@@ -85,5 +85,44 @@ await sharp(out('exploded-poster.png'))
   .webp({ quality: 72 })
   .toFile(out('exploded-poster.webp'));
 rmSync(out('exploded-poster.png'));
+
+// --- Exploded scrub frames (desktop canvas sequence) ---
+// The desktop scrub draws these to a <canvas> instead of seeking the mp4, so
+// motion is smooth at any scroll speed (see ExplodedView.tsx). The centered
+// square crop equals what object-cover already shows on the live <video>, so
+// frames are pixel-parity with the current display — no quality regression.
+const FRAMES = path.join(OUT, 'frames');
+const FRAMES_TMP = path.join(ROOT, '.tmp-frames'); // gitignored; cleaned each run
+const FRAME_FPS = 30; // ≈ every source frame (~300) — finest possible steps
+const FRAME_QUALITY = 80;
+
+// Clean + recreate so stale frames never linger (also handles a crashed run).
+rmSync(FRAMES, { recursive: true, force: true });
+rmSync(FRAMES_TMP, { recursive: true, force: true });
+mkdirSync(FRAMES, { recursive: true });
+mkdirSync(FRAMES_TMP, { recursive: true });
+
+// 1) ffmpeg: fps downsample + centered square crop → full-res 1080² PNG stills.
+//    crop=1080:1080 defaults x=(iw-ow)/2, y=(ih-oh)/2 → exact center square.
+run([
+  '-y', '-i', EXPLODED_VIDEO,
+  '-vf', `fps=${FRAME_FPS},crop=1080:1080`,
+  '-start_number', '0',
+  path.join(FRAMES_TMP, 'frame-%03d.png'),
+]);
+
+// 2) sharp: WebP encode (crop is already 1080², no downscale) — matches the
+//    rest of the pipeline and keeps quality at/above the current H.264 video.
+const pngs = readdirSync(FRAMES_TMP).filter((f) => f.endsWith('.png')).sort();
+let frameIndex = 0;
+for (const png of pngs) {
+  await sharp(path.join(FRAMES_TMP, png))
+    .webp({ quality: FRAME_QUALITY })
+    .toFile(path.join(FRAMES, `frame-${String(frameIndex).padStart(3, '0')}.webp`));
+  frameIndex++;
+}
+rmSync(FRAMES_TMP, { recursive: true, force: true });
+// FRAME_COUNT in ExplodedView.tsx must match this number.
+console.log(`Exploded frames: ${frameIndex} × 1080² → ${FRAMES}`);
 
 console.log('Media build complete →', OUT);

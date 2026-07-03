@@ -14,6 +14,8 @@ tsconfig.tsbuildinfo
 
 # Media masters live outside git; the site ships optimized copies from public/media
 new_pictures/
+# Temp frame stills from the media build (public/media/frames is the shipped output)
+.tmp-frames/
 
 # Misc
 .DS_Store
