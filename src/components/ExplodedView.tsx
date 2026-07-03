@@ -14,8 +14,12 @@ const isPhone = (): boolean =>
 // scripts/build-media.mjs (FRAME_FPS * clip length).
 const FRAME_COUNT = 300;
 const FRAME_SIZE = 1080; // square canvas backing store, matches the built frames
-const SMOOTH_TIME = 0.4; // SmoothDamp follow time in s; higher = smoother/laggier
-const MAX_DT = 1 / 20; // clamp dt so a tab-away doesn't produce one huge easing step
+const SMOOTH_TIME = 0.3; // SmoothDamp follow time in s; higher = smoother/laggier
+const MAX_DT = 1 / 10; // clamp dt so a tab-away doesn't produce one huge easing step
+const SCRUB_TAIL = 0.13; // fraction of the pinned scroll to hold on the finished
+// frame after the animation completes — a breather so the wheel doesn't snap
+// straight into the next section (SECTION_VH adds this room without speeding the scrub)
+const SECTION_VH = 460;
 const frameUrl = (i: number): string =>
   `/media/frames/frame-${String(i).padStart(3, '0')}.webp`;
 
@@ -86,7 +90,14 @@ export const ExplodedView: React.FC = () => {
     const measure = () => {
       const rect = outer.getBoundingClientRect();
       const scrollable = rect.height - window.innerHeight;
-      target = scrollable > 0 ? Math.min(1, Math.max(0, -rect.top / scrollable)) : 0;
+      if (scrollable <= 0) {
+        target = 0;
+        return;
+      }
+      const raw = Math.min(1, Math.max(0, -rect.top / scrollable));
+      // Finish the scrub before the pin releases, then hold on the last frame for
+      // the final SCRUB_TAIL of the scroll — a gap before the next section takes over.
+      target = Math.min(1, raw / (1 - SCRUB_TAIL));
     };
 
     const tick = () => {
@@ -244,7 +255,7 @@ export const ExplodedView: React.FC = () => {
   );
 
   return (
-    <div ref={outerRef} id="exploded" className="relative bg-hexa-bg" style={{ height: scrub ? '420vh' : 'auto' }}>
+    <div ref={outerRef} id="exploded" className="relative bg-hexa-bg" style={{ height: scrub ? `${SECTION_VH}vh` : 'auto' }}>
       <div className={`${scrub ? 'sticky top-0' : ''} flex min-h-[100svh] items-center py-16`}>
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-6 md:gap-12 lg:grid-cols-2">
