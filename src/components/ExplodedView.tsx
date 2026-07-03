@@ -30,7 +30,7 @@ const frameUrl = (i: number): string =>
  * frame, which the browser coalesces into visible stutter (see build-media.mjs
  * for the frame pipeline). On phones the pinned stack doesn't fit a small
  * viewport and thumb-scrubbing reads as a stuck page, so the section flows
- * normally and the video plays once when it enters view. Reduced-motion users
+ * normally and the video loops when it enters view. Reduced-motion users
  * get the static poster.
  */
 export const ExplodedView: React.FC = () => {
@@ -202,7 +202,7 @@ export const ExplodedView: React.FC = () => {
     };
   }, [scrub]);
 
-  // Phone: play the disassembly once when the video scrolls into view.
+  // Phone: start the disassembly loop when the video scrolls into view.
   useEffect(() => {
     if (scrub || reduced) return;
     const video = videoRef.current;
@@ -242,6 +242,7 @@ export const ExplodedView: React.FC = () => {
     <video
       ref={videoRef}
       muted
+      loop
       playsInline
       preload="metadata"
       poster="/media/exploded-poster.webp"
