@@ -4,7 +4,7 @@
  *   npm run media
  */
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, readdirSync, rmSync } from 'node:fs';
+import { mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import ffmpeg from 'ffmpeg-static';
 import sharp from 'sharp';
@@ -17,9 +17,11 @@ mkdirSync(OUT, { recursive: true });
 const SYSTEM_PHOTO = path.join(SRC, 'hexakinetica family controller robot and tablet.png');
 const EXPLODED_VIDEO = path.join(SRC, 'Robot_exploded_animation_1.2.mp4');
 const ARM_WRIST = path.join(SRC, 'Arm.jpg');
-const HMI_SHOT = path.join(SRC, 'HexaStudio-HMI.png');
+const STUDIO_TABLET = path.join(SRC, 'HexaStudio Tablet.png');
+const LOGO_MASTER = path.join(SRC, 'logo-master.png');
 
 const out = (name) => path.join(OUT, name);
+const pub = (name) => path.join(ROOT, 'public', name);
 
 // --- System photo: hero sources (2:1 master, 4000x2000) ---
 for (const width of [2560, 1600]) {
@@ -32,15 +34,49 @@ await sharp(SYSTEM_PHOTO)
   .jpeg({ quality: 78, mozjpeg: true })
   .toFile(out('system-hero-1600.jpg'));
 
-// --- og:image 1200x630 from the system photo ---
-// Manual window: the whole system (cabinet, pendant, arm) with balanced black
-// margins — the old 'attention' auto-crop clipped the arm. Keep under ~600KB
-// (WhatsApp preview limit).
-await sharp(SYSTEM_PHOTO)
-  .extract({ left: 357, top: 150, width: 3238, height: 1700 })
-  .resize(1200, 630)
-  .jpeg({ quality: 88, mozjpeg: true })
-  .toFile(path.join(ROOT, 'public', 'og-cover.jpg'));
+// --- Brand icons from the logo master (favicons, PWA, navbar mark) ---
+const TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
+const logoTrim = await sharp(LOGO_MASTER).trim().toBuffer(); // drop transparent margin
+const logoIcon = (n, bg) => sharp(logoTrim).resize(n, n, { fit: 'contain', background: bg });
+await logoIcon(48, TRANSPARENT).png().toFile(pub('favicon-48x48.png'));
+await logoIcon(96, TRANSPARENT).png().toFile(pub('favicon-96x96.png'));
+// Rendered at ~36 CSS px in the navbar — keep it tiny (retina-safe at ~100px).
+await sharp(logoTrim).resize({ height: 100 }).png().toFile(pub('logo-nav.png'));
+// Padded on black for the iOS touch icon + PWA maskable icons (safe zone).
+for (const [n, pad, name] of [[180, 0.12, 'apple-touch-icon.png'], [192, 0.16, 'logo-192.png'], [512, 0.16, 'logo-512.png']]) {
+  const inner = Math.round(n * (1 - pad * 2));
+  const logo = await sharp(logoTrim).resize(inner, inner, { fit: 'contain', background: TRANSPARENT }).png().toBuffer();
+  await sharp({ create: { width: n, height: n, channels: 4, background: '#000000' } })
+    .composite([{ input: logo, gravity: 'center' }]).png().toFile(pub(name));
+}
+// favicon.ico — one 48x48 PNG wrapped in an ICO container (sharp can't write .ico).
+const icoPng = await logoIcon(48, TRANSPARENT).png().toBuffer();
+const icoHead = Buffer.alloc(6); icoHead.writeUInt16LE(1, 2); icoHead.writeUInt16LE(1, 4);
+const icoEntry = Buffer.alloc(16);
+icoEntry.writeUInt8(48, 0); icoEntry.writeUInt8(48, 1);
+icoEntry.writeUInt16LE(1, 4); icoEntry.writeUInt16LE(32, 6);
+icoEntry.writeUInt32LE(icoPng.length, 8); icoEntry.writeUInt32LE(22, 12);
+writeFileSync(pub('favicon.ico'), Buffer.concat([icoHead, icoEntry, icoPng]));
+
+// --- og:image (public/og-cover.jpg) ---
+// A committed branded card (logo + HEXAKINETICA wordmark + tagline on black),
+// rendered from HTML with the real Michroma/Inter fonts — sharp has no browser/
+// font pipeline, so `npm run media` intentionally leaves og-cover.jpg untouched.
+
+// --- HexaStudio tablet: showcase sources for the Software section ---
+// The 1.646 render sits on pure black, which dissolves into the page (same
+// trick as the hero). Flatten so any alpha resolves to black, never white.
+// A touch higher quality than the hero because the UI carries fine text.
+for (const width of [2560, 1600]) {
+  const base = sharp(STUDIO_TABLET).flatten({ background: '#000000' }).resize({ width });
+  await base.clone().avif({ quality: 58 }).toFile(out(`studio-${width}.avif`));
+  await base.clone().webp({ quality: 74 }).toFile(out(`studio-${width}.webp`));
+}
+await sharp(STUDIO_TABLET)
+  .flatten({ background: '#000000' })
+  .resize({ width: 1600 })
+  .jpeg({ quality: 82, mozjpeg: true })
+  .toFile(out('studio-1600.jpg'));
 
 // --- Platform tiles (see Platform.tsx for each card's ratio) ---
 // HexaArm: wrist photo framed to the card's 590:640 ratio without cutting the
@@ -61,13 +97,8 @@ await sharp(SYSTEM_PHOTO)
   .resize(880, 528, { fit: 'cover' })
   .webp({ quality: 74 })
   .toFile(out('platform-cabinet.webp'));
-// HexaStudio: never crop or stretch the tablet — trim its own black margins;
-// trimmed ratio (~1.666) matches the 5:3 tile, so it fits edge to edge as is.
-const trimmed = await sharp(HMI_SHOT).trim({ threshold: 20 }).toBuffer();
-await sharp(trimmed)
-  .resize(880, 528, { fit: 'contain', background: '#000000' })
-  .webp({ quality: 74 })
-  .toFile(out('platform-hmi.webp'));
+// (HexaStudio's Platform tile is now the studio-* render, generated above — no
+// separate HMI tile.)
 
 // --- Exploded video: scrub mp4 + poster from frame 0 ---
 const run = (args) => execFileSync(ffmpeg, args, { stdio: 'inherit' });

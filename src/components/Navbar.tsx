@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
             className="flex cursor-pointer items-center gap-3 border-0 bg-transparent p-0 font-display text-base tracking-[0.24em] text-white sm:text-sm"
             aria-label="Scroll to top"
           >
-            <img src="/logo-nav.png" alt="" width={40} height={36} className="h-9 w-auto" />
+            <img src="/logo-nav.png" alt="" width={32} height={36} className="h-9 w-auto" />
             {/* Michroma's line box carries extra descent; nudge to the mark's optical center. */}
             <span className="-translate-y-[2px] leading-none">HEXAKINETICA</span>
           </button>

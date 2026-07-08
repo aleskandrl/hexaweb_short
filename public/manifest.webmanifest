@@ -1,7 +1,7 @@
 {
   "name": "Hexakinetica",
   "short_name": "Hexakinetica",
-  "description": "Robotic arms, motion systems, and simulation-ready automation tools.",
+  "description": "Six-axis robot arms, a real-time EtherCAT controller, and operator software — one integrated robotics system.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

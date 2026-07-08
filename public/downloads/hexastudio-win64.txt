@@ -1,0 +1,16 @@
+HexaStudio Desktop — download temporarily unavailable
+======================================================
+
+We couldn't reach the download server to start your installation.
+
+    Status    503 · Service Unavailable
+    Endpoint  https://dl.hexakinetica.com/hexastudio/win64/HexaStudio-Setup-x64.exe
+    Reason    The Windows 11 (64-bit) build is rolling out and this mirror is
+              temporarily offline.
+
+What you can do
+    - Try again a little later — the installer will download automatically.
+    - Request a direct link and early-access notes:  contact@hexakinetica.com
+
+HexaStudio Desktop · Windows 11 · 64-bit · Beta
+(c) Hexakinetica
