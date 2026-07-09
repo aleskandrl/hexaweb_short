@@ -16,6 +16,8 @@ tsconfig.tsbuildinfo
 new_pictures/
 # Temp frame stills from the media build (public/media/frames is the shipped output)
 .tmp-frames/
+# Temp Chrome profile + 2x preview from the LinkedIn cover build (ships public/linkedin-cover.jpg)
+.tmp-linkedin/
 
 # Misc
 .DS_Store

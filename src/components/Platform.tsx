@@ -5,8 +5,13 @@ import { Button } from './Button';
 
 // Aspect ratio of the HexaStudio render (studio-*.{avif,webp,jpg}).
 const RATIO = 2888 / 1755;
-// Temporary stub; a signed Windows installer replaces this on the download server.
-const DOWNLOAD_HREF = '/downloads/hexastudio-win64.txt';
+// HexaStudio Desktop installer. The file is served from a STABLE path
+// (public/downloads/HexaStudioDesktop-Setup.exe) so a new build only needs the
+// exe overwritten and DESKTOP_VERSION bumped — no href churn. The `download`
+// attribute below hands the user a version-stamped filename regardless.
+const DESKTOP_VERSION = '0.1.58';
+const DOWNLOAD_HREF = '/downloads/HexaStudioDesktop-Setup.exe';
+const DOWNLOAD_NAME = `HexaStudioDesktop-Setup-${DESKTOP_VERSION}.exe`;
 
 const STANDARDS = ['ETHERCAT', 'RT LINUX', 'C++20', 'ROS 2', 'OPEN URDF'];
 const HIGHLIGHTS = ['TEACH & JOG', 'SIM ↔ REAL'];
@@ -170,9 +175,16 @@ export const Platform: React.FC = () => {
       const d = ramp(0.55, 1, p);
       if (descRef.current) {
         descRef.current.style.opacity = `${d}`;
-        // Keep the -50% Y so the column stays vertically centred on the tablet
-        // (a plain translate here would clobber the CSS -translate-y-1/2).
-        descRef.current.style.transform = `translate3d(${30 * (1 - d)}px, -50%, 0)`;
+        // Panel is flex-centred (no transform needed for centring). Slide it in on
+        // the X only, then at rest drop the transform AND the compositing layer so
+        // the CTA text regains sub-pixel antialiasing instead of reading blurry.
+        if (d >= 1) {
+          descRef.current.style.transform = 'none';
+          descRef.current.style.willChange = 'auto';
+        } else {
+          descRef.current.style.transform = `translate3d(${30 * (1 - d)}px, 0, 0)`;
+          descRef.current.style.willChange = 'transform, opacity';
+        }
         descRef.current.style.pointerEvents = d > 0.6 ? 'auto' : 'none';
         // Keep the invisible CTA out of the tab order + a11y tree until revealed.
         descRef.current.inert = d < 0.6;
@@ -287,7 +299,7 @@ export const Platform: React.FC = () => {
       </ul>
       <div className="space-y-6">
         <div className="flex flex-wrap items-center gap-5">
-          <Button variant="primary" href={DOWNLOAD_HREF} download>
+          <Button variant="primary" href={DOWNLOAD_HREF} download={DOWNLOAD_NAME}>
             Download
           </Button>
           {/* GitHub as the Hero-style text link (not a boxed button). */}
@@ -301,7 +313,7 @@ export const Platform: React.FC = () => {
           </a>
         </div>
         <p className="font-mono-plex text-[11px] uppercase tracking-[0.2em] text-hexa-ink3 sm:text-[10px]">
-          Windows 11 64-bit · Beta
+          Windows 11 64-bit · Beta {DESKTOP_VERSION}
         </p>
       </div>
     </div>
@@ -356,7 +368,7 @@ export const Platform: React.FC = () => {
             {/* Short pitch + download — resolves in on the right, centred on the tablet */}
             <div
               ref={descRef}
-              className="absolute right-4 top-1/2 w-[24%] min-w-[280px] -translate-y-1/2 opacity-0 will-change-[transform,opacity] sm:right-6 lg:right-8"
+              className="absolute inset-y-0 right-4 flex w-[24%] min-w-[280px] flex-col justify-center opacity-0 will-change-[transform,opacity] sm:right-6 lg:right-8"
             >
               {descriptionPanel}
             </div>
