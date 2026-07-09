@@ -5,12 +5,14 @@ import { Button } from './Button';
 
 // Aspect ratio of the HexaStudio render (studio-*.{avif,webp,jpg}).
 const RATIO = 2888 / 1755;
-// HexaStudio Desktop installer. The file is served from a STABLE path
-// (public/downloads/HexaStudioDesktop-Setup.exe) so a new build only needs the
-// exe overwritten and DESKTOP_VERSION bumped — no href churn. The `download`
-// attribute below hands the user a version-stamped filename regardless.
+// HexaStudio Desktop installer. Served straight from the Desktop GitHub repo at a
+// STABLE path with a CONSTANT filename, so updating the app is just: overwrite
+// installer/HexaStudioDesktop-Setup.exe in that repo and push — this href never
+// changes. The download runs on github's own domain (raw.githubusercontent.com),
+// keeping SmartScreen/Safe Browsing reputation on a trusted host, not our site.
 const DESKTOP_VERSION = '0.1.58';
-const DOWNLOAD_HREF = '/downloads/HexaStudioDesktop-Setup.exe';
+const DOWNLOAD_HREF =
+  'https://raw.githubusercontent.com/hexakinetica/HexaStudio-Desktop/main/installer/HexaStudioDesktop-Setup.exe';
 const DOWNLOAD_NAME = `HexaStudioDesktop-Setup-${DESKTOP_VERSION}.exe`;
 
 const STANDARDS = ['ETHERCAT', 'RT LINUX', 'C++20', 'ROS 2', 'OPEN URDF'];
