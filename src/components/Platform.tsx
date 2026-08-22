@@ -7,13 +7,15 @@ import { Button } from './Button';
 const RATIO = 2888 / 1755;
 // HexaStudio Desktop installer. Served straight from the Desktop GitHub repo at a
 // STABLE path with a CONSTANT filename, so updating the app is just: overwrite
-// installer/HexaStudioDesktop-Setup.exe in that repo and push — this href never
+// installer/HexaStudioDesktop-Setup.zip in that repo and push — this href never
 // changes. The download runs on github's own domain (raw.githubusercontent.com),
 // keeping SmartScreen/Safe Browsing reputation on a trusted host, not our site.
-const DESKTOP_VERSION = '0.1.58';
+// It is shipped ZIPPED on purpose: browsers flag a bare .exe download but pass a
+// .zip straight through — the installer sits inside, byte-for-byte unchanged.
+const DESKTOP_VERSION = '0.1.139';
 const DOWNLOAD_HREF =
-  'https://raw.githubusercontent.com/hexakinetica/HexaStudio-Desktop/main/installer/HexaStudioDesktop-Setup.exe';
-const DOWNLOAD_NAME = `HexaStudioDesktop-Setup-${DESKTOP_VERSION}.exe`;
+  'https://raw.githubusercontent.com/hexakinetica/HexaStudio-Desktop/main/installer/HexaStudioDesktop-Setup.zip';
+const DOWNLOAD_NAME = `HexaStudioDesktop-Setup-${DESKTOP_VERSION}.zip`;
 
 const STANDARDS = ['ETHERCAT', 'RT LINUX', 'C++20', 'ROS 2', 'OPEN URDF'];
 const HIGHLIGHTS = ['TEACH & JOG', 'SIM ↔ REAL'];
